@@ -8,6 +8,46 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_article_system": {
+      "type": "built-birdie-editorial-system",
+      "blocks": {
+        "link_build": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Build",
+            "title": "Use Configurator",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "link_shop": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Shop",
+            "title": "Shop Hub",
+            "link": "/pages/shop-hub"
+          }
+        },
+        "link_support": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Help",
+            "title": "Support FAQ",
+            "link": "/pages/support-faq"
+          }
+        }
+      },
+      "block_order": [
+        "link_build",
+        "link_shop",
+        "link_support"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE READ",
+        "heading": "Read it, then build it.",
+        "subheading": "Use the idea in this article to shape a cleaner color system, kit, or cart.",
+        "index_label": "Next routes"
+      }
+    },
     "section": {
       "type": "main-blog-post",
       "blocks": {
@@ -91,6 +131,7 @@
     }
   },
   "order": [
+    "built_birdie_article_system",
     "section"
   ]
 }

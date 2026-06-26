@@ -8,6 +8,53 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_search_system": {
+      "type": "built-birdie-utility-system",
+      "blocks": {
+        "route_build": {
+          "type": "route",
+          "settings": {
+            "kicker": "Build",
+            "title": "Use Configurator",
+            "text": "Skip searching and build the matching setup directly.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_shop": {
+          "type": "route",
+          "settings": {
+            "kicker": "Browse",
+            "title": "Open Shop Hub",
+            "text": "Jump into the main collections and category routes.",
+            "link": "/pages/shop-hub"
+          }
+        },
+        "route_help": {
+          "type": "route",
+          "settings": {
+            "kicker": "Help",
+            "title": "Setup Finder",
+            "text": "Choose a better route based on color and setup style.",
+            "link": "/pages/setup-finder"
+          }
+        }
+      },
+      "block_order": [
+        "route_build",
+        "route_shop",
+        "route_help"
+      ],
+      "settings": {
+        "eyebrow": "SEARCH BUILT BIRDIE",
+        "heading": "Find the piece that fits.",
+        "subheading": "Search products, or use the setup system to get to the right bag color, accent, and kit path.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Hub",
+        "secondary_link": "/pages/shop-hub",
+        "console_code": "SRCH"
+      }
+    },
     "search": {
       "type": "search-header",
       "blocks": {
@@ -174,6 +221,7 @@
     }
   },
   "order": [
+    "built_birdie_search_system",
     "search",
     "main"
   ]

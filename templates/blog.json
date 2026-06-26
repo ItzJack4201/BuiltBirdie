@@ -8,6 +8,46 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_blog_system": {
+      "type": "built-birdie-editorial-system",
+      "blocks": {
+        "link_color": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Guide",
+            "title": "Color Lab",
+            "link": "/pages/color-lab"
+          }
+        },
+        "link_kit": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Guide",
+            "title": "Kit Guide",
+            "link": "/pages/kit-guide"
+          }
+        },
+        "link_care": {
+          "type": "editorial_link",
+          "settings": {
+            "kicker": "Care",
+            "title": "Care Guide",
+            "link": "/pages/care-guide"
+          }
+        }
+      },
+      "block_order": [
+        "link_color",
+        "link_kit",
+        "link_care"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE JOURNAL",
+        "heading": "Ideas for cleaner golf setups.",
+        "subheading": "Read the systems behind better matching, better gifting, and better organized golf bags.",
+        "index_label": "Editorial routes"
+      }
+    },
     "main": {
       "type": "main-blog",
       "blocks": {
@@ -104,6 +144,7 @@
     }
   },
   "order": [
+    "built_birdie_blog_system",
     "main"
   ]
 }

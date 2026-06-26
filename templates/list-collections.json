@@ -8,6 +8,53 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_collections_system": {
+      "type": "built-birdie-utility-system",
+      "blocks": {
+        "route_configurator": {
+          "type": "route",
+          "settings": {
+            "kicker": "Build",
+            "title": "Configurator",
+            "text": "Build the cart around color first.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_finder": {
+          "type": "route",
+          "settings": {
+            "kicker": "Find",
+            "title": "Setup Finder",
+            "text": "Pick the right kit path before browsing.",
+            "link": "/pages/setup-finder"
+          }
+        },
+        "route_gift": {
+          "type": "route",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Gift Guide",
+            "text": "Shop safer giftable routes.",
+            "link": "/pages/gift-guide"
+          }
+        }
+      },
+      "block_order": [
+        "route_configurator",
+        "route_finder",
+        "route_gift"
+      ],
+      "settings": {
+        "eyebrow": "COLLECTIONS",
+        "heading": "Shop by system, not clutter.",
+        "subheading": "Every Built Birdie collection points back to a cleaner bag setup: base color, accent, and useful pieces.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Setup Finder",
+        "secondary_link": "/pages/setup-finder",
+        "console_code": "SHOP"
+      }
+    },
     "collection_list_Wfgh3m": {
       "type": "main-collection-list",
       "blocks": {
@@ -162,6 +209,7 @@
     }
   },
   "order": [
+    "built_birdie_collections_system",
     "collection_list_Wfgh3m"
   ]
 }

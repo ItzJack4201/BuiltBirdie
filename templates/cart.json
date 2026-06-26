@@ -8,6 +8,53 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_cart_system": {
+      "type": "built-birdie-utility-system",
+      "blocks": {
+        "route_color": {
+          "type": "route",
+          "settings": {
+            "kicker": "Check",
+            "title": "Color Lab",
+            "text": "Make sure the cart repeats one clear accent color.",
+            "link": "/pages/color-lab"
+          }
+        },
+        "route_kit": {
+          "type": "route",
+          "settings": {
+            "kicker": "Guide",
+            "title": "Kit Guide",
+            "text": "Compare Clean, Starter, Tour, and Gift setup paths.",
+            "link": "/pages/kit-guide"
+          }
+        },
+        "route_support": {
+          "type": "route",
+          "settings": {
+            "kicker": "Support",
+            "title": "Shipping & Returns",
+            "text": "Review the order support path before checkout.",
+            "link": "/pages/shipping-returns"
+          }
+        }
+      },
+      "block_order": [
+        "route_color",
+        "route_kit",
+        "route_support"
+      ],
+      "settings": {
+        "eyebrow": "CART CHECK",
+        "heading": "Does the setup line up?",
+        "subheading": "Before checkout, make sure the cart has a base color, one accent, and the useful pieces that complete the bag.",
+        "primary_label": "Keep Building",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Hub",
+        "secondary_link": "/pages/shop-hub",
+        "console_code": "CART"
+      }
+    },
     "cart-section": {
       "type": "main-cart",
       "blocks": {
@@ -249,6 +296,7 @@
     }
   },
   "order": [
+    "built_birdie_cart_system",
     "cart-section",
     "product_list_NNFgcy"
   ]

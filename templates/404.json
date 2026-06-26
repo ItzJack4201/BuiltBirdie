@@ -8,6 +8,53 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_404_system": {
+      "type": "built-birdie-utility-system",
+      "blocks": {
+        "route_build": {
+          "type": "route",
+          "settings": {
+            "kicker": "Start",
+            "title": "Build Your Bag",
+            "text": "Go back to the guided setup path.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_shop": {
+          "type": "route",
+          "settings": {
+            "kicker": "Browse",
+            "title": "Shop Hub",
+            "text": "See all the main Built Birdie routes.",
+            "link": "/pages/shop-hub"
+          }
+        },
+        "route_support": {
+          "type": "route",
+          "settings": {
+            "kicker": "Help",
+            "title": "Support FAQ",
+            "text": "Find answers and contact paths.",
+            "link": "/pages/support-faq"
+          }
+        }
+      },
+      "block_order": [
+        "route_build",
+        "route_shop",
+        "route_support"
+      ],
+      "settings": {
+        "eyebrow": "404 / OFF LINE",
+        "heading": "This route missed the fairway.",
+        "subheading": "The page is not here, but the setup system is still ready. Jump back into a cleaner Built Birdie path.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Hub",
+        "secondary_link": "/pages/shop-hub",
+        "console_code": "404"
+      }
+    },
     "main": {
       "type": "main-404",
       "blocks": {
@@ -264,6 +311,7 @@
     }
   },
   "order": [
+    "built_birdie_404_system",
     "main",
     "product_list_iA96Tq"
   ]
