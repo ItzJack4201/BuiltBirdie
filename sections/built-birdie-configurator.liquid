@@ -15,7 +15,14 @@
   }
 {% endstyle %}
 
-<section id="BuiltBirdieConfigurator-{{ section.id }}" class="built-birdie-configurator" data-bb-configurator>
+<section
+  id="BuiltBirdieConfigurator-{{ section.id }}"
+  class="built-birdie-configurator"
+  data-bb-configurator
+  data-bb-empty-message="{{ section.settings.empty_message | escape }}"
+  data-bb-loading-message="{{ section.settings.loading_message | escape }}"
+  data-bb-error-message="{{ section.settings.error_message | escape }}"
+>
   <div class="built-birdie-configurator__inner">
     <div class="built-birdie-configurator__header">
       <p class="built-birdie-configurator__eyebrow">{{ section.settings.eyebrow }}</p>
@@ -158,7 +165,7 @@
               {{ block.shopify_attributes }}
             >
               <label class="built-birdie-configurator__include">
-                <input type="checkbox" data-bb-include checked {% if slot_variant == blank %}disabled{% endif %}>
+                <input type="checkbox" data-bb-include {% if slot_variant != blank and slot_available %}checked{% endif %} {% if slot_variant == blank or slot_available == false %}disabled{% endif %}>
                 <span>{{ section.settings.include_label }}</span>
               </label>
 
@@ -577,9 +584,18 @@
   }
 
   .built-birdie-configurator__message {
-    color: var(--bbc-red);
+    color: var(--bbc-muted);
     font-size: 0.9rem;
     margin-block: 12px 0;
+  }
+
+  .built-birdie-configurator__message[data-bb-message-status="notice"],
+  .built-birdie-configurator__message[data-bb-message-status="loading"] {
+    color: var(--bbc-green);
+  }
+
+  .built-birdie-configurator__message[data-bb-message-status="error"] {
+    color: var(--bbc-red);
   }
 
   .built-birdie-configurator__recommendations {
@@ -601,6 +617,14 @@
     gap: 14px;
     min-height: 100%;
     padding: 14px;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .built-birdie-configurator__product:hover {
+    border-color: color-mix(in srgb, var(--bbc-green) 38%, var(--bbc-border));
+    transform: translateY(-2px);
   }
 
   .built-birdie-configurator__product[hidden] {
@@ -612,6 +636,10 @@
     display: inline-flex;
     gap: 8px;
     justify-self: start;
+  }
+
+  .built-birdie-configurator__include:has(input:disabled) {
+    opacity: 0.58;
   }
 
   .built-birdie-configurator__include span {
@@ -665,6 +693,10 @@
     font-weight: 750;
   }
 
+  .built-birdie-configurator__product[data-available="false"] .built-birdie-configurator__product-media {
+    filter: saturate(0.86);
+  }
+
   @media screen and (max-width: 989px) {
     .built-birdie-configurator__layout,
     .built-birdie-configurator__product-grid {
@@ -698,133 +730,175 @@
 {% endstylesheet %}
 
 {% javascript %}
-  const moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
-    style: 'currency',
-    currency: window.Shopify?.currency?.active || 'USD'
-  });
-
-  const labelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
-  const swatches = {
-    black: '#101010',
-    white: '#ffffff',
-    navy: '#17355f',
-    blue: '#17355f',
-    green: '#0f3f2e',
-    red: '#b3261e',
-    gold: '#c59a2d'
-  };
-  const codes = {
-    black: 'BLK',
-    white: 'WHT',
-    navy: 'NVY',
-    blue: 'BLU',
-    green: 'GRN',
-    red: 'RED',
-    gold: 'GLD',
-    clean: 'CLN',
-    starter: 'STR',
-    tour: 'TR',
-    gift: 'GFT'
-  };
-
-  document.querySelectorAll('[data-bb-configurator]').forEach((configurator) => {
-    const products = Array.from(configurator.querySelectorAll('[data-bb-product]'));
-    const addButton = configurator.querySelector('[data-bb-add]');
-    const total = configurator.querySelector('[data-bb-total]');
-    const message = configurator.querySelector('[data-bb-message]');
-    const selectedBag = configurator.querySelector('[data-bb-selected-bag]');
-    const selectedAccent = configurator.querySelector('[data-bb-selected-accent]');
-    const selectedStyle = configurator.querySelector('[data-bb-selected-style]');
-    const buildCode = configurator.querySelector('[data-bb-build-code]');
-    const kitNote = configurator.querySelector('[data-bb-kit-note]');
-    const score = configurator.querySelector('[data-bb-score]');
-    const includedCount = configurator.querySelector('[data-bb-included]');
-    const preview = configurator.querySelector('[data-bb-preview]');
-
-    const getChoice = (type) => configurator.querySelector(`[data-bb-choice="${type}"]:checked`)?.value || 'all';
-
-    const matches = (product, bag, accent, style) => {
-      const productBag = product.dataset.bag || 'all';
-      const productAccent = product.dataset.accent || 'all';
-      const productStyle = product.dataset.style || 'all';
-
-      return (productBag === 'all' || productBag === bag) && (productAccent === 'all' || productAccent === accent) && (productStyle === 'all' || productStyle === style);
-    };
-
-    const visibleIncludedProducts = () => products.filter((product) => {
-      const checkbox = product.querySelector('[data-bb-include]');
-      return !product.hidden && checkbox?.checked && product.dataset.variantId && product.dataset.available === 'true';
+  (() => {
+    const moneyFormatter = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+      style: 'currency',
+      currency: window.Shopify?.currency?.active || 'USD'
     });
 
-    const update = () => {
-      const bag = getChoice('bag');
-      const accent = getChoice('accent');
-      const style = getChoice('style');
-
-      products.forEach((product) => {
-        product.hidden = !matches(product, bag, accent, style);
-      });
-
-      const included = visibleIncludedProducts();
-      const cents = included.reduce((sum, product) => sum + Number(product.dataset.price || 0), 0);
-      const styleInput = configurator.querySelector('[data-bb-choice="style"]:checked');
-      const styleTitle = styleInput?.dataset.bbStyleTitle || labelize(style);
-      const styleNote = styleInput?.dataset.bbStyleNote || '';
-      const matchScore = Math.min(98, 62 + included.length * 9 + (bag !== accent ? 6 : 0));
-
-      selectedBag.textContent = `${labelize(bag)} bag`;
-      selectedAccent.textContent = `${labelize(accent)} accent`;
-      selectedStyle.textContent = `${styleTitle} setup`;
-      buildCode.textContent = `BB-${codes[bag] || bag.slice(0, 3).toUpperCase()}-${codes[accent] || accent.slice(0, 3).toUpperCase()}-${codes[style] || style.slice(0, 3).toUpperCase()}`;
-      kitNote.textContent = styleNote;
-      score.textContent = `${matchScore}%`;
-      includedCount.textContent = included.length;
-      preview.style.setProperty('--bb-bag-swatch', swatches[bag] || '#101010');
-      preview.style.setProperty('--bb-accent-swatch', swatches[accent] || '#101010');
-      total.textContent = moneyFormatter.format(cents / 100);
-      addButton.disabled = included.length === 0;
-      message.textContent = included.length === 0 ? 'Assign products to these slots in the theme editor to enable cart building.' : '';
+    const labelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+    const swatches = {
+      black: '#101010',
+      white: '#ffffff',
+      navy: '#17355f',
+      blue: '#17355f',
+      green: '#0f3f2e',
+      red: '#b3261e',
+      gold: '#c59a2d'
+    };
+    const codes = {
+      black: 'BLK',
+      white: 'WHT',
+      navy: 'NVY',
+      blue: 'BLU',
+      green: 'GRN',
+      red: 'RED',
+      gold: 'GLD',
+      clean: 'CLN',
+      starter: 'STR',
+      tour: 'TR',
+      gift: 'GFT'
     };
 
-    configurator.addEventListener('change', update);
+    document.querySelectorAll('[data-bb-configurator]').forEach((configurator) => {
+      const products = Array.from(configurator.querySelectorAll('[data-bb-product]'));
+      const addButton = configurator.querySelector('[data-bb-add]');
+      const total = configurator.querySelector('[data-bb-total]');
+      const message = configurator.querySelector('[data-bb-message]');
+      const selectedBag = configurator.querySelector('[data-bb-selected-bag]');
+      const selectedAccent = configurator.querySelector('[data-bb-selected-accent]');
+      const selectedStyle = configurator.querySelector('[data-bb-selected-style]');
+      const buildCode = configurator.querySelector('[data-bb-build-code]');
+      const kitNote = configurator.querySelector('[data-bb-kit-note]');
+      const score = configurator.querySelector('[data-bb-score]');
+      const includedCount = configurator.querySelector('[data-bb-included]');
+      const preview = configurator.querySelector('[data-bb-preview]');
+      const emptyMessage = configurator.dataset.bbEmptyMessage || 'This build is ready for products. Shop the Build Your Bag collection while the kit slots are finished.';
+      const loadingMessage = configurator.dataset.bbLoadingMessage || 'Building your cart...';
+      const errorMessage = configurator.dataset.bbErrorMessage || 'We could not build the full cart. Open the collection and add the kit items from there.';
 
-    addButton.addEventListener('click', async () => {
-      const items = visibleIncludedProducts().map((product) => ({
-        id: Number(product.dataset.variantId),
-        quantity: 1
-      }));
-
-      if (items.length === 0) {
-        update();
+      if (!addButton || !total || !preview) {
         return;
       }
 
-      addButton.disabled = true;
-      message.textContent = 'Building your cart...';
+      const getChoice = (type) => configurator.querySelector(`[data-bb-choice="${type}"]:checked`)?.value || 'all';
 
-      try {
-        const response = await fetch('/cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-          },
-          body: JSON.stringify({ items })
-        });
+      const matchRank = (product, bag, accent, style) => {
+        const productBag = product.dataset.bag || 'all';
+        const productAccent = product.dataset.accent || 'all';
+        const productStyle = product.dataset.style || 'all';
+        const bagCompatible = productBag === 'all' || productBag === bag;
+        const accentCompatible = productAccent === 'all' || productAccent === accent;
+        const styleCompatible = productStyle === 'all' || productStyle === style;
 
-        if (!response.ok) {
-          throw new Error('Cart request failed');
+        if (bagCompatible && accentCompatible && styleCompatible) {
+          let rank = 30;
+          rank += productBag === bag ? 8 : 1;
+          rank += productAccent === accent ? 8 : 1;
+          rank += productStyle === style ? 10 : 2;
+          return rank;
         }
 
-        window.location.href = '/cart';
-      } catch (error) {
-        message.textContent = 'Cart could not be built. Try adding the kit items one at a time.';
-        addButton.disabled = false;
-      }
-    });
+        if (styleCompatible && productBag === 'all' && productAccent === 'all') {
+          return 18;
+        }
 
-    update();
-  });
+        if (productStyle === 'all' && bagCompatible && accentCompatible) {
+          return 14;
+        }
+
+        return 0;
+      };
+
+      const setVisibleProducts = (bag, accent, style) => {
+        const ranked = products.map((product) => ({
+          product,
+          rank: matchRank(product, bag, accent, style)
+        }));
+        const bestRank = ranked.reduce((best, item) => Math.max(best, item.rank), 0);
+        const minimumRank = bestRank >= 30 ? 30 : bestRank > 0 ? bestRank : -1;
+
+        ranked.forEach((item) => {
+          item.product.hidden = item.rank < minimumRank;
+        });
+      };
+
+      const visibleIncludedProducts = () => products.filter((product) => {
+        const checkbox = product.querySelector('[data-bb-include]');
+        return !product.hidden && checkbox?.checked && product.dataset.variantId && product.dataset.available === 'true';
+      });
+
+      const update = () => {
+        const bag = getChoice('bag');
+        const accent = getChoice('accent');
+        const style = getChoice('style');
+
+        setVisibleProducts(bag, accent, style);
+
+        const included = visibleIncludedProducts();
+        const cents = included.reduce((sum, product) => sum + Number(product.dataset.price || 0), 0);
+        const styleInput = configurator.querySelector('[data-bb-choice="style"]:checked');
+        const styleTitle = styleInput?.dataset.bbStyleTitle || labelize(style);
+        const styleNote = styleInput?.dataset.bbStyleNote || '';
+        const matchScore = Math.min(98, 70 + Math.max(included.length, 1) * 7 + (bag !== accent ? 6 : 0));
+
+        selectedBag.textContent = `${labelize(bag)} bag`;
+        selectedAccent.textContent = `${labelize(accent)} accent`;
+        selectedStyle.textContent = `${styleTitle} setup`;
+        buildCode.textContent = `BB-${codes[bag] || bag.slice(0, 3).toUpperCase()}-${codes[accent] || accent.slice(0, 3).toUpperCase()}-${codes[style] || style.slice(0, 3).toUpperCase()}`;
+        kitNote.textContent = styleNote;
+        score.textContent = `${matchScore}%`;
+        includedCount.textContent = included.length;
+        preview.style.setProperty('--bb-bag-swatch', swatches[bag] || '#101010');
+        preview.style.setProperty('--bb-accent-swatch', swatches[accent] || '#101010');
+        total.textContent = moneyFormatter.format(cents / 100);
+        addButton.disabled = included.length === 0;
+        message.textContent = included.length === 0 ? emptyMessage : '';
+        message.dataset.bbMessageStatus = included.length === 0 ? 'notice' : '';
+      };
+
+      configurator.addEventListener('change', update);
+
+      addButton.addEventListener('click', async () => {
+        const items = visibleIncludedProducts().map((product) => ({
+          id: Number(product.dataset.variantId),
+          quantity: 1
+        }));
+
+        if (items.length === 0) {
+          update();
+          return;
+        }
+
+        addButton.disabled = true;
+        message.textContent = loadingMessage;
+        message.dataset.bbMessageStatus = 'loading';
+
+        try {
+          const response = await fetch('/cart/add.js', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            },
+            body: JSON.stringify({ items })
+          });
+
+          if (!response.ok) {
+            throw new Error('Cart request failed');
+          }
+
+          window.location.href = '/cart';
+        } catch (error) {
+          message.textContent = errorMessage;
+          message.dataset.bbMessageStatus = 'error';
+          addButton.disabled = false;
+        }
+      });
+
+      update();
+    });
+  })();
 {% endjavascript %}
 
 {% schema %}
@@ -965,6 +1039,24 @@
       "id": "unassigned_label",
       "label": "Unassigned product label",
       "default": "Choose a product"
+    },
+    {
+      "type": "textarea",
+      "id": "empty_message",
+      "label": "Empty cart message",
+      "default": "This build is ready for products. Shop the Build Your Bag collection while the kit slots are finished."
+    },
+    {
+      "type": "text",
+      "id": "loading_message",
+      "label": "Loading message",
+      "default": "Building your cart..."
+    },
+    {
+      "type": "textarea",
+      "id": "error_message",
+      "label": "Cart error message",
+      "default": "We could not build the full cart. Open the collection and add the kit items from there."
     },
     {
       "type": "header",
