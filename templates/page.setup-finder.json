@@ -1,5 +1,87 @@
 {
   "sections": {
+    "setup_finder_engine": {
+      "type": "built-birdie-setup-finder",
+      "blocks": {
+        "result_clean": {
+          "type": "result",
+          "settings": {
+            "result_key": "clean",
+            "kicker": "Clean",
+            "title": "Clean setup",
+            "text": "Minimal essentials with a tighter look.",
+            "result_title": "Start with Clean Bag Kit",
+            "result_text": "A simple first build that keeps the visible setup matched without adding extra noise.",
+            "link_label": "Open Clean Bag Kit",
+            "link": "/pages/clean-bag-kit"
+          }
+        },
+        "result_starter": {
+          "type": "result",
+          "settings": {
+            "result_key": "starter",
+            "kicker": "Starter",
+            "title": "Starter setup",
+            "text": "Core pieces for a first matched bag.",
+            "result_title": "Build the Starter Setup",
+            "result_text": "A practical path for golfers who want towel, tools, and visible detail to line up.",
+            "link_label": "Open Starter Setup",
+            "link": "/pages/starter-setup"
+          }
+        },
+        "result_tour": {
+          "type": "result",
+          "settings": {
+            "result_key": "tour",
+            "kicker": "Tour",
+            "title": "Tour setup",
+            "text": "A fuller setup across bag, cart, and practice.",
+            "result_title": "Go to Tour Setup",
+            "result_text": "A more complete build for golfers who want every visible piece to feel intentional.",
+            "link_label": "Open Tour Setup",
+            "link": "/pages/tour-setup"
+          }
+        },
+        "result_gift": {
+          "type": "result",
+          "settings": {
+            "result_key": "gift",
+            "kicker": "Gift",
+            "title": "Gift path",
+            "text": "Safe, polished choices for golf people.",
+            "result_title": "Use the Gift Finder",
+            "result_text": "A simpler path for choosing useful golf gifts when you know some details, but not the whole bag.",
+            "link_label": "Open Gift Finder",
+            "link": "/pages/gift-finder"
+          }
+        }
+      },
+      "block_order": [
+        "result_clean",
+        "result_starter",
+        "result_tour",
+        "result_gift"
+      ],
+      "settings": {
+        "eyebrow": "SETUP FINDER",
+        "heading": "Find the build that fits.",
+        "subheading": "Choose the bag color, accent, and setup intent. Built Birdie will point you toward the right build path.",
+        "bag_label": "Bag color",
+        "bag_colors": "Black, White, Navy, Green, Red",
+        "accent_label": "Accent color",
+        "accent_colors": "Black, White, Red, Blue, Green, Gold",
+        "intent_label": "Setup intent",
+        "result_label": "Build code",
+        "match_label": "Match score",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    },
     "setup_finder": {
       "type": "built-birdie-page-suite",
       "blocks": {
@@ -80,6 +162,7 @@
     }
   },
   "order": [
+    "setup_finder_engine",
     "setup_finder"
   ]
 }

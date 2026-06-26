@@ -20,8 +20,8 @@
             "title": "Build",
             "label_one": "Build Your Bag",
             "link_one": "/pages/build-your-bag",
-            "label_two": "Starter Setup",
-            "link_two": "/pages/starter-setup",
+            "label_two": "Setup Finder",
+            "link_two": "/pages/setup-finder",
             "label_three": "Perfect Cart Guide",
             "link_three": "/pages/perfect-cart-guide"
           }

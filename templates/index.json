@@ -267,6 +267,15 @@
             "link": "/pages/build-your-bag"
           }
         },
+        "route_setup_finder": {
+          "type": "route",
+          "settings": {
+            "kicker": "Finder",
+            "title": "Setup Finder",
+            "text": "Answer three choices and get the right Built Birdie build path.",
+            "link": "/pages/setup-finder"
+          }
+        },
         "route_shop": {
           "type": "route",
           "settings": {
@@ -369,6 +378,7 @@
       },
       "block_order": [
         "route_builder",
+        "route_setup_finder",
         "route_shop",
         "route_kit",
         "route_kit_compare",
