@@ -22,8 +22,8 @@
             "link_one": "/pages/build-your-bag",
             "label_two": "Setup Finder",
             "link_two": "/pages/setup-finder",
-            "label_three": "Color Lab",
-            "link_three": "/pages/color-lab"
+            "label_three": "Perfect Cart Guide",
+            "link_three": "/pages/perfect-cart-guide"
           }
         },
         "footer_shop": {
@@ -32,10 +32,10 @@
             "title": "Shop",
             "label_one": "Shop Hub",
             "link_one": "/pages/shop-hub",
-            "label_two": "Kit Guide",
-            "link_two": "/pages/kit-guide",
-            "label_three": "Cart Upgrades",
-            "link_three": "/pages/cart-upgrades"
+            "label_two": "Kit Comparison",
+            "link_two": "/pages/kit-comparison",
+            "label_three": "On-Course Essentials",
+            "link_three": "/pages/on-course-essentials"
           }
         },
         "footer_learn": {
@@ -44,10 +44,10 @@
             "title": "Learn",
             "label_one": "Course Checklist",
             "link_one": "/pages/course-checklist",
-            "label_two": "Materials & Fit",
-            "link_two": "/pages/materials-fit",
-            "label_three": "Care Guide",
-            "link_three": "/pages/care-guide"
+            "label_two": "Bag Color Guide",
+            "link_two": "/pages/bag-color-guide",
+            "label_three": "Color Lab",
+            "link_three": "/pages/color-lab"
           }
         },
         "footer_support": {

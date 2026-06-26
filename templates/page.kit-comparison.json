@@ -1,0 +1,120 @@
+{
+  "sections": {
+    "kit_comparison": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_clean": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Clean",
+            "label": "Best for the golfer who wants the bag sharper, not heavier."
+          }
+        },
+        "stat_starter": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Starter",
+            "label": "Best first matched setup: towel, tools, and one clear accent."
+          }
+        },
+        "stat_tour": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Tour",
+            "label": "Best for a fuller build with cart, practice, and visible details."
+          }
+        },
+        "stat_gift": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Gift",
+            "label": "Best for offices, clients, birthdays, and golfers who are hard to shop for."
+          }
+        },
+        "feature_clean": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Clean Bag Kit",
+            "title": "Low-noise, high-use.",
+            "text": "Choose this when the bag needs essentials that work every round without making the setup feel busy.",
+            "link": "/collections/towels-brushes"
+          }
+        },
+        "feature_starter": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Starter Kit",
+            "title": "The easiest first build.",
+            "text": "Choose this when someone wants the matching look, but still needs the obvious everyday golf pieces.",
+            "link": "/collections/build-your-bag"
+          }
+        },
+        "feature_tour": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Tour Kit",
+            "title": "More complete, still clean.",
+            "text": "Choose this when the golfer cares about the whole bag system: clubs, cart, pocket tools, and practice extras.",
+            "link": "/collections/cart-upgrades"
+          }
+        },
+        "feature_gift": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Desk Gift Bundle",
+            "title": "Golf energy off the course.",
+            "text": "Choose this for a polished gift that still feels like Built Birdie: coordinated, useful, and not gimmicky.",
+            "link": "/collections/golf-desk-gifts"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Start with use",
+            "text": "If it needs to work every round, start Clean or Starter. If it is a full setup, start Tour. If it is for someone else, start Gift."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Lock the color",
+            "text": "Use the same accent on the visible pieces so the whole setup reads as one system."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Let the cart decide",
+            "text": "Open the configurator once the kit direction is clear and build the matching cart from there."
+          }
+        }
+      },
+      "block_order": [
+        "stat_clean",
+        "stat_starter",
+        "stat_tour",
+        "stat_gift",
+        "feature_clean",
+        "feature_starter",
+        "feature_tour",
+        "feature_gift",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "KIT COMPARISON",
+        "heading": "Find the right kit fast.",
+        "subheading": "A simple decision page for choosing between Clean, Starter, Tour, and Gift builds before you open the configurator.",
+        "primary_label": "Build My Cart",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "View Kit Guide",
+        "secondary_link": "/pages/kit-guide",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "kit_comparison"
+  ]
+}

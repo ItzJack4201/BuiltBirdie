@@ -199,6 +199,15 @@
             "link": "/pages/kit-guide"
           }
         },
+        "route_kit_compare": {
+          "type": "route",
+          "settings": {
+            "kicker": "Compare",
+            "title": "Kit Comparison",
+            "text": "Pick Clean, Starter, Tour, or Gift with a faster decision guide.",
+            "link": "/pages/kit-comparison"
+          }
+        },
         "route_color": {
           "type": "route",
           "settings": {
@@ -206,6 +215,15 @@
             "title": "Color Lab",
             "text": "Learn the base and accent rules that make a bag look matched.",
             "link": "/pages/color-lab"
+          }
+        },
+        "route_color_guide": {
+          "type": "route",
+          "settings": {
+            "kicker": "Rules",
+            "title": "Bag Color Guide",
+            "text": "Use base and accent pairings that make the setup feel premium.",
+            "link": "/pages/bag-color-guide"
           }
         },
         "route_gifts": {
@@ -243,17 +261,39 @@
             "text": "Prep the bag, cart, and small tools before the first tee.",
             "link": "/pages/course-checklist"
           }
+        },
+        "route_essentials": {
+          "type": "route",
+          "settings": {
+            "kicker": "Round",
+            "title": "On-Course Essentials",
+            "text": "Build a cleaner round system for towel, tools, cart, and covers.",
+            "link": "/pages/on-course-essentials"
+          }
+        },
+        "route_cart_guide": {
+          "type": "route",
+          "settings": {
+            "kicker": "Cart",
+            "title": "Perfect Cart Guide",
+            "text": "See how the builder turns color and style choices into a cart.",
+            "link": "/pages/perfect-cart-guide"
+          }
         }
       },
       "block_order": [
         "route_builder",
         "route_shop",
         "route_kit",
+        "route_kit_compare",
         "route_color",
+        "route_color_guide",
         "route_gifts",
         "route_support",
         "route_corporate",
-        "route_checklist"
+        "route_checklist",
+        "route_essentials",
+        "route_cart_guide"
       ],
       "settings": {
         "eyebrow": "BUILT BIRDIE ROUTES",

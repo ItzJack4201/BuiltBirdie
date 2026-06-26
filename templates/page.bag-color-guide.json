@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "bag_color_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_black": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Black base",
+            "title": "Sharpest with white, red, gold, or green.",
+            "text": "Black gives the most contrast. Use it when the bag needs to look modern and intentional from across the cart path."
+          }
+        },
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "White base",
+            "title": "Cleanest with black, navy, red, or green.",
+            "text": "White works best when the accent is repeated sparingly. Too many colors will make it look less premium."
+          }
+        },
+        "feature_navy": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Navy base",
+            "title": "Strong with white, gold, red, or light blue.",
+            "text": "Navy is the safest athletic base. It looks expensive when the accent is simple and consistent."
+          }
+        },
+        "feature_green": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Green base",
+            "title": "Best with cream, white, black, or gold.",
+            "text": "Green should feel classic, not loud. Keep the accent restrained and let the golf signal do the work."
+          }
+        },
+        "feature_red": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Red base",
+            "title": "Use black, white, navy, or gold.",
+            "text": "Red is already the statement. Pair it with a quiet accent and avoid stacking too many highlight colors."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Base first",
+            "text": "The bag color is the anchor. Everything else should respond to it."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "One accent",
+            "text": "Pick one accent and repeat it across towel, cover, marker, and small cart details."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Stop early",
+            "text": "A bag looks more premium when the color system is clear and restrained."
+          }
+        }
+      },
+      "block_order": [
+        "feature_black",
+        "feature_white",
+        "feature_navy",
+        "feature_green",
+        "feature_red",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "BAG COLOR GUIDE",
+        "heading": "Make the bag look matched.",
+        "subheading": "A quick color system for choosing accessories that look like they belong together without overdecorating the setup.",
+        "primary_label": "Open Color Lab",
+        "primary_link": "/pages/color-lab",
+        "secondary_label": "Build Your Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "bag_color_guide"
+  ]
+}
