@@ -168,9 +168,114 @@
         "accent_green": "#0f3f2e",
         "accent_red": "#b3261e"
       }
+    },
+    "built_birdie_route_map": {
+      "type": "built-birdie-route-map",
+      "blocks": {
+        "route_builder": {
+          "type": "route",
+          "settings": {
+            "kicker": "Build",
+            "title": "Build Your Bag",
+            "text": "Choose the bag color, accent, and setup style that builds the cart.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_shop": {
+          "type": "route",
+          "settings": {
+            "kicker": "Shop",
+            "title": "Shop Hub",
+            "text": "Browse the full Built Birdie category system from one clean route.",
+            "link": "/pages/shop-hub"
+          }
+        },
+        "route_kit": {
+          "type": "route",
+          "settings": {
+            "kicker": "Guide",
+            "title": "Kit Guide",
+            "text": "Compare Clean, Starter, Tour, and Gift builds before choosing.",
+            "link": "/pages/kit-guide"
+          }
+        },
+        "route_color": {
+          "type": "route",
+          "settings": {
+            "kicker": "Color",
+            "title": "Color Lab",
+            "text": "Learn the base and accent rules that make a bag look matched.",
+            "link": "/pages/color-lab"
+          }
+        },
+        "route_gifts": {
+          "type": "route",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Gift Guide",
+            "text": "Find safe, useful golf gifts that do not feel generic.",
+            "link": "/pages/gift-guide"
+          }
+        },
+        "route_support": {
+          "type": "route",
+          "settings": {
+            "kicker": "Help",
+            "title": "Support FAQ",
+            "text": "Answer common questions and get back to the right store path.",
+            "link": "/pages/support-faq"
+          }
+        },
+        "route_corporate": {
+          "type": "route",
+          "settings": {
+            "kicker": "Groups",
+            "title": "Corporate Gifts",
+            "text": "Plan group kits, event gifts, and client-ready golf bundles.",
+            "link": "/pages/corporate-gifts"
+          }
+        },
+        "route_checklist": {
+          "type": "route",
+          "settings": {
+            "kicker": "Round",
+            "title": "Course Checklist",
+            "text": "Prep the bag, cart, and small tools before the first tee.",
+            "link": "/pages/course-checklist"
+          }
+        }
+      },
+      "block_order": [
+        "route_builder",
+        "route_shop",
+        "route_kit",
+        "route_color",
+        "route_gifts",
+        "route_support",
+        "route_corporate",
+        "route_checklist"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE ROUTES",
+        "heading": "Pick the next move.",
+        "subheading": "Jump into the right part of the Built Birdie system: build a cart, browse collections, learn the color rules, or plan a gift.",
+        "matrix_label": "Built Birdie route matrix",
+        "matrix_one": "Base",
+        "matrix_two": "Accent",
+        "matrix_three": "Kit",
+        "matrix_four": "Cart",
+        "background_color": "#ffffff",
+        "panel_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
     }
   },
   "order": [
-    "built_birdie_hero"
+    "built_birdie_hero",
+    "built_birdie_route_map"
   ]
 }
