@@ -1,0 +1,214 @@
+{
+  "sections": {
+    "build_system": {
+      "type": "built-birdie-command-center",
+      "blocks": {
+        "route_build_your_bag": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Build",
+            "title": "Build Your Bag",
+            "text": "Choose your bag color, accent, and setup style, then build the cart.",
+            "signal": "Cart builder",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_setup_finder": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Finder",
+            "title": "Setup Finder",
+            "text": "Answer three choices and get the right build path.",
+            "signal": "Recommendation",
+            "link": "/pages/setup-finder"
+          }
+        },
+        "route_perfect_cart": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Cart",
+            "title": "Perfect Cart Guide",
+            "text": "Understand how the builder turns color and intent into a cart.",
+            "signal": "Builder logic",
+            "link": "/pages/perfect-cart-guide"
+          }
+        },
+        "route_color_lab": {
+          "type": "route",
+          "settings": {
+            "group": "color",
+            "kicker": "Color",
+            "title": "Color Lab",
+            "text": "Use the color matrix to choose a base and lock the accent.",
+            "signal": "Color rules",
+            "link": "/pages/color-lab"
+          }
+        },
+        "route_bag_color": {
+          "type": "route",
+          "settings": {
+            "group": "color",
+            "kicker": "Guide",
+            "title": "Bag Color Guide",
+            "text": "Learn the safest accent pairings for each bag color.",
+            "signal": "Pairing guide",
+            "link": "/pages/bag-color-guide"
+          }
+        },
+        "route_black_setup": {
+          "type": "route",
+          "settings": {
+            "group": "color",
+            "kicker": "Base",
+            "title": "Black Bag Setup",
+            "text": "Start from the easiest high-contrast base.",
+            "signal": "Base setup",
+            "link": "/pages/black-bag-setup"
+          }
+        },
+        "route_kit_compare": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Compare",
+            "title": "Kit Comparison",
+            "text": "Compare Clean, Starter, Tour, and Gift before choosing.",
+            "signal": "Kit matrix",
+            "link": "/pages/kit-comparison"
+          }
+        },
+        "route_clean": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Clean",
+            "title": "Clean Bag Kit",
+            "text": "Minimal essentials for a sharper, easier-to-reset bag.",
+            "signal": "Minimal",
+            "link": "/pages/clean-bag-kit"
+          }
+        },
+        "route_tour": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Tour",
+            "title": "Tour Setup",
+            "text": "A fuller setup across bag, cart, tools, and practice.",
+            "signal": "Full build",
+            "link": "/pages/tour-setup"
+          }
+        },
+        "route_gift": {
+          "type": "route",
+          "settings": {
+            "group": "gift",
+            "kicker": "Gift",
+            "title": "Gift Finder",
+            "text": "Choose polished golf gifts by use case and what you know.",
+            "signal": "Gift path",
+            "link": "/pages/gift-finder"
+          }
+        },
+        "route_new_golfer": {
+          "type": "route",
+          "settings": {
+            "group": "gift",
+            "kicker": "Beginner",
+            "title": "New Golfer Gifts",
+            "text": "Practical gifts for newer golfers that still look matched.",
+            "signal": "Safe gifting",
+            "link": "/pages/new-golfer-gifts"
+          }
+        },
+        "route_tournament": {
+          "type": "route",
+          "settings": {
+            "group": "gift",
+            "kicker": "Events",
+            "title": "Tournament Prizes",
+            "text": "Plan prize tables, tee gifts, and client golf gifts.",
+            "signal": "Group gifting",
+            "link": "/pages/tournament-prizes"
+          }
+        },
+        "route_support": {
+          "type": "route",
+          "settings": {
+            "group": "support",
+            "kicker": "Help",
+            "title": "Support FAQ",
+            "text": "Answer common buying, setup, and order questions.",
+            "signal": "Help",
+            "link": "/pages/support-faq"
+          }
+        },
+        "route_shipping": {
+          "type": "route",
+          "settings": {
+            "group": "support",
+            "kicker": "Orders",
+            "title": "Shipping & Returns",
+            "text": "Set expectations for delivery, returns, and exchanges.",
+            "signal": "Order info",
+            "link": "/pages/shipping-returns"
+          }
+        },
+        "route_team": {
+          "type": "route",
+          "settings": {
+            "group": "support",
+            "kicker": "Groups",
+            "title": "Team Orders",
+            "text": "Plan repeatable matched kits for groups and teams.",
+            "signal": "Bulk path",
+            "link": "/pages/team-orders"
+          }
+        }
+      },
+      "block_order": [
+        "route_build_your_bag",
+        "route_setup_finder",
+        "route_perfect_cart",
+        "route_color_lab",
+        "route_bag_color",
+        "route_black_setup",
+        "route_kit_compare",
+        "route_clean",
+        "route_tour",
+        "route_gift",
+        "route_new_golfer",
+        "route_tournament",
+        "route_support",
+        "route_shipping",
+        "route_team"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE COMMAND",
+        "heading": "Choose your route.",
+        "subheading": "Jump into the right Built Birdie path: build a cart, choose colors, compare kits, plan gifts, or get support.",
+        "readout_label": "Visible routes",
+        "filter_label": "Built Birdie route filters",
+        "all_label": "All",
+        "build_label": "Build",
+        "color_label": "Color",
+        "kit_label": "Kit",
+        "gift_label": "Gift",
+        "support_label": "Support",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "build_system"
+  ]
+}

@@ -267,6 +267,15 @@
             "link": "/pages/build-your-bag"
           }
         },
+        "route_build_system": {
+          "type": "route",
+          "settings": {
+            "kicker": "Command",
+            "title": "Build System",
+            "text": "Filter every Built Birdie route by build, color, kit, gift, and support.",
+            "link": "/pages/build-system"
+          }
+        },
         "route_setup_finder": {
           "type": "route",
           "settings": {
@@ -405,6 +414,7 @@
       },
       "block_order": [
         "route_builder",
+        "route_build_system",
         "route_setup_finder",
         "route_shop",
         "route_kit",

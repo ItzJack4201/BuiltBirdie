@@ -20,8 +20,8 @@
             "title": "Build",
             "label_one": "Build Your Bag",
             "link_one": "/pages/build-your-bag",
-            "label_two": "Setup Finder",
-            "link_two": "/pages/setup-finder",
+            "label_two": "Build System",
+            "link_two": "/pages/build-system",
             "label_three": "Perfect Cart Guide",
             "link_three": "/pages/perfect-cart-guide"
           }

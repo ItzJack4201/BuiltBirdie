@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "cart_organization": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_reach": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Cart",
+            "title": "Keep daily-use pieces reachable.",
+            "text": "The cart should hold the items you touch: towel, brush, marker, drink, phone, and small extras.",
+            "link": "/collections/cart-upgrades"
+          }
+        },
+        "feature_match": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Match",
+            "title": "The cart should not break the color system.",
+            "text": "Use the same accent from the bag so cart upgrades feel like part of the build."
+          }
+        },
+        "feature_reset": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Reset",
+            "title": "Make post-round cleanup easier.",
+            "text": "Good organization makes it easier to dry, clean, and reset the bag before the next round."
+          }
+        },
+        "collection_cart": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Ride",
+            "title": "Cart Upgrades",
+            "text": "Make the ride cleaner and easier to use.",
+            "collection": "cart-upgrades",
+            "link": "/collections/cart-upgrades",
+            "initials": "CU"
+          }
+        },
+        "collection_clean": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Clean",
+            "title": "Towels & Brushes",
+            "text": "The essentials that should always stay reachable.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        }
+      },
+      "block_order": [
+        "feature_reach",
+        "feature_match",
+        "feature_reset",
+        "collection_cart",
+        "collection_clean"
+      ],
+      "settings": {
+        "eyebrow": "CART ORGANIZATION",
+        "heading": "Make the cart feel as clean as the bag.",
+        "subheading": "A cart-focused setup path for golfers who want the round to feel organized from the first tee through the trunk reset.",
+        "primary_label": "Shop Cart Upgrades",
+        "primary_link": "/collections/cart-upgrades",
+        "secondary_label": "Build Your Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "cart_organization"
+  ]
+}
