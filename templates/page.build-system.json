@@ -102,6 +102,28 @@
             "link": "/pages/tour-setup"
           }
         },
+        "route_range": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Practice",
+            "title": "Range Bag Setup",
+            "text": "Keep practice gear separate, useful, and matched.",
+            "signal": "Practice path",
+            "link": "/pages/range-bag-setup"
+          }
+        },
+        "route_weekend": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Weekend",
+            "title": "Weekend Round Setup",
+            "text": "A relaxed setup for casual rounds that still looks clean.",
+            "signal": "Round path",
+            "link": "/pages/weekend-round-setup"
+          }
+        },
         "route_gift": {
           "type": "route",
           "settings": {
@@ -133,6 +155,17 @@
             "text": "Plan prize tables, tee gifts, and client golf gifts.",
             "signal": "Group gifting",
             "link": "/pages/tournament-prizes"
+          }
+        },
+        "route_member_guest": {
+          "type": "route",
+          "settings": {
+            "group": "gift",
+            "kicker": "Event",
+            "title": "Member-Guest Gifts",
+            "text": "Plan coordinated prize tables, tee gifts, and event accessories.",
+            "signal": "Event gifts",
+            "link": "/pages/member-guest-gifts"
           }
         },
         "route_support": {
@@ -179,9 +212,12 @@
         "route_kit_compare",
         "route_clean",
         "route_tour",
+        "route_range",
+        "route_weekend",
         "route_gift",
         "route_new_golfer",
         "route_tournament",
+        "route_member_guest",
         "route_support",
         "route_shipping",
         "route_team"

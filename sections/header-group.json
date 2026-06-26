@@ -99,10 +99,89 @@
         "enable_transparent_header_product": false,
         "enable_transparent_header_collection": false
       }
+    },
+    "built_birdie_launch_bar": {
+      "type": "built-birdie-launch-bar",
+      "blocks": {
+        "launch_build": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Build",
+            "label": "Build Your Bag",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "launch_system": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Command",
+            "label": "Build System",
+            "link": "/pages/build-system"
+          }
+        },
+        "launch_finder": {
+          "type": "route",
+          "settings": {
+            "group": "build",
+            "kicker": "Finder",
+            "label": "Setup Finder",
+            "link": "/pages/setup-finder"
+          }
+        },
+        "launch_color": {
+          "type": "route",
+          "settings": {
+            "group": "color",
+            "kicker": "Color",
+            "label": "Color Lab",
+            "link": "/pages/color-lab"
+          }
+        },
+        "launch_kits": {
+          "type": "route",
+          "settings": {
+            "group": "kit",
+            "kicker": "Kits",
+            "label": "Kit Comparison",
+            "link": "/pages/kit-comparison"
+          }
+        },
+        "launch_gifts": {
+          "type": "route",
+          "settings": {
+            "group": "gift",
+            "kicker": "Gift",
+            "label": "Gift Finder",
+            "link": "/pages/gift-finder"
+          }
+        }
+      },
+      "block_order": [
+        "launch_build",
+        "launch_system",
+        "launch_finder",
+        "launch_color",
+        "launch_kits",
+        "launch_gifts"
+      ],
+      "settings": {
+        "nav_label": "Built Birdie quick routes",
+        "eyebrow": "BUILT BIRDIE",
+        "heading": "Build system",
+        "brand_link": "/pages/build-system",
+        "background_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "built_birdie_launch_bar"
   ]
 }

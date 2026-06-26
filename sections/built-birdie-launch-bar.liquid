@@ -1,0 +1,242 @@
+{% style %}
+  #BuiltBirdieLaunchBar-{{ section.id }} {
+    --bbl-bg: {{ section.settings.background_color }};
+    --bbl-text: {{ section.settings.text_color }};
+    --bbl-muted: {{ section.settings.muted_color }};
+    --bbl-green: {{ section.settings.accent_green }};
+    --bbl-red: {{ section.settings.accent_red }};
+    --bbl-border: rgba(255, 255, 255, 0.14);
+  }
+{% endstyle %}
+
+<nav id="BuiltBirdieLaunchBar-{{ section.id }}" class="built-birdie-launch-bar" aria-label="{{ section.settings.nav_label | escape }}">
+  <div class="built-birdie-launch-bar__inner">
+    <a class="built-birdie-launch-bar__brand" href="{{ section.settings.brand_link }}">
+      <span>{{ section.settings.eyebrow }}</span>
+      <strong>{{ section.settings.heading }}</strong>
+    </a>
+    <div class="built-birdie-launch-bar__links">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" data-group="{{ block.settings.group }}" {{ block.shopify_attributes }}>
+          <span>{{ block.settings.kicker }}</span>
+          {{ block.settings.label }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+
+{% stylesheet %}
+  .built-birdie-launch-bar {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      var(--bbl-bg);
+    background-size: 28px 28px, auto;
+    border-block: 1px solid var(--bbl-border);
+    color: var(--bbl-text);
+  }
+
+  .built-birdie-launch-bar * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-launch-bar__inner {
+    align-items: center;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
+    margin-inline: auto;
+    max-width: 1180px;
+    padding: 10px clamp(16px, 4vw, 28px);
+  }
+
+  .built-birdie-launch-bar__brand,
+  .built-birdie-launch-bar__links a {
+    color: var(--bbl-text);
+    text-decoration: none;
+  }
+
+  .built-birdie-launch-bar__brand {
+    display: grid;
+    gap: 2px;
+  }
+
+  .built-birdie-launch-bar__brand span,
+  .built-birdie-launch-bar__links a span {
+    color: var(--bbl-red);
+    font-size: 0.66rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-launch-bar__brand strong {
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .built-birdie-launch-bar__links {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  .built-birdie-launch-bar__links a {
+    align-items: center;
+    border: 1px solid var(--bbl-border);
+    border-radius: 999px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    font-size: 0.86rem;
+    font-weight: 850;
+    min-height: 38px;
+    padding: 8px 12px;
+  }
+
+  .built-birdie-launch-bar__links a[data-group="build"] {
+    border-color: color-mix(in srgb, var(--bbl-green) 55%, var(--bbl-border));
+  }
+
+  .built-birdie-launch-bar__links a:hover {
+    background: var(--bbl-text);
+    color: var(--bbl-bg);
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-launch-bar__inner {
+      grid-template-columns: 1fr;
+      padding-inline: 16px;
+    }
+
+    .built-birdie-launch-bar__links {
+      justify-content: flex-start;
+      margin-inline: -16px;
+      padding-inline: 16px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB launch bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "nav_label",
+      "label": "Navigation label",
+      "default": "Built Birdie quick routes"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BUILT BIRDIE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Build system"
+    },
+    {
+      "type": "url",
+      "id": "brand_link",
+      "label": "Brand link",
+      "default": "/pages/build-system"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted",
+      "default": "#c8c2b8"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Green",
+      "default": "#8fd6aa"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red",
+      "default": "#ef4d42"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "route",
+      "name": "Route",
+      "settings": [
+        {
+          "type": "select",
+          "id": "group",
+          "label": "Group",
+          "options": [
+            {
+              "value": "build",
+              "label": "Build"
+            },
+            {
+              "value": "color",
+              "label": "Color"
+            },
+            {
+              "value": "kit",
+              "label": "Kit"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            },
+            {
+              "value": "support",
+              "label": "Support"
+            }
+          ],
+          "default": "build"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Build"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Build Your Bag"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "default": "/pages/build-your-bag"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB launch bar"
+    }
+  ]
+}
+{% endschema %}
