@@ -466,10 +466,69 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "built_birdie_product_system": {
+      "type": "built-birdie-product-system",
+      "blocks": {
+        "card_color": {
+          "type": "system_card",
+          "settings": {
+            "kicker": "Match",
+            "title": "Use the color system",
+            "text": "Treat this product as one part of the bag: base color, accent color, and useful role."
+          }
+        },
+        "card_pair": {
+          "type": "system_card",
+          "settings": {
+            "kicker": "Pair",
+            "title": "Add the visible repeat",
+            "text": "Repeat the same accent in a towel, marker, headcover, or cart piece so the setup feels intentional."
+          }
+        },
+        "card_care": {
+          "type": "system_card",
+          "settings": {
+            "kicker": "Care",
+            "title": "Keep it clean",
+            "text": "Golf accessories look better when dirt, moisture, and pocket clutter are handled after each round."
+          }
+        },
+        "faq_match": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How should I match this product?",
+            "answer": "Choose the closest accent color in your bag setup, then repeat that accent across one or two other products."
+          }
+        }
+      },
+      "block_order": [
+        "card_color",
+        "card_pair",
+        "card_care",
+        "faq_match"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE FIT SYSTEM",
+        "heading": "Make it part of the full setup.",
+        "subheading": "Every accessory should connect back to a base bag color, an accent, and a cleaner round.",
+        "fit_label": "Product role",
+        "system_tag": "Build-ready",
+        "primary_label": "Add to a Build",
+        "primary_link": "/pages/build-your-bag",
+        "background_color": "#ffffff",
+        "panel_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
     }
   },
   "order": [
     "main",
+    "built_birdie_product_system",
     "product_recommendations_qggXJq"
   ]
 }

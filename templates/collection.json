@@ -8,6 +8,63 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_collection_system": {
+      "type": "built-birdie-collection-system",
+      "blocks": {
+        "route_configurator": {
+          "type": "route_tile",
+          "settings": {
+            "kicker": "Build",
+            "title": "Use the configurator",
+            "text": "Turn this category into one piece of a matched full-bag setup.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "route_color_lab": {
+          "type": "route_tile",
+          "settings": {
+            "kicker": "Color",
+            "title": "Check the Color Lab",
+            "text": "Pick one accent and repeat it across the bag.",
+            "link": "/pages/color-lab"
+          }
+        },
+        "route_shop_hub": {
+          "type": "route_tile",
+          "settings": {
+            "kicker": "Shop",
+            "title": "Browse the shop hub",
+            "text": "Jump between categories without losing the setup system.",
+            "link": "/pages/shop-hub"
+          }
+        }
+      },
+      "block_order": [
+        "route_configurator",
+        "route_color_lab",
+        "route_shop_hub"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE SHOP SYSTEM",
+        "fallback_description": "Shop coordinated golf accessories designed to look like they belong together.",
+        "primary_label": "Use Configurator",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Setup Finder",
+        "secondary_link": "/pages/setup-finder",
+        "panel_label": "Collection system",
+        "scope_one": "Matchable",
+        "scope_two": "Useful",
+        "scope_three": "Bag-ready",
+        "panel_text": "Filter the category, then keep your base color and accent color consistent across the rest of the build.",
+        "background_color": "#ffffff",
+        "panel_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
+    },
     "section": {
       "type": "section",
       "blocks": {
@@ -216,7 +273,7 @@
     }
   },
   "order": [
-    "section",
+    "built_birdie_collection_system",
     "main"
   ]
 }
