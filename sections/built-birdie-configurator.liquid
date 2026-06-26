@@ -1,6 +1,7 @@
 {% liquid
   assign bag_colors = section.settings.bag_colors | split: ','
   assign accent_colors = section.settings.accent_colors | split: ','
+  assign fallback_collection_url = routes.collections_url | append: '/build-your-bag'
 %}
 
 {% style %}
@@ -125,7 +126,10 @@
         <button type="button" class="built-birdie-configurator__button" data-bb-add>
           {{ section.settings.add_button_label }}
         </button>
-        <a class="built-birdie-configurator__fallback" href="{{ routes.collections_url }}/build-your-bag">
+        {% capture fallback_url %}
+          {% render 'built-birdie-safe-link', link: fallback_collection_url, fallback: routes.collections_url %}
+        {% endcapture %}
+        <a class="built-birdie-configurator__fallback" href="{{ fallback_url | strip }}">
           {{ section.settings.fallback_label }}
         </a>
         <p class="built-birdie-configurator__message" data-bb-message></p>

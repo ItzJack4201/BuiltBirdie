@@ -140,7 +140,10 @@
               endif
             endif
           %}
-          <a class="built-birdie__card" href="{{ card_url }}" {{ block.shopify_attributes }}>
+          {% capture card_safe_url %}
+            {% render 'built-birdie-safe-link', link: card_url, fallback: routes.collections_url %}
+          {% endcapture %}
+          <a class="built-birdie__card" href="{{ card_safe_url | strip }}" {{ block.shopify_attributes }}>
             <div class="built-birdie__card-media">
               {% if card_collection.featured_image != blank %}
                 {{ card_collection.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', class: 'built-birdie__card-image', alt: card_title }}
@@ -188,7 +191,10 @@
               endif
             endif
           %}
-          <a class="built-birdie__kit-card" href="{{ kit_url }}" {{ block.shopify_attributes }}>
+          {% capture kit_safe_url %}
+            {% render 'built-birdie-safe-link', link: kit_url, fallback: routes.collections_url %}
+          {% endcapture %}
+          <a class="built-birdie__kit-card" href="{{ kit_safe_url | strip }}" {{ block.shopify_attributes }}>
             {% if block.settings.badge != blank %}
               <span>{{ block.settings.badge }}</span>
             {% endif %}
