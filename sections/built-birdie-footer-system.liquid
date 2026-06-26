@@ -1,0 +1,240 @@
+{% style %}
+  #BuiltBirdieFooter-{{ section.id }} {
+    --bbf-bg: {{ section.settings.background_color }};
+    --bbf-panel: {{ section.settings.panel_color }};
+    --bbf-text: {{ section.settings.text_color }};
+    --bbf-muted: {{ section.settings.muted_color }};
+    --bbf-green: {{ section.settings.accent_green }};
+    --bbf-red: {{ section.settings.accent_red }};
+    --bbf-border: rgba(255, 255, 255, 0.14);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieFooter-{{ section.id }}" class="built-birdie-footer-system">
+  <div class="built-birdie-footer-system__inner">
+    <div class="built-birdie-footer-system__brand">
+      <p>{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <span>{{ section.settings.subheading }}</span>
+    </div>
+
+    <div class="built-birdie-footer-system__links">
+      {% for block in section.blocks %}
+        <div class="built-birdie-footer-system__group" {{ block.shopify_attributes }}>
+          <p>{{ block.settings.title }}</p>
+          <a href="{{ block.settings.link_one }}">{{ block.settings.label_one }}</a>
+          <a href="{{ block.settings.link_two }}">{{ block.settings.label_two }}</a>
+          <a href="{{ block.settings.link_three }}">{{ block.settings.label_three }}</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-footer-system {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      var(--bbf-bg);
+    background-size: 44px 44px, 44px 44px, auto;
+    color: var(--bbf-text);
+    padding: clamp(42px, 6vw, 76px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-footer-system * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-footer-system__inner {
+    display: grid;
+    gap: clamp(28px, 5vw, 72px);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-footer-system__brand p,
+  .built-birdie-footer-system__group p {
+    color: var(--bbf-red);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    margin: 0 0 14px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-footer-system__brand h2 {
+    font-size: clamp(2.4rem, 6vw, 6rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin: 0 0 20px;
+    max-width: 620px;
+  }
+
+  .built-birdie-footer-system__brand span {
+    color: var(--bbf-muted);
+    display: block;
+    line-height: 1.55;
+    max-width: 560px;
+  }
+
+  .built-birdie-footer-system__links {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .built-birdie-footer-system__group {
+    background: color-mix(in srgb, var(--bbf-panel) 86%, transparent);
+    border: 1px solid var(--bbf-border);
+    border-radius: 8px;
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  .built-birdie-footer-system__group a {
+    color: var(--bbf-text);
+    font-weight: 760;
+    text-decoration: none;
+  }
+
+  .built-birdie-footer-system__group a:hover {
+    color: var(--bbf-green);
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-footer-system__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-footer-system {
+      padding: 36px 16px 48px;
+    }
+
+    .built-birdie-footer-system__links {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB footer system",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BUILT BIRDIE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for better rounds."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Golf accessories that look like they belong together. Build the bag, match the accent, and keep the setup clean."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#171717"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#c8c2b8"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Green",
+      "default": "#8fd6aa"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red",
+      "default": "#ef4d42"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_group",
+      "name": "Link group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Build"
+        },
+        {
+          "type": "text",
+          "id": "label_one",
+          "label": "Label one",
+          "default": "Build Your Bag"
+        },
+        {
+          "type": "url",
+          "id": "link_one",
+          "label": "Link one",
+          "default": "/pages/build-your-bag"
+        },
+        {
+          "type": "text",
+          "id": "label_two",
+          "label": "Label two",
+          "default": "Setup Finder"
+        },
+        {
+          "type": "url",
+          "id": "link_two",
+          "label": "Link two",
+          "default": "/pages/setup-finder"
+        },
+        {
+          "type": "text",
+          "id": "label_three",
+          "label": "Label three",
+          "default": "Color Lab"
+        },
+        {
+          "type": "url",
+          "id": "link_three",
+          "label": "Link three",
+          "default": "/pages/color-lab"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB footer system"
+    }
+  ]
+}
+{% endschema %}

@@ -11,6 +11,76 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "built_birdie_footer_system": {
+      "type": "built-birdie-footer-system",
+      "blocks": {
+        "footer_build": {
+          "type": "link_group",
+          "settings": {
+            "title": "Build",
+            "label_one": "Build Your Bag",
+            "link_one": "/pages/build-your-bag",
+            "label_two": "Setup Finder",
+            "link_two": "/pages/setup-finder",
+            "label_three": "Color Lab",
+            "link_three": "/pages/color-lab"
+          }
+        },
+        "footer_shop": {
+          "type": "link_group",
+          "settings": {
+            "title": "Shop",
+            "label_one": "Shop Hub",
+            "link_one": "/pages/shop-hub",
+            "label_two": "Kit Guide",
+            "link_two": "/pages/kit-guide",
+            "label_three": "Cart Upgrades",
+            "link_three": "/pages/cart-upgrades"
+          }
+        },
+        "footer_learn": {
+          "type": "link_group",
+          "settings": {
+            "title": "Learn",
+            "label_one": "Course Checklist",
+            "link_one": "/pages/course-checklist",
+            "label_two": "Materials & Fit",
+            "link_two": "/pages/materials-fit",
+            "label_three": "Care Guide",
+            "link_three": "/pages/care-guide"
+          }
+        },
+        "footer_support": {
+          "type": "link_group",
+          "settings": {
+            "title": "Support",
+            "label_one": "Support FAQ",
+            "link_one": "/pages/support-faq",
+            "label_two": "Shipping & Returns",
+            "link_two": "/pages/shipping-returns",
+            "label_three": "Team Orders",
+            "link_three": "/pages/team-orders"
+          }
+        }
+      },
+      "block_order": [
+        "footer_build",
+        "footer_shop",
+        "footer_learn",
+        "footer_support"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE",
+        "heading": "Built for better rounds.",
+        "subheading": "Designed for cleaner bags. Start with a base color, choose an accent, and keep the whole setup matched.",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -52,7 +122,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<h2>Join the Built Birdie list</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -76,7 +146,7 @@
             "text_f9CFLH": {
               "type": "text",
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
+                "text": "<p>Color drops, kit ideas, and cleaner bag setups.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -149,7 +219,7 @@
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -166,11 +236,11 @@
         "social_links_Ew63Kq": {
           "type": "social-links",
           "settings": {
-            "facebook_url": "https://www.facebook.com/",
-            "instagram_url": "https://www.instagram.com/",
-            "youtube_url": "https://www.youtube.com/",
-            "tiktok_url": "https://www.tiktok.com/",
-            "twitter_url": "https://x.com/"
+            "facebook_url": "",
+            "instagram_url": "",
+            "youtube_url": "",
+            "tiktok_url": "",
+            "twitter_url": ""
           },
           "blocks": {}
         }
@@ -193,6 +263,7 @@
     }
   },
   "order": [
+    "built_birdie_footer_system",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]
