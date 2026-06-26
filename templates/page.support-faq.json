@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "support_faq": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Build Your Bag work?",
+            "answer": "Choose your bag color, choose an accent, then pick a setup style. The configurator shows matching product slots that can be assigned in the theme editor."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I shop without using the configurator?",
+            "answer": "Yes. The shop hub and collection pages let you browse by category if you already know what you want."
+          }
+        },
+        "faq_three": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What colors are easiest to match?",
+            "answer": "Black, white, green, and gold are the safest accent choices for most golf bags."
+          }
+        },
+        "faq_four": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do I start for a gift?",
+            "answer": "Use the Gift Guide if you do not know the golfer's exact bag color. Neutral colors and useful accessories are the safest route."
+          }
+        },
+        "feature_contact": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Need help",
+            "title": "Contact Built Birdie",
+            "text": "Use the contact page for order help, product questions, or setup recommendations.",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "faq_one",
+        "faq_two",
+        "faq_three",
+        "faq_four",
+        "feature_contact"
+      ],
+      "settings": {
+        "eyebrow": "SUPPORT",
+        "heading": "Questions, answered cleanly.",
+        "subheading": "A simple support hub for Build Your Bag, matching colors, gifts, orders, and the shopping flow.",
+        "primary_label": "Contact Us",
+        "primary_link": "/pages/contact",
+        "secondary_label": "Shop Hub",
+        "secondary_link": "/pages/shop-hub",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "support_faq"
+  ]
+}

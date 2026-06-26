@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "shop_hub": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Start here",
+            "title": "Build Your Bag",
+            "text": "Choose your color system and build a coordinated setup.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BY"
+          }
+        },
+        "collection_towels": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Clean",
+            "title": "Towels & Brushes",
+            "text": "The most useful first layer for any bag.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        },
+        "collection_headcovers": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Cover",
+            "title": "Headcovers",
+            "text": "Make the top of the bag feel complete.",
+            "collection": "headcovers",
+            "link": "/collections/headcovers",
+            "initials": "HC"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Green",
+            "title": "Divot Tools & Markers",
+            "text": "Small details that carry the accent color.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        },
+        "collection_cart": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Ride",
+            "title": "Cart Upgrades",
+            "text": "Add useful organization beyond the bag.",
+            "collection": "cart-upgrades",
+            "link": "/collections/cart-upgrades",
+            "initials": "CU"
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Golf Desk Gifts",
+            "text": "Off-course golf pieces that still feel premium.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        }
+      },
+      "block_order": [
+        "collection_build",
+        "collection_towels",
+        "collection_headcovers",
+        "collection_tools",
+        "collection_cart",
+        "collection_gifts"
+      ],
+      "settings": {
+        "eyebrow": "SHOP HUB",
+        "heading": "Every Built Birdie path in one place.",
+        "subheading": "Browse by setup, category, or upgrade. Everything is organized around cleaner bags and better-matched golf accessories.",
+        "primary_label": "Use Configurator",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "shop_hub"
+  ]
+}

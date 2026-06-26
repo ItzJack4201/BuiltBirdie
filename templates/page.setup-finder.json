@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "setup_finder": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Tell us the bag",
+            "text": "Start with the color you carry most. That becomes the base."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the signal",
+            "text": "Choose one accent color. The best setups repeat it without getting loud."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose the intensity",
+            "text": "Clean, Starter, Tour, or Gift tells the system how much gear to recommend."
+          }
+        },
+        "feature_clean": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Clean",
+            "title": "Minimal essentials",
+            "text": "Best for golfers who want a sharper bag without adding clutter.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "feature_tour": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Tour",
+            "title": "Full setup",
+            "text": "Best for golfers who want towel, cover, tools, cart add-ons, and practice pieces aligned.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "feature_gift": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Safe and polished",
+            "text": "Best when you know they golf, but you do not know every detail of their bag.",
+            "link": "/pages/gift-guide"
+          }
+        }
+      },
+      "block_order": [
+        "step_one",
+        "step_two",
+        "step_three",
+        "feature_clean",
+        "feature_tour",
+        "feature_gift"
+      ],
+      "settings": {
+        "eyebrow": "SETUP FINDER",
+        "heading": "Find the right build before you shop.",
+        "subheading": "A simple decision path for turning bag color, accent color, and setup style into a cart that makes sense.",
+        "primary_label": "Start Configurator",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Read Kit Guide",
+        "secondary_link": "/pages/kit-guide",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "setup_finder"
+  ]
+}
