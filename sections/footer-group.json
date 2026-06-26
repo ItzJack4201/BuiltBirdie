@@ -20,8 +20,8 @@
             "title": "Build",
             "label_one": "Build Your Bag",
             "link_one": "/pages/build-your-bag",
-            "label_two": "Setup Finder",
-            "link_two": "/pages/setup-finder",
+            "label_two": "Starter Setup",
+            "link_two": "/pages/starter-setup",
             "label_three": "Perfect Cart Guide",
             "link_three": "/pages/perfect-cart-guide"
           }
@@ -34,8 +34,8 @@
             "link_one": "/pages/shop-hub",
             "label_two": "Kit Comparison",
             "link_two": "/pages/kit-comparison",
-            "label_three": "On-Course Essentials",
-            "link_three": "/pages/on-course-essentials"
+            "label_three": "Tour Setup",
+            "link_three": "/pages/tour-setup"
           }
         },
         "footer_learn": {
@@ -46,8 +46,8 @@
             "link_one": "/pages/course-checklist",
             "label_two": "Bag Color Guide",
             "link_two": "/pages/bag-color-guide",
-            "label_three": "Color Lab",
-            "link_three": "/pages/color-lab"
+            "label_three": "On-Course Essentials",
+            "link_three": "/pages/on-course-essentials"
           }
         },
         "footer_support": {
@@ -58,8 +58,8 @@
             "link_one": "/pages/support-faq",
             "label_two": "Shipping & Returns",
             "link_two": "/pages/shipping-returns",
-            "label_three": "Team Orders",
-            "link_three": "/pages/team-orders"
+            "label_three": "Gift Finder",
+            "link_three": "/pages/gift-finder"
           }
         }
       },

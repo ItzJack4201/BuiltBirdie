@@ -169,6 +169,92 @@
         "accent_red": "#b3261e"
       }
     },
+    "built_birdie_setup_matrix": {
+      "type": "built-birdie-setup-matrix",
+      "blocks": {
+        "matrix_clean": {
+          "type": "setup",
+          "settings": {
+            "kicker": "Clean",
+            "score": "86%",
+            "score_width": 86,
+            "title": "Clean Bag Kit",
+            "text": "A tight setup for golfers who want the bag sharper without adding noise.",
+            "base": "Any bag color",
+            "accent": "One quiet repeat",
+            "includes": "Towel, brush, marker",
+            "link_label": "View clean build",
+            "link": "/pages/clean-bag-kit"
+          }
+        },
+        "matrix_starter": {
+          "type": "setup",
+          "settings": {
+            "kicker": "Starter",
+            "score": "91%",
+            "score_width": 91,
+            "title": "Starter Setup",
+            "text": "The practical first build: useful pieces, matched colors, and no overthinking.",
+            "base": "Black, white, navy",
+            "accent": "Red, green, gold",
+            "includes": "Towel, tools, cover",
+            "link_label": "View starter build",
+            "link": "/pages/starter-setup"
+          }
+        },
+        "matrix_tour": {
+          "type": "setup",
+          "settings": {
+            "kicker": "Tour",
+            "score": "96%",
+            "score_width": 96,
+            "title": "Tour Setup",
+            "text": "A fuller course-ready system for golfers who want every visible detail dialed.",
+            "base": "Any bold base",
+            "accent": "Consistent contrast",
+            "includes": "Covers, tools, cart, practice",
+            "link_label": "View tour build",
+            "link": "/pages/tour-setup"
+          }
+        },
+        "matrix_gift": {
+          "type": "setup",
+          "settings": {
+            "kicker": "Gift",
+            "score": "88%",
+            "score_width": 88,
+            "title": "Gift Finder",
+            "text": "A polished path for golf gifts that feel useful, matched, and easy to understand.",
+            "base": "Safe neutrals",
+            "accent": "Red, green, gold",
+            "includes": "Desk gift, towel, tool",
+            "link_label": "Find a gift",
+            "link": "/pages/gift-finder"
+          }
+        }
+      },
+      "block_order": [
+        "matrix_clean",
+        "matrix_starter",
+        "matrix_tour",
+        "matrix_gift"
+      ],
+      "settings": {
+        "eyebrow": "SETUP MATRIX",
+        "heading": "Choose the build path.",
+        "subheading": "Four clean ways to build a better golf setup: start minimal, cover the essentials, go full course-ready, or make it giftable.",
+        "base_label": "Base",
+        "accent_label": "Accent",
+        "includes_label": "Includes",
+        "background_color": "#ffffff",
+        "panel_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
+    },
     "built_birdie_route_map": {
       "type": "built-birdie-route-map",
       "blocks": {
@@ -316,6 +402,7 @@
   },
   "order": [
     "built_birdie_hero",
+    "built_birdie_setup_matrix",
     "built_birdie_route_map"
   ]
 }

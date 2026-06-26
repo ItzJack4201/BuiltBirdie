@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "starter_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_core": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Core",
+            "title": "The practical first setup.",
+            "text": "Starter is for golfers who want the matching look and the pieces they will actually touch every round."
+          }
+        },
+        "feature_cover": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Cover",
+            "title": "Make the bag read as matched.",
+            "text": "A headcover carries more visual weight than most accessories, so it should repeat the accent clearly.",
+            "link": "/collections/headcovers"
+          }
+        },
+        "feature_tools": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Tools",
+            "title": "Add pocket-ready details.",
+            "text": "Divot tools and markers make the setup useful on the green and reinforce the color system.",
+            "link": "/collections/divot-tools-markers"
+          }
+        },
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Build",
+            "title": "Build Your Bag",
+            "text": "Start from the configurator and let the cart follow the bag color.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BB"
+          }
+        },
+        "collection_headcovers": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Visual",
+            "title": "Headcovers",
+            "text": "The fastest way to make the bag look complete.",
+            "collection": "headcovers",
+            "link": "/collections/headcovers",
+            "initials": "HC"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Green",
+            "title": "Divot Tools & Markers",
+            "text": "Small pieces that keep the accent consistent.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        }
+      },
+      "block_order": [
+        "feature_core",
+        "feature_cover",
+        "feature_tools",
+        "collection_build",
+        "collection_headcovers",
+        "collection_tools"
+      ],
+      "settings": {
+        "eyebrow": "STARTER SETUP",
+        "heading": "The easy first matched bag.",
+        "subheading": "A practical setup path for golfers who want coordinated essentials without building the full tour-level cart.",
+        "primary_label": "Build Starter Cart",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Compare Kits",
+        "secondary_link": "/pages/kit-comparison",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "starter_setup"
+  ]
+}

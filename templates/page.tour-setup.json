@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "tour_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_one": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Full",
+            "label": "A complete visible setup from bag to cart."
+          }
+        },
+        "stat_two": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Dialed",
+            "label": "Every repeat color should feel intentional."
+          }
+        },
+        "feature_cart": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Cart",
+            "title": "The cart should match the bag system.",
+            "text": "Tour setup extends beyond the bag. The ride should keep useful items organized and visible.",
+            "link": "/collections/cart-upgrades"
+          }
+        },
+        "feature_practice": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Practice",
+            "title": "Keep improvement close.",
+            "text": "Practice pieces belong in the system when they are easy to carry, use, and reset.",
+            "link": "/collections/practice-training"
+          }
+        },
+        "feature_finish": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Finish",
+            "title": "Repeat the accent without flooding the bag.",
+            "text": "Tour should feel complete, not crowded. Let the main pieces do the work."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Build the visible layer",
+            "text": "Headcovers, towel, and tools establish the color system."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Upgrade the cart layer",
+            "text": "Add organization pieces that make the round smoother."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Finish with training",
+            "text": "Add practice pieces only when they fit the golfer's actual routine."
+          }
+        }
+      },
+      "block_order": [
+        "stat_one",
+        "stat_two",
+        "feature_cart",
+        "feature_practice",
+        "feature_finish",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "TOUR SETUP",
+        "heading": "A fuller build, still clean.",
+        "subheading": "A course-ready setup for golfers who want the bag, cart, tools, and practice pieces to feel like one system.",
+        "primary_label": "Build Tour Cart",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Cart Upgrades",
+        "secondary_link": "/collections/cart-upgrades",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "tour_setup"
+  ]
+}
