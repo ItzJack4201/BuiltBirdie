@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "cart_upgrades": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Ride cleaner",
+            "title": "Upgrade the cart zone",
+            "text": "Small cart accessories can make a round feel less messy and more organized."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Match it",
+            "title": "Keep the cart tied to the bag",
+            "text": "Use the same accent color on cart add-ons so the setup still feels connected."
+          }
+        },
+        "collection_cart": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Collection",
+            "title": "Cart Upgrades",
+            "text": "Tools and add-ons for better organized rounds.",
+            "collection": "cart-upgrades",
+            "link": "/collections/cart-upgrades",
+            "initials": "CU"
+          }
+        },
+        "collection_clean": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Pair with",
+            "title": "Towels & Brushes",
+            "text": "Keep the cart and bag cleaner between shots.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "collection_cart",
+        "collection_clean"
+      ],
+      "settings": {
+        "eyebrow": "CART UPGRADES",
+        "heading": "Make the ride cleaner.",
+        "subheading": "A modern golf setup does not stop at the bag. Keep the cart useful, clean, and visually tied to the rest of your gear.",
+        "primary_label": "Shop Cart Upgrades",
+        "primary_link": "/collections/cart-upgrades",
+        "secondary_label": "Build Full Setup",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "cart_upgrades"
+  ]
+}

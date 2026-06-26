@@ -45,6 +45,11 @@
         <a class="built-birdie__button built-birdie__button--primary" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
         <a class="built-birdie__button built-birdie__button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
       </div>
+      <div class="built-birdie__signal-row" aria-label="{{ section.settings.signal_label | escape }}">
+        <span>{{ section.settings.signal_one }}</span>
+        <span>{{ section.settings.signal_two }}</span>
+        <span>{{ section.settings.signal_three }}</span>
+      </div>
     </div>
 
     <div class="built-birdie__hero-panel" aria-label="{{ section.settings.builder_heading | escape }}">
@@ -212,7 +217,11 @@
 
 {% stylesheet %}
   .built-birdie {
-    background: linear-gradient(180deg, var(--bb-cream), var(--bb-bg) 34%);
+    background:
+      linear-gradient(90deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, var(--bb-cream), var(--bb-bg) 34%);
+    background-size: 44px 44px, 44px 44px, auto;
     color: var(--bb-text);
     overflow: hidden;
     padding: clamp(44px, 7vw, 96px) clamp(18px, 4vw, 56px);
@@ -307,6 +316,25 @@
   .built-birdie__button--secondary {
     border: 1px solid var(--bb-border);
     color: var(--bb-text);
+  }
+
+  .built-birdie__signal-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block-start: 24px;
+  }
+
+  .built-birdie__signal-row span {
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--bb-border);
+    border-radius: 999px;
+    color: var(--bb-green);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    padding: 8px 11px;
+    text-transform: uppercase;
   }
 
   .built-birdie__hero-panel {
@@ -717,6 +745,30 @@
       "type": "url",
       "id": "secondary_link",
       "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "signal_label",
+      "label": "Signal row label",
+      "default": "Build system highlights"
+    },
+    {
+      "type": "text",
+      "id": "signal_one",
+      "label": "Signal one",
+      "default": "Color locked"
+    },
+    {
+      "type": "text",
+      "id": "signal_two",
+      "label": "Signal two",
+      "default": "Kit ready"
+    },
+    {
+      "type": "text",
+      "id": "signal_three",
+      "label": "Signal three",
+      "default": "Cart built"
     },
     {
       "type": "header",

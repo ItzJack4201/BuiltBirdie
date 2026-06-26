@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "color_lab": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_black": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Base",
+            "title": "Black bag",
+            "text": "Best with white, red, gold, or green accents for a sharp modern setup."
+          }
+        },
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Base",
+            "title": "White bag",
+            "text": "Works cleanest with black, navy, green, or red details."
+          }
+        },
+        "feature_green": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Base",
+            "title": "Green bag",
+            "text": "Pair with cream, black, gold, or white for a classic golf signal."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose base",
+            "text": "Use the dominant color of your bag as the anchor."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick one accent",
+            "text": "Keep the secondary color consistent across towel, cover, marker, and cart pieces."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Repeat the signal",
+            "text": "Small repeats make the whole bag feel more expensive."
+          }
+        }
+      },
+      "block_order": [
+        "feature_black",
+        "feature_white",
+        "feature_green",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "COLOR LAB",
+        "heading": "Match the bag without overthinking it.",
+        "subheading": "Built Birdie keeps the color system simple: one base, one accent, and accessories that repeat the same signal.",
+        "primary_label": "Open Configurator",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Collections",
+        "secondary_link": "/collections",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "color_lab"
+  ]
+}
