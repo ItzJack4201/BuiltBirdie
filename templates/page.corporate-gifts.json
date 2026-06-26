@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "corporate_gifts": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Clients",
+            "title": "Golf gifts with a cleaner signal",
+            "text": "Build client gifts around neutral colors, useful accessories, and packaging that feels more premium than standard outing swag."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Teams",
+            "title": "Color systems for groups",
+            "text": "Match kits to company colors, event colors, or safe golf neutrals."
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Events",
+            "title": "Built for outings",
+            "text": "Use desk gifts, divot tools, towels, and cart pieces as sponsor table or player gift options."
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Golf Desk Gifts",
+            "text": "The safest off-course gifting route.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Small",
+            "title": "Divot Tools & Markers",
+            "text": "Compact pieces that work well in quantity.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        },
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Kit",
+            "title": "Build Your Bag",
+            "text": "For higher-touch gifts with a full setup feel.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BB"
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "feature_three",
+        "collection_gifts",
+        "collection_tools",
+        "collection_build"
+      ],
+      "settings": {
+        "eyebrow": "CORPORATE GIFTS",
+        "heading": "Golf gifts that do not feel generic.",
+        "subheading": "A higher-value gifting page for client kits, company outings, sponsor tables, and clean group golf accessories.",
+        "primary_label": "Contact Built Birdie",
+        "primary_link": "/pages/contact",
+        "secondary_label": "Gift Guide",
+        "secondary_link": "/pages/gift-guide",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "corporate_gifts"
+  ]
+}

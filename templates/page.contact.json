@@ -8,6 +8,53 @@
  * ------------------------------------------------------------
  */{
   "sections": {
+    "built_birdie_contact_system": {
+      "type": "built-birdie-utility-system",
+      "blocks": {
+        "route_support": {
+          "type": "route",
+          "settings": {
+            "kicker": "Help",
+            "title": "Support FAQ",
+            "text": "Check quick answers before sending a message.",
+            "link": "/pages/support-faq"
+          }
+        },
+        "route_team": {
+          "type": "route",
+          "settings": {
+            "kicker": "Groups",
+            "title": "Team Orders",
+            "text": "Talk through event, group, or outing kits.",
+            "link": "/pages/team-orders"
+          }
+        },
+        "route_gifts": {
+          "type": "route",
+          "settings": {
+            "kicker": "Gifts",
+            "title": "Corporate Gifts",
+            "text": "Plan client gifts or clean golf bundles.",
+            "link": "/pages/corporate-gifts"
+          }
+        }
+      },
+      "block_order": [
+        "route_support",
+        "route_team",
+        "route_gifts"
+      ],
+      "settings": {
+        "eyebrow": "CONTACT BUILT BIRDIE",
+        "heading": "Need help building the setup?",
+        "subheading": "Send a note about orders, product questions, team kits, gifting, or which colors belong together.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Support FAQ",
+        "secondary_link": "/pages/support-faq",
+        "console_code": "HELP"
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -139,6 +186,7 @@
     }
   },
   "order": [
+    "built_birdie_contact_system",
     "main",
     "form"
   ]

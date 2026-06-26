@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "ambassadors": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Players",
+            "title": "Built around real setups",
+            "text": "An ambassador page gives Built Birdie a place for creators, league golfers, and everyday players who care about clean gear."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Content",
+            "title": "Show the bag, not a script",
+            "text": "The best ambassador content is simple: what is in the bag, why the colors work, and how the kit gets used."
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Community",
+            "title": "Clean setups travel",
+            "text": "A consistent visual system makes social content, course photos, and customer bags feel connected."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Apply",
+            "text": "Send your golf profile, bag colors, and how you would show the setup."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Build",
+            "text": "Use the configurator to create a setup that fits your real bag."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Share",
+            "text": "Create simple, useful content around the gear in play."
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "feature_three",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "AMBASSADORS",
+        "heading": "For golfers with clean setups.",
+        "subheading": "A simple community page for future Built Birdie ambassadors, creators, league golfers, and players who care about the look of the bag.",
+        "primary_label": "Contact Built Birdie",
+        "primary_link": "/pages/contact",
+        "secondary_label": "Build Your Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "ambassadors"
+  ]
+}
