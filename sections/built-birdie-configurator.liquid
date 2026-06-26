@@ -63,7 +63,15 @@
             {% for block in section.blocks %}
               {% if block.type == 'style_card' %}
                 <label class="built-birdie-configurator__style" {{ block.shopify_attributes }}>
-                  <input type="radio" name="bb-style-{{ section.id }}" value="{{ block.settings.style_key }}" data-bb-choice="style" {% if forloop.first %}checked{% endif %}>
+                  <input
+                    type="radio"
+                    name="bb-style-{{ section.id }}"
+                    value="{{ block.settings.style_key }}"
+                    data-bb-choice="style"
+                    data-bb-style-title="{{ block.settings.title | escape }}"
+                    data-bb-style-note="{{ block.settings.cart_note | escape }}"
+                    {% if forloop.first %}checked{% endif %}
+                  >
                   <span>{{ block.settings.title }}</span>
                   <small>{{ block.settings.description }}</small>
                 </label>
@@ -77,6 +85,27 @@
         <p class="built-birdie-configurator__eyebrow">{{ section.settings.summary_eyebrow }}</p>
         <h2>{{ section.settings.summary_heading }}</h2>
         <p data-bb-summary-copy>{{ section.settings.summary_copy }}</p>
+        <div class="built-birdie-configurator__console">
+          <div class="built-birdie-configurator__preview" aria-hidden="true" data-bb-preview>
+            <span></span>
+            <i></i>
+          </div>
+          <div class="built-birdie-configurator__readout">
+            <span>{{ section.settings.build_code_label }}</span>
+            <strong data-bb-build-code>BB-BLK-BLK-CLN</strong>
+            <small data-bb-kit-note>{{ section.settings.default_kit_note }}</small>
+          </div>
+        </div>
+        <div class="built-birdie-configurator__metrics">
+          <div>
+            <span>{{ section.settings.score_label }}</span>
+            <strong data-bb-score>0%</strong>
+          </div>
+          <div>
+            <span>{{ section.settings.included_label }}</span>
+            <strong data-bb-included>0</strong>
+          </div>
+        </div>
         <div class="built-birdie-configurator__selected">
           <span data-bb-selected-bag>Black bag</span>
           <span data-bb-selected-accent>Black accent</span>
@@ -224,7 +253,7 @@
   .built-birdie-configurator__product {
     background: rgba(255, 255, 255, 0.84);
     border: 1px solid var(--bbc-border);
-    border-radius: 24px;
+    border-radius: 8px;
   }
 
   .built-birdie-configurator__builder {
@@ -336,7 +365,7 @@
 
   .built-birdie-configurator__style {
     border: 1px solid var(--bbc-border);
-    border-radius: 18px;
+    border-radius: 8px;
     display: grid;
     gap: 8px;
     min-height: 126px;
@@ -362,6 +391,125 @@
     margin-block-end: 12px;
   }
 
+  .built-birdie-configurator__console {
+    align-items: stretch;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      var(--bbc-text);
+    background-size: 22px 22px, 22px 22px, auto;
+    border-radius: 8px;
+    color: var(--bbc-bg);
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 112px minmax(0, 1fr);
+    margin-block-start: 20px;
+    padding: 16px;
+  }
+
+  .built-birdie-configurator__preview {
+    align-items: end;
+    aspect-ratio: 1;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .built-birdie-configurator__preview::before {
+    background: var(--bb-bag-swatch, #101010);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 10px 10px 6px 6px;
+    bottom: 18px;
+    content: "";
+    height: 58px;
+    position: absolute;
+    width: 62px;
+  }
+
+  .built-birdie-configurator__preview::after {
+    background: transparent;
+    border: 5px solid var(--bb-bag-swatch, #101010);
+    border-bottom: 0;
+    border-radius: 999px 999px 0 0;
+    content: "";
+    height: 32px;
+    position: absolute;
+    top: 19px;
+    width: 42px;
+  }
+
+  .built-birdie-configurator__preview span {
+    background: var(--bb-accent-swatch, #101010);
+    bottom: 34px;
+    height: 8px;
+    position: absolute;
+    width: 74px;
+    z-index: 1;
+  }
+
+  .built-birdie-configurator__preview i {
+    background: var(--bbc-red);
+    border-radius: 999px;
+    bottom: 68px;
+    height: 9px;
+    position: absolute;
+    right: 25px;
+    width: 9px;
+    z-index: 1;
+  }
+
+  .built-birdie-configurator__readout {
+    align-content: center;
+    display: grid;
+    gap: 8px;
+  }
+
+  .built-birdie-configurator__readout span,
+  .built-birdie-configurator__metrics span {
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-configurator__readout strong {
+    color: var(--bbc-bg);
+    font-size: clamp(1.25rem, 3.2vw, 2rem);
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .built-birdie-configurator__readout small {
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.4;
+  }
+
+  .built-birdie-configurator__metrics {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: 10px;
+  }
+
+  .built-birdie-configurator__metrics div {
+    background: var(--bbc-text);
+    border-radius: 8px;
+    display: grid;
+    gap: 4px;
+    padding: 12px;
+  }
+
+  .built-birdie-configurator__metrics strong {
+    color: var(--bbc-bg);
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
   .built-birdie-configurator__selected {
     display: flex;
     flex-wrap: wrap;
@@ -371,7 +519,7 @@
 
   .built-birdie-configurator__selected span {
     background: var(--bbc-cream);
-    border-radius: 999px;
+    border-radius: 8px;
     font-size: 0.82rem;
     font-weight: 800;
     padding: 7px 10px;
@@ -477,7 +625,7 @@
     align-items: center;
     aspect-ratio: 1.2;
     background: linear-gradient(135deg, var(--bbc-cream), #ffffff);
-    border-radius: 16px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -542,6 +690,10 @@
     .built-birdie-configurator h1 {
       font-size: clamp(3rem, 18vw, 5rem);
     }
+
+    .built-birdie-configurator__console {
+      grid-template-columns: 1fr;
+    }
   }
 {% endstylesheet %}
 
@@ -552,6 +704,28 @@
   });
 
   const labelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+  const swatches = {
+    black: '#101010',
+    white: '#ffffff',
+    navy: '#17355f',
+    blue: '#17355f',
+    green: '#0f3f2e',
+    red: '#b3261e',
+    gold: '#c59a2d'
+  };
+  const codes = {
+    black: 'BLK',
+    white: 'WHT',
+    navy: 'NVY',
+    blue: 'BLU',
+    green: 'GRN',
+    red: 'RED',
+    gold: 'GLD',
+    clean: 'CLN',
+    starter: 'STR',
+    tour: 'TR',
+    gift: 'GFT'
+  };
 
   document.querySelectorAll('[data-bb-configurator]').forEach((configurator) => {
     const products = Array.from(configurator.querySelectorAll('[data-bb-product]'));
@@ -561,6 +735,11 @@
     const selectedBag = configurator.querySelector('[data-bb-selected-bag]');
     const selectedAccent = configurator.querySelector('[data-bb-selected-accent]');
     const selectedStyle = configurator.querySelector('[data-bb-selected-style]');
+    const buildCode = configurator.querySelector('[data-bb-build-code]');
+    const kitNote = configurator.querySelector('[data-bb-kit-note]');
+    const score = configurator.querySelector('[data-bb-score]');
+    const includedCount = configurator.querySelector('[data-bb-included]');
+    const preview = configurator.querySelector('[data-bb-preview]');
 
     const getChoice = (type) => configurator.querySelector(`[data-bb-choice="${type}"]:checked`)?.value || 'all';
 
@@ -588,10 +767,20 @@
 
       const included = visibleIncludedProducts();
       const cents = included.reduce((sum, product) => sum + Number(product.dataset.price || 0), 0);
+      const styleInput = configurator.querySelector('[data-bb-choice="style"]:checked');
+      const styleTitle = styleInput?.dataset.bbStyleTitle || labelize(style);
+      const styleNote = styleInput?.dataset.bbStyleNote || '';
+      const matchScore = Math.min(98, 62 + included.length * 9 + (bag !== accent ? 6 : 0));
 
       selectedBag.textContent = `${labelize(bag)} bag`;
       selectedAccent.textContent = `${labelize(accent)} accent`;
-      selectedStyle.textContent = `${labelize(style)} setup`;
+      selectedStyle.textContent = `${styleTitle} setup`;
+      buildCode.textContent = `BB-${codes[bag] || bag.slice(0, 3).toUpperCase()}-${codes[accent] || accent.slice(0, 3).toUpperCase()}-${codes[style] || style.slice(0, 3).toUpperCase()}`;
+      kitNote.textContent = styleNote;
+      score.textContent = `${matchScore}%`;
+      includedCount.textContent = included.length;
+      preview.style.setProperty('--bb-bag-swatch', swatches[bag] || '#101010');
+      preview.style.setProperty('--bb-accent-swatch', swatches[accent] || '#101010');
       total.textContent = moneyFormatter.format(cents / 100);
       addButton.disabled = included.length === 0;
       message.textContent = included.length === 0 ? 'Assign products to these slots in the theme editor to enable cart building.' : '';
@@ -743,6 +932,30 @@
     },
     {
       "type": "text",
+      "id": "build_code_label",
+      "label": "Build code label",
+      "default": "Build code"
+    },
+    {
+      "type": "text",
+      "id": "score_label",
+      "label": "Score label",
+      "default": "Match score"
+    },
+    {
+      "type": "text",
+      "id": "included_label",
+      "label": "Included label",
+      "default": "Items"
+    },
+    {
+      "type": "textarea",
+      "id": "default_kit_note",
+      "label": "Default kit note",
+      "default": "A clean matching setup built around your selected base and accent."
+    },
+    {
+      "type": "text",
       "id": "include_label",
       "label": "Include label",
       "default": "Include"
@@ -833,6 +1046,12 @@
           "id": "description",
           "label": "Description",
           "default": "Minimal, useful, and easy to keep sharp."
+        },
+        {
+          "type": "textarea",
+          "id": "cart_note",
+          "label": "Cart note",
+          "default": "A clean matching setup built around your selected base and accent."
         }
       ]
     },
