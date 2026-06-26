@@ -357,6 +357,15 @@
             "link": "/pages/course-checklist"
           }
         },
+        "route_bag_reset": {
+          "type": "route",
+          "settings": {
+            "kicker": "Reset",
+            "title": "Bag Reset Guide",
+            "text": "Clean up a cluttered setup and rebuild the visible layer.",
+            "link": "/pages/bag-reset-guide"
+          }
+        },
         "route_essentials": {
           "type": "route",
           "settings": {
@@ -374,6 +383,15 @@
             "text": "See how the builder turns color and style choices into a cart.",
             "link": "/pages/perfect-cart-guide"
           }
+        },
+        "route_tournament": {
+          "type": "route",
+          "settings": {
+            "kicker": "Events",
+            "title": "Tournament Prizes",
+            "text": "Plan cleaner prize tables, tee gifts, and group golf kits.",
+            "link": "/pages/tournament-prizes"
+          }
         }
       },
       "block_order": [
@@ -388,8 +406,10 @@
         "route_support",
         "route_corporate",
         "route_checklist",
+        "route_bag_reset",
         "route_essentials",
-        "route_cart_guide"
+        "route_cart_guide",
+        "route_tournament"
       ],
       "settings": {
         "eyebrow": "BUILT BIRDIE ROUTES",

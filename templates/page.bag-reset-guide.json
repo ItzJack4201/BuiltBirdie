@@ -1,0 +1,90 @@
+{
+  "sections": {
+    "bag_reset_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Strip the noise",
+            "text": "Pull off mismatched towels, random clips, old tags, and accessories that do not help the next round."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose the visible system",
+            "text": "Pick one base color and one accent before adding anything back."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Rebuild from clean essentials",
+            "text": "Start towel, brush, marker, and cover. Add cart or practice pieces only if they fit the routine."
+          }
+        },
+        "feature_clean": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Reset",
+            "title": "Make the bag easier to read.",
+            "text": "A reset is not about buying more. It is about removing friction and rebuilding the visible layer with intent."
+          }
+        },
+        "feature_storage": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Organize",
+            "title": "Keep daily-use pieces reachable.",
+            "text": "The pieces used every round should be easy to grab, clean, and reset before the next tee time."
+          }
+        },
+        "collection_clean": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Core",
+            "title": "Towels & Brushes",
+            "text": "The quickest way to reset the bag's daily-use layer.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Green",
+            "title": "Divot Tools & Markers",
+            "text": "Small pieces that make the reset feel finished.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        }
+      },
+      "block_order": [
+        "step_one",
+        "step_two",
+        "step_three",
+        "feature_clean",
+        "feature_storage",
+        "collection_clean",
+        "collection_tools"
+      ],
+      "settings": {
+        "eyebrow": "BAG RESET GUIDE",
+        "heading": "Reset the bag. Keep the good stuff.",
+        "subheading": "A simple cleanup path for turning a cluttered golf bag into a sharper, easier-to-use setup.",
+        "primary_label": "Start Setup Finder",
+        "primary_link": "/pages/setup-finder",
+        "secondary_label": "Build Clean Kit",
+        "secondary_link": "/pages/clean-bag-kit",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "bag_reset_guide"
+  ]
+}

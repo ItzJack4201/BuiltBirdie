@@ -44,8 +44,8 @@
             "title": "Learn",
             "label_one": "Course Checklist",
             "link_one": "/pages/course-checklist",
-            "label_two": "Bag Color Guide",
-            "link_two": "/pages/bag-color-guide",
+            "label_two": "Bag Reset Guide",
+            "link_two": "/pages/bag-reset-guide",
             "label_three": "On-Course Essentials",
             "link_three": "/pages/on-course-essentials"
           }
@@ -56,10 +56,10 @@
             "title": "Support",
             "label_one": "Support FAQ",
             "link_one": "/pages/support-faq",
-            "label_two": "Shipping & Returns",
-            "link_two": "/pages/shipping-returns",
-            "label_three": "Gift Finder",
-            "link_three": "/pages/gift-finder"
+            "label_two": "New Golfer Gifts",
+            "link_two": "/pages/new-golfer-gifts",
+            "label_three": "Tournament Prizes",
+            "link_three": "/pages/tournament-prizes"
           }
         }
       },
