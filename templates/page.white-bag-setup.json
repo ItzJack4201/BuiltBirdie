@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "white_bag_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_black": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Black keeps it structured.",
+            "text": "Black details make a white bag feel intentional and easier to maintain visually."
+          }
+        },
+        "feature_navy": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Navy makes it athletic.",
+            "text": "Navy is a safe premium accent for white bags, especially when you want less contrast than black."
+          }
+        },
+        "feature_green": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Green brings the golf signal.",
+            "text": "Green works when it is repeated lightly across the towel, marker, or cart piece."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Keep it bright",
+            "text": "Let the white base stay clean and simple."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Use one dark accent",
+            "text": "Black, navy, or green will give the setup enough structure."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Repeat sparingly",
+            "text": "White bags look best when the accent is precise, not everywhere."
+          }
+        }
+      },
+      "block_order": [
+        "feature_black",
+        "feature_navy",
+        "feature_green",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "WHITE BAG SETUP",
+        "heading": "Build around a white bag.",
+        "subheading": "White bags look premium when the accent is simple, dark, and repeated with restraint.",
+        "primary_label": "Build White Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "white_bag_setup"
+  ]
+}

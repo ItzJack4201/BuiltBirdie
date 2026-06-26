@@ -44,10 +44,10 @@
             "title": "Learn",
             "label_one": "Course Checklist",
             "link_one": "/pages/course-checklist",
-            "label_two": "Bag Reset Guide",
-            "link_two": "/pages/bag-reset-guide",
-            "label_three": "On-Course Essentials",
-            "link_three": "/pages/on-course-essentials"
+            "label_two": "Color Lab",
+            "link_two": "/pages/color-lab",
+            "label_three": "Bag Reset Guide",
+            "link_three": "/pages/bag-reset-guide"
           }
         },
         "footer_support": {

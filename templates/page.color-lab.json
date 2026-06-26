@@ -74,9 +74,120 @@
         "accent_green": "#8fd6aa",
         "accent_red": "#ef4d42"
       }
+    },
+    "color_matrix": {
+      "type": "built-birdie-color-matrix",
+      "blocks": {
+        "base_black": {
+          "type": "base",
+          "settings": {
+            "kicker": "Base",
+            "title": "Black bag",
+            "text": "High contrast, modern, and the easiest base for a sharp matched setup.",
+            "base_color": "#101010",
+            "accent_one_label": "White",
+            "accent_one_color": "#ffffff",
+            "accent_two_label": "Red",
+            "accent_two_color": "#b3261e",
+            "accent_three_label": "Gold",
+            "accent_three_color": "#c59a2d",
+            "link_label": "View black setup",
+            "link": "/pages/black-bag-setup"
+          }
+        },
+        "base_white": {
+          "type": "base",
+          "settings": {
+            "kicker": "Base",
+            "title": "White bag",
+            "text": "Clean and premium when the accent is restrained and repeated sparingly.",
+            "base_color": "#ffffff",
+            "accent_one_label": "Black",
+            "accent_one_color": "#101010",
+            "accent_two_label": "Navy",
+            "accent_two_color": "#17355f",
+            "accent_three_label": "Green",
+            "accent_three_color": "#0f3f2e",
+            "link_label": "View white setup",
+            "link": "/pages/white-bag-setup"
+          }
+        },
+        "base_navy": {
+          "type": "base",
+          "settings": {
+            "kicker": "Base",
+            "title": "Navy bag",
+            "text": "Athletic and safe, especially with crisp white, gold, or red details.",
+            "base_color": "#17355f",
+            "accent_one_label": "White",
+            "accent_one_color": "#ffffff",
+            "accent_two_label": "Gold",
+            "accent_two_color": "#c59a2d",
+            "accent_three_label": "Red",
+            "accent_three_color": "#b3261e",
+            "link_label": "View navy setup",
+            "link": "/pages/navy-bag-setup"
+          }
+        },
+        "base_green": {
+          "type": "base",
+          "settings": {
+            "kicker": "Base",
+            "title": "Green bag",
+            "text": "Classic golf energy. Keep the accent calm so the setup feels mature.",
+            "base_color": "#0f3f2e",
+            "accent_one_label": "Cream",
+            "accent_one_color": "#f7f1e7",
+            "accent_two_label": "White",
+            "accent_two_color": "#ffffff",
+            "accent_three_label": "Gold",
+            "accent_three_color": "#c59a2d",
+            "link_label": "View green setup",
+            "link": "/pages/green-bag-setup"
+          }
+        },
+        "base_red": {
+          "type": "base",
+          "settings": {
+            "kicker": "Base",
+            "title": "Red bag",
+            "text": "Already a statement. Use quiet accents and avoid stacking more loud color.",
+            "base_color": "#b3261e",
+            "accent_one_label": "Black",
+            "accent_one_color": "#101010",
+            "accent_two_label": "White",
+            "accent_two_color": "#ffffff",
+            "accent_three_label": "Navy",
+            "accent_three_color": "#17355f",
+            "link_label": "View red setup",
+            "link": "/pages/red-bag-setup"
+          }
+        }
+      },
+      "block_order": [
+        "base_black",
+        "base_white",
+        "base_navy",
+        "base_green",
+        "base_red"
+      ],
+      "settings": {
+        "eyebrow": "COLOR MATRIX",
+        "heading": "Choose the base. Lock the accent.",
+        "subheading": "Use the matrix to move from bag color to a cleaner matching setup without stacking too many colors.",
+        "accent_label": "accent options",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
     }
   },
   "order": [
-    "color_lab"
+    "color_lab",
+    "color_matrix"
   ]
 }

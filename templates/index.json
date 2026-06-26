@@ -321,6 +321,15 @@
             "link": "/pages/bag-color-guide"
           }
         },
+        "route_black_setup": {
+          "type": "route",
+          "settings": {
+            "kicker": "Color",
+            "title": "Black Bag Setup",
+            "text": "Start with the easiest high-contrast base and choose the accent.",
+            "link": "/pages/black-bag-setup"
+          }
+        },
         "route_gifts": {
           "type": "route",
           "settings": {
@@ -402,6 +411,7 @@
         "route_kit_compare",
         "route_color",
         "route_color_guide",
+        "route_black_setup",
         "route_gifts",
         "route_support",
         "route_corporate",
