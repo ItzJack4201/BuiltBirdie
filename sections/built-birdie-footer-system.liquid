@@ -22,9 +22,18 @@
       {% for block in section.blocks %}
         <div class="built-birdie-footer-system__group" {{ block.shopify_attributes }}>
           <p>{{ block.settings.title }}</p>
-          <a href="{{ block.settings.link_one }}">{{ block.settings.label_one }}</a>
-          <a href="{{ block.settings.link_two }}">{{ block.settings.label_two }}</a>
-          <a href="{{ block.settings.link_three }}">{{ block.settings.label_three }}</a>
+          {% capture link_one_url %}
+            {% render 'built-birdie-safe-link', link: block.settings.link_one, fallback: routes.root_url %}
+          {% endcapture %}
+          {% capture link_two_url %}
+            {% render 'built-birdie-safe-link', link: block.settings.link_two, fallback: routes.root_url %}
+          {% endcapture %}
+          {% capture link_three_url %}
+            {% render 'built-birdie-safe-link', link: block.settings.link_three, fallback: routes.root_url %}
+          {% endcapture %}
+          <a href="{{ link_one_url | strip }}">{{ block.settings.label_one }}</a>
+          <a href="{{ link_two_url | strip }}">{{ block.settings.label_two }}</a>
+          <a href="{{ link_three_url | strip }}">{{ block.settings.label_three }}</a>
         </div>
       {% endfor %}
     </div>

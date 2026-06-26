@@ -11,13 +11,19 @@
 
 <nav id="BuiltBirdieLaunchBar-{{ section.id }}" class="built-birdie-launch-bar" aria-label="{{ section.settings.nav_label | escape }}">
   <div class="built-birdie-launch-bar__inner">
-    <a class="built-birdie-launch-bar__brand" href="{{ section.settings.brand_link }}">
+    {% capture brand_url %}
+      {% render 'built-birdie-safe-link', link: section.settings.brand_link, fallback: routes.root_url %}
+    {% endcapture %}
+    <a class="built-birdie-launch-bar__brand" href="{{ brand_url | strip }}">
       <span>{{ section.settings.eyebrow }}</span>
       <strong>{{ section.settings.heading }}</strong>
     </a>
     <div class="built-birdie-launch-bar__links">
       {% for block in section.blocks %}
-        <a href="{{ block.settings.link }}" data-group="{{ block.settings.group }}" {{ block.shopify_attributes }}>
+        {% capture route_url %}
+          {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+        {% endcapture %}
+        <a href="{{ route_url | strip }}" data-group="{{ block.settings.group }}" {{ block.shopify_attributes }}>
           <span>{{ block.settings.kicker }}</span>
           {{ block.settings.label }}
         </a>

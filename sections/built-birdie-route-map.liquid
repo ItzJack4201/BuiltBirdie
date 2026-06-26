@@ -28,7 +28,10 @@
 
     <div class="built-birdie-route-map__grid">
       {% for block in section.blocks %}
-        <a class="built-birdie-route-map__card" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+        {% capture route_url %}
+          {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+        {% endcapture %}
+        <a class="built-birdie-route-map__card" href="{{ route_url | strip }}" {{ block.shopify_attributes }}>
           <span>{{ block.settings.kicker }}</span>
           <strong>{{ block.settings.title }}</strong>
           <p>{{ block.settings.text }}</p>

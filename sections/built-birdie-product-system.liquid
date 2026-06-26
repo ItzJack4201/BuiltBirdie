@@ -5,6 +5,10 @@
   endif
 %}
 
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
 {% style %}
   #BuiltBirdieProductSystem-{{ section.id }} {
     --bbp-bg: {{ section.settings.background_color }};
@@ -39,7 +43,7 @@
           {% endif %}
           <span>{{ section.settings.system_tag }}</span>
         </div>
-        <a class="built-birdie-product-system__button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+        <a class="built-birdie-product-system__button" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
       </div>
 
       <div class="built-birdie-product-system__cards">

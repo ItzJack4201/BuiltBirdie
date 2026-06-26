@@ -3,6 +3,14 @@
   assign secondary_url = section.settings.secondary_link
 %}
 
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% capture secondary_safe_url %}
+  {% render 'built-birdie-safe-link', link: secondary_url, fallback: routes.root_url %}
+{% endcapture %}
+
 {% style %}
   #BuiltBirdiePageSuite-{{ section.id }} {
     --bbp-bg: {{ section.settings.background_color }};
@@ -25,10 +33,10 @@
         <p>{{ section.settings.subheading }}</p>
         <div class="built-birdie-page-suite__actions">
           {% if section.settings.primary_label != blank and primary_url != blank %}
-            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--primary" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--primary" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
           {% endif %}
           {% if section.settings.secondary_label != blank and secondary_url != blank %}
-            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--secondary" href="{{ secondary_safe_url | strip }}">{{ section.settings.secondary_label }}</a>
           {% endif %}
         </div>
       </div>
@@ -50,7 +58,10 @@
                 assign feature_tag = 'a'
               endif
             %}
-            <{{ feature_tag }} class="built-birdie-page-suite__card built-birdie-page-suite__card--feature" {% if feature_url != blank %}href="{{ feature_url }}"{% endif %} {{ block.shopify_attributes }}>
+            {% capture feature_safe_url %}
+              {% render 'built-birdie-safe-link', link: feature_url, fallback: routes.root_url %}
+            {% endcapture %}
+            <{{ feature_tag }} class="built-birdie-page-suite__card built-birdie-page-suite__card--feature" {% if feature_url != blank %}href="{{ feature_safe_url | strip }}"{% endif %} {{ block.shopify_attributes }}>
               <p>{{ block.settings.kicker }}</p>
               <h2>{{ block.settings.title }}</h2>
               <span>{{ block.settings.text }}</span>
@@ -78,7 +89,10 @@
                 endif
               endif
             %}
-            <a class="built-birdie-page-suite__card built-birdie-page-suite__card--collection" href="{{ collection_url }}" {{ block.shopify_attributes }}>
+            {% capture collection_safe_url %}
+              {% render 'built-birdie-safe-link', link: collection_url, fallback: routes.collections_url %}
+            {% endcapture %}
+            <a class="built-birdie-page-suite__card built-birdie-page-suite__card--collection" href="{{ collection_safe_url | strip }}" {{ block.shopify_attributes }}>
               <div class="built-birdie-page-suite__collection-media">
                 {% if card_collection.featured_image != blank %}
                   {{ card_collection.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', class: 'built-birdie-page-suite__image', alt: block.settings.title }}

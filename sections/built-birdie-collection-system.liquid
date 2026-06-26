@@ -10,6 +10,14 @@
   endif
 %}
 
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% capture secondary_safe_url %}
+  {% render 'built-birdie-safe-link', link: secondary_url, fallback: routes.root_url %}
+{% endcapture %}
+
 {% style %}
   #BuiltBirdieCollectionSystem-{{ section.id }} {
     --bbc-bg: {{ section.settings.background_color }};
@@ -34,8 +42,8 @@
         <p>{{ section.settings.fallback_description }}</p>
       {% endif %}
       <div class="built-birdie-collection-system__actions">
-        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--primary" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
-        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--primary" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
+        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--secondary" href="{{ secondary_safe_url | strip }}">{{ section.settings.secondary_label }}</a>
       </div>
     </div>
 
@@ -56,7 +64,10 @@
 
   <div class="built-birdie-collection-system__tiles">
     {% for block in section.blocks %}
-      <a class="built-birdie-collection-system__tile" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+      {% capture tile_url %}
+        {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+      {% endcapture %}
+      <a class="built-birdie-collection-system__tile" href="{{ tile_url | strip }}" {{ block.shopify_attributes }}>
         <span>{{ block.settings.kicker }}</span>
         <strong>{{ block.settings.title }}</strong>
         <p>{{ block.settings.text }}</p>

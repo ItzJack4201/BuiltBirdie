@@ -20,7 +20,10 @@
     </div>
     <div class="built-birdie-editorial__index" aria-label="{{ section.settings.index_label | escape }}">
       {% for block in section.blocks %}
-        <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+        {% capture editorial_url %}
+          {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+        {% endcapture %}
+        <a href="{{ editorial_url | strip }}" {{ block.shopify_attributes }}>
           <span>{{ block.settings.kicker }}</span>
           <strong>{{ block.settings.title }}</strong>
         </a>

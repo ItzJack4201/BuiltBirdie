@@ -19,10 +19,16 @@
       <p>{{ section.settings.subheading }}</p>
       <div class="built-birdie-utility__actions">
         {% if section.settings.primary_label != blank and section.settings.primary_link != blank %}
-          <a class="built-birdie-utility__button built-birdie-utility__button--primary" href="{{ section.settings.primary_link }}">{{ section.settings.primary_label }}</a>
+          {% capture primary_url %}
+            {% render 'built-birdie-safe-link', link: section.settings.primary_link, fallback: routes.root_url %}
+          {% endcapture %}
+          <a class="built-birdie-utility__button built-birdie-utility__button--primary" href="{{ primary_url | strip }}">{{ section.settings.primary_label }}</a>
         {% endif %}
         {% if section.settings.secondary_label != blank and section.settings.secondary_link != blank %}
-          <a class="built-birdie-utility__button built-birdie-utility__button--secondary" href="{{ section.settings.secondary_link }}">{{ section.settings.secondary_label }}</a>
+          {% capture secondary_url %}
+            {% render 'built-birdie-safe-link', link: section.settings.secondary_link, fallback: routes.root_url %}
+          {% endcapture %}
+          <a class="built-birdie-utility__button built-birdie-utility__button--secondary" href="{{ secondary_url | strip }}">{{ section.settings.secondary_label }}</a>
         {% endif %}
       </div>
     </div>
@@ -37,7 +43,10 @@
 
   <div class="built-birdie-utility__routes">
     {% for block in section.blocks %}
-      <a class="built-birdie-utility__route" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+      {% capture route_url %}
+        {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+      {% endcapture %}
+      <a class="built-birdie-utility__route" href="{{ route_url | strip }}" {{ block.shopify_attributes }}>
         <span>{{ block.settings.kicker }}</span>
         <strong>{{ block.settings.title }}</strong>
         <p>{{ block.settings.text }}</p>

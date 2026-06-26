@@ -48,7 +48,10 @@
             </div>
           </dl>
           {% if block.settings.link != blank %}
-            <a href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+            {% capture setup_url %}
+              {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+            {% endcapture %}
+            <a href="{{ setup_url | strip }}">{{ block.settings.link_label }}</a>
           {% endif %}
         </article>
       {% endfor %}

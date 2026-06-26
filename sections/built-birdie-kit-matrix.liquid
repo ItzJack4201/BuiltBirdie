@@ -38,7 +38,10 @@
           <p role="cell">{{ block.settings.includes }}</p>
           <div role="cell">
             {% if block.settings.link != blank %}
-              <a href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+              {% capture kit_url %}
+                {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+              {% endcapture %}
+              <a href="{{ kit_url | strip }}">{{ block.settings.link_label }}</a>
             {% else %}
               <span>{{ block.settings.link_label }}</span>
             {% endif %}

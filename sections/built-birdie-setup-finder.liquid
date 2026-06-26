@@ -93,7 +93,10 @@
             <h2>{{ block.settings.result_title }}</h2>
             <span>{{ block.settings.result_text }}</span>
             {% if block.settings.link != blank %}
-              <a href="{{ block.settings.link }}">{{ block.settings.link_label }}</a>
+              {% capture result_url %}
+                {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+              {% endcapture %}
+              <a href="{{ result_url | strip }}">{{ block.settings.link_label }}</a>
             {% endif %}
           </div>
         {% endfor %}
@@ -463,58 +466,64 @@
 {% endstylesheet %}
 
 {% javascript %}
-  const bbsfLabelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
-  const bbsfSwatches = {
-    black: '#101010',
-    white: '#ffffff',
-    navy: '#17355f',
-    blue: '#17355f',
-    green: '#0f3f2e',
-    red: '#b3261e',
-    gold: '#c59a2d'
-  };
-  const bbsfCodes = {
-    black: 'BLK',
-    white: 'WHT',
-    navy: 'NVY',
-    blue: 'BLU',
-    green: 'GRN',
-    red: 'RED',
-    gold: 'GLD',
-    clean: 'CLN',
-    starter: 'STR',
-    tour: 'TR',
-    gift: 'GFT'
-  };
-
-  document.querySelectorAll('[data-bb-setup-finder]').forEach((finder) => {
-    const code = finder.querySelector('[data-bbsf-code]');
-    const score = finder.querySelector('[data-bbsf-score]');
-    const screen = finder.querySelector('.built-birdie-setup-finder__screen');
-    const results = Array.from(finder.querySelectorAll('[data-bbsf-result]'));
-
-    const getChoice = (type) => finder.querySelector(`[data-bbsf-choice="${type}"]:checked`)?.value || 'clean';
-
-    const update = () => {
-      const bag = getChoice('bag');
-      const accent = getChoice('accent');
-      const intent = getChoice('intent');
-      const matchScore = Math.min(98, 76 + (bag !== accent ? 8 : 2) + (intent === 'tour' ? 10 : 4));
-
-      code.textContent = `BB-${bbsfCodes[bag] || bag.slice(0, 3).toUpperCase()}-${bbsfCodes[accent] || accent.slice(0, 3).toUpperCase()}-${bbsfCodes[intent] || intent.slice(0, 3).toUpperCase()}`;
-      score.textContent = `${matchScore}%`;
-      screen.style.setProperty('--bb-bag-swatch', bbsfSwatches[bag] || '#101010');
-      screen.style.setProperty('--bb-accent-swatch', bbsfSwatches[accent] || '#101010');
-      screen.setAttribute('aria-label', `${bbsfLabelize(bag)} bag with ${bbsfLabelize(accent)} accent`);
-
-      results.forEach((result) => {
-        result.hidden = result.dataset.bbsfResult !== intent;
-      });
+  (() => {
+    const bbsfLabelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+    const bbsfSwatches = {
+      black: '#101010',
+      white: '#ffffff',
+      navy: '#17355f',
+      blue: '#17355f',
+      green: '#0f3f2e',
+      red: '#b3261e',
+      gold: '#c59a2d'
+    };
+    const bbsfCodes = {
+      black: 'BLK',
+      white: 'WHT',
+      navy: 'NVY',
+      blue: 'BLU',
+      green: 'GRN',
+      red: 'RED',
+      gold: 'GLD',
+      clean: 'CLN',
+      starter: 'STR',
+      tour: 'TR',
+      gift: 'GFT'
     };
 
-    finder.addEventListener('change', update);
-    update();
-  });
+    document.querySelectorAll('[data-bb-setup-finder]').forEach((finder) => {
+      const code = finder.querySelector('[data-bbsf-code]');
+      const score = finder.querySelector('[data-bbsf-score]');
+      const screen = finder.querySelector('.built-birdie-setup-finder__screen');
+      const results = Array.from(finder.querySelectorAll('[data-bbsf-result]'));
+
+      if (!code || !score || !screen) {
+        return;
+      }
+
+      const getChoice = (type) => finder.querySelector(`[data-bbsf-choice="${type}"]:checked`)?.value || 'clean';
+
+      const update = () => {
+        const bag = getChoice('bag');
+        const accent = getChoice('accent');
+        const intent = getChoice('intent');
+        const matchScore = Math.min(98, 76 + (bag !== accent ? 8 : 2) + (intent === 'tour' ? 10 : 4));
+
+        code.textContent = `BB-${bbsfCodes[bag] || bag.slice(0, 3).toUpperCase()}-${bbsfCodes[accent] || accent.slice(0, 3).toUpperCase()}-${bbsfCodes[intent] || intent.slice(0, 3).toUpperCase()}`;
+        score.textContent = `${matchScore}%`;
+        screen.style.setProperty('--bb-bag-swatch', bbsfSwatches[bag] || '#101010');
+        screen.style.setProperty('--bb-accent-swatch', bbsfSwatches[accent] || '#101010');
+        screen.setAttribute('aria-label', `${bbsfLabelize(bag)} bag with ${bbsfLabelize(accent)} accent`);
+
+        results.forEach((result) => {
+          result.hidden = result.dataset.bbsfResult !== intent;
+        });
+      };
+
+      finder.addEventListener('change', update);
+      update();
+    });
+  })();
 {% endjavascript %}
 
 {% schema %}

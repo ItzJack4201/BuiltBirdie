@@ -17,11 +17,20 @@
     endif
   endif
 
+  assign secondary_fallback_url = '#built-birdie-kits-' | append: section.id
   assign secondary_url = section.settings.secondary_link
   if secondary_url == blank
-    assign secondary_url = '#built-birdie-kits-' | append: section.id
+    assign secondary_url = secondary_fallback_url
   endif
 %}
+
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.collections_url %}
+{% endcapture %}
+
+{% capture secondary_safe_url %}
+  {% render 'built-birdie-safe-link', link: secondary_url, fallback: secondary_fallback_url %}
+{% endcapture %}
 
 {% style %}
   #BuiltBirdieHero-{{ section.id }} {
@@ -42,8 +51,8 @@
       <h1>{{ section.settings.hero_headline }}</h1>
       <p class="built-birdie__lede">{{ section.settings.hero_subtext }}</p>
       <div class="built-birdie__actions">
-        <a class="built-birdie__button built-birdie__button--primary" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
-        <a class="built-birdie__button built-birdie__button--secondary" href="{{ secondary_url }}">{{ section.settings.secondary_label }}</a>
+        <a class="built-birdie__button built-birdie__button--primary" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
+        <a class="built-birdie__button built-birdie__button--secondary" href="{{ secondary_safe_url | strip }}">{{ section.settings.secondary_label }}</a>
       </div>
       <div class="built-birdie__signal-row" aria-label="{{ section.settings.signal_label | escape }}">
         <span>{{ section.settings.signal_one }}</span>

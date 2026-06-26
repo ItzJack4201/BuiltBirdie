@@ -38,7 +38,10 @@
 
     <div class="built-birdie-command-center__grid">
       {% for block in section.blocks %}
-        <a class="built-birdie-command-center__card" href="{{ block.settings.link }}" data-bbcc-card data-bbcc-group="{{ block.settings.group }}" {{ block.shopify_attributes }}>
+        {% capture route_url %}
+          {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+        {% endcapture %}
+        <a class="built-birdie-command-center__card" href="{{ route_url | strip }}" data-bbcc-card data-bbcc-group="{{ block.settings.group }}" {{ block.shopify_attributes }}>
           <span>{{ block.settings.kicker }}</span>
           <strong>{{ block.settings.title }}</strong>
           <p>{{ block.settings.text }}</p>
@@ -234,32 +237,36 @@
 {% endstylesheet %}
 
 {% javascript %}
-  document.querySelectorAll('[data-bb-command-center]').forEach((center) => {
-    const buttons = Array.from(center.querySelectorAll('[data-bbcc-filter]'));
-    const cards = Array.from(center.querySelectorAll('[data-bbcc-card]'));
-    const count = center.querySelector('[data-bbcc-count]');
+  (() => {
+    document.querySelectorAll('[data-bb-command-center]').forEach((center) => {
+      const buttons = Array.from(center.querySelectorAll('[data-bbcc-filter]'));
+      const cards = Array.from(center.querySelectorAll('[data-bbcc-card]'));
+      const count = center.querySelector('[data-bbcc-count]');
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const group = button.dataset.bbccFilter;
-        let visible = 0;
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const group = button.dataset.bbccFilter;
+          let visible = 0;
 
-        buttons.forEach((item) => {
-          item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
-        });
+          buttons.forEach((item) => {
+            item.setAttribute('aria-pressed', item === button ? 'true' : 'false');
+          });
 
-        cards.forEach((card) => {
-          const show = group === 'all' || card.dataset.bbccGroup === group;
-          card.hidden = !show;
-          if (show) {
-            visible += 1;
+          cards.forEach((card) => {
+            const show = group === 'all' || card.dataset.bbccGroup === group;
+            card.hidden = !show;
+            if (show) {
+              visible += 1;
+            }
+          });
+
+          if (count) {
+            count.textContent = visible;
           }
         });
-
-        count.textContent = visible;
       });
     });
-  });
+  })();
 {% endjavascript %}
 
 {% schema %}
