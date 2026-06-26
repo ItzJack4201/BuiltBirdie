@@ -1,0 +1,171 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "built_birdie_hero": {
+      "type": "built-birdie-hero",
+      "blocks": {
+        "collection_build_your_bag": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Build Your Bag",
+            "description": "Start with your colors and build a setup that feels dialed in.",
+            "collection": "build-your-bag",
+            "fallback_handle": "build-your-bag"
+          }
+        },
+        "collection_towels_brushes": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Towels & Brushes",
+            "description": "Clean essentials that keep the whole bag looking sharp.",
+            "collection": "towels-brushes",
+            "fallback_handle": "towels-brushes"
+          }
+        },
+        "collection_headcovers": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Headcovers",
+            "description": "Cover the clubs you reach for with colors that belong together.",
+            "collection": "headcovers",
+            "fallback_handle": "headcovers"
+          }
+        },
+        "collection_divot_tools_markers": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Divot Tools & Markers",
+            "description": "Small details for the green, matched to the rest of your setup.",
+            "collection": "divot-tools-markers",
+            "fallback_handle": "divot-tools-markers"
+          }
+        },
+        "collection_cart_upgrades": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Cart Upgrades",
+            "description": "Smart add-ons for cleaner rides and better organized rounds.",
+            "collection": "cart-upgrades",
+            "fallback_handle": "cart-upgrades"
+          }
+        },
+        "collection_golf_desk_gifts": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Golf Desk Gifts",
+            "description": "Golf-minded gifts built for the desk, office, and everyday flex.",
+            "collection": "golf-desk-gifts",
+            "fallback_handle": "golf-desk-gifts"
+          }
+        },
+        "collection_practice_training": {
+          "type": "collection_card",
+          "settings": {
+            "title": "Practice & Training",
+            "description": "Practice pieces that keep improvement close, even off the course.",
+            "collection": "practice-training",
+            "fallback_handle": "practice-training"
+          }
+        },
+        "kit_clean_bag": {
+          "type": "kit_card",
+          "settings": {
+            "badge": "Clean",
+            "title": "Clean Bag Kit",
+            "description": "A tidy first upgrade for golfers who want the bag to look put together.",
+            "collection": "build-your-bag",
+            "fallback_handle": "build-your-bag"
+          }
+        },
+        "kit_starter": {
+          "type": "kit_card",
+          "settings": {
+            "badge": "Starter",
+            "title": "Starter Kit",
+            "description": "The easy entry point: useful pieces, matched colors, no overthinking.",
+            "collection": "build-your-bag",
+            "fallback_handle": "build-your-bag"
+          }
+        },
+        "kit_tour": {
+          "type": "kit_card",
+          "settings": {
+            "badge": "Tour",
+            "title": "Tour Kit",
+            "description": "A fuller setup for golfers who want every detail to feel intentional.",
+            "collection": "build-your-bag",
+            "fallback_handle": "build-your-bag"
+          }
+        },
+        "kit_desk_gift": {
+          "type": "kit_card",
+          "settings": {
+            "badge": "Gift",
+            "title": "Desk Gift Bundle",
+            "description": "A polished golf gift for offices, home desks, and off-course setups.",
+            "collection": "golf-desk-gifts",
+            "fallback_handle": "golf-desk-gifts"
+          }
+        }
+      },
+      "block_order": [
+        "collection_build_your_bag",
+        "collection_towels_brushes",
+        "collection_headcovers",
+        "collection_divot_tools_markers",
+        "collection_cart_upgrades",
+        "collection_golf_desk_gifts",
+        "collection_practice_training",
+        "kit_clean_bag",
+        "kit_starter",
+        "kit_tour",
+        "kit_desk_gift"
+      ],
+      "settings": {
+        "hero_eyebrow": "BUILT BIRDIE",
+        "hero_headline": "Build Your Bag.",
+        "hero_subtext": "Choose your bag color, pick an accent, and build a coordinated golf setup from towels, headcovers, tools, cart upgrades, and desk gifts.",
+        "primary_label": "Start Your Build",
+        "primary_link": "shopify://collections/build-your-bag",
+        "primary_collection": "build-your-bag",
+        "secondary_label": "Shop Kits",
+        "builder_kicker": "Build Your Bag",
+        "builder_heading": "Build Your Bag",
+        "builder_subheading": "Choose your bag color. Pick your accent. Build a golf setup that actually matches.",
+        "bag_label": "Bag color",
+        "bag_colors": "Black, White, Navy, Green, Red",
+        "accent_label": "Accent color",
+        "accent_colors": "Black, White, Red, Blue, Green, Gold",
+        "collections_eyebrow": "Shop the setup",
+        "collections_heading": "Everything your bag needs",
+        "collections_intro": "Everything your bag needs, organized by setup.",
+        "kits_eyebrow": "Matching kits",
+        "kits_heading": "Start with a kit",
+        "kit_intro": "Start with a kit, then customize the details.",
+        "steps_eyebrow": "How it works",
+        "steps_heading": "Build it in three moves",
+        "step_one": "Pick your base bag color.",
+        "step_two": "Choose your accent color.",
+        "step_three": "Add a matching kit and upgrade from there.",
+        "brand_line": "Built for better rounds. Designed for cleaner bags.",
+        "background_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
+    }
+  },
+  "order": [
+    "built_birdie_hero"
+  ]
+}
