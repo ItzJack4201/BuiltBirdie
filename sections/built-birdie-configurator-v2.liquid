@@ -1253,9 +1253,24 @@
       configurator.addEventListener('change', update);
 
       addButton.addEventListener('click', async () => {
+        const bag = getChoice('bag');
+        const accent = getChoice('accent');
+        const style = getChoice('style');
+        const styleInput = configurator.querySelector('[data-bbv2-choice="style"]:checked');
+        const styleTitle = styleInput?.dataset.bbv2StyleTitle || labelize(style);
+        const buildTitle = `${labelize(bag)} bag / ${labelize(accent)} accent`;
+
         const items = availableVisibleProducts().map((product) => ({
           id: Number(product.dataset.variantId),
-          quantity: 1
+          quantity: 1,
+          properties: {
+            'Built Birdie build': `${styleTitle} setup`,
+            'Base bag': labelize(bag),
+            'Accent color': labelize(accent),
+            'Setup style': styleTitle,
+            'Build palette': buildTitle,
+            'Build item': product.dataset.role || 'Item'
+          }
         }));
 
         if (items.length === 0) {
