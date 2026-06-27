@@ -1,458 +1,814 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "built_birdie_hero": {
-      "type": "built-birdie-hero",
+    "hero_p9CmMG": {
+      "type": "hero",
       "blocks": {
-        "collection_build_your_bag": {
-          "type": "collection_card",
+        "group_6w9b3Y": {
+          "type": "group",
+          "name": "t:names.group",
           "settings": {
-            "title": "Build Your Bag",
-            "description": "Start with your colors and build a setup that feels dialed in.",
-            "collection": "build-your-bag",
-            "fallback_handle": "build-your-bag"
-          }
-        },
-        "collection_towels_brushes": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Towels & Brushes",
-            "description": "Clean essentials that keep the whole bag looking sharp.",
-            "collection": "towels-brushes",
-            "fallback_handle": "towels-brushes"
-          }
-        },
-        "collection_headcovers": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Headcovers",
-            "description": "Cover the clubs you reach for with colors that belong together.",
-            "collection": "headcovers",
-            "fallback_handle": "headcovers"
-          }
-        },
-        "collection_divot_tools_markers": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Divot Tools & Markers",
-            "description": "Small details for the green, matched to the rest of your setup.",
-            "collection": "divot-tools-markers",
-            "fallback_handle": "divot-tools-markers"
-          }
-        },
-        "collection_cart_upgrades": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Cart Upgrades",
-            "description": "Smart add-ons for cleaner rides and better organized rounds.",
-            "collection": "cart-upgrades",
-            "fallback_handle": "cart-upgrades"
-          }
-        },
-        "collection_golf_desk_gifts": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Golf Desk Gifts",
-            "description": "Golf-minded gifts built for the desk, office, and everyday flex.",
-            "collection": "golf-desk-gifts",
-            "fallback_handle": "golf-desk-gifts"
-          }
-        },
-        "collection_practice_training": {
-          "type": "collection_card",
-          "settings": {
-            "title": "Practice & Training",
-            "description": "Practice pieces that keep improvement close, even off the course.",
-            "collection": "practice-training",
-            "fallback_handle": "practice-training"
-          }
-        },
-        "kit_clean_bag": {
-          "type": "kit_card",
-          "settings": {
-            "badge": "Clean",
-            "title": "Clean Bag Kit",
-            "description": "A tidy first upgrade for golfers who want the bag to look put together.",
-            "collection": "build-your-bag",
-            "fallback_handle": "build-your-bag"
-          }
-        },
-        "kit_starter": {
-          "type": "kit_card",
-          "settings": {
-            "badge": "Starter",
-            "title": "Starter Kit",
-            "description": "The easy entry point: useful pieces, matched colors, no overthinking.",
-            "collection": "build-your-bag",
-            "fallback_handle": "build-your-bag"
-          }
-        },
-        "kit_tour": {
-          "type": "kit_card",
-          "settings": {
-            "badge": "Tour",
-            "title": "Tour Kit",
-            "description": "A fuller setup for golfers who want every detail to feel intentional.",
-            "collection": "build-your-bag",
-            "fallback_handle": "build-your-bag"
-          }
-        },
-        "kit_desk_gift": {
-          "type": "kit_card",
-          "settings": {
-            "badge": "Gift",
-            "title": "Desk Gift Bundle",
-            "description": "A polished golf gift for offices, home desks, and off-course setups.",
-            "collection": "golf-desk-gifts",
-            "fallback_handle": "golf-desk-gifts"
-          }
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 16,
+            "width": "fit-content",
+            "custom_width": 70,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "group_9wtdTw": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 40,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_qHY3XF": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h1>Elevate your game style</h1>",
+                    "width": "100%",
+                    "max_width": "narrow",
+                    "alignment": "center",
+                    "type_preset": "h1",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "{{ settings.color_palette.background }}",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 60,
+                    "padding-block-end": 60,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_qHY3XF"
+              ]
+            }
+          },
+          "block_order": [
+            "group_9wtdTw"
+          ]
         }
       },
       "block_order": [
-        "collection_build_your_bag",
-        "collection_towels_brushes",
-        "collection_headcovers",
-        "collection_divot_tools_markers",
-        "collection_cart_upgrades",
-        "collection_golf_desk_gifts",
-        "collection_practice_training",
-        "kit_clean_bag",
-        "kit_starter",
-        "kit_tour",
-        "kit_desk_gift"
+        "group_6w9b3Y"
       ],
+      "name": "t:names.hero",
       "settings": {
-        "hero_eyebrow": "BUILT BIRDIE",
-        "hero_headline": "Build Your Bag.",
-        "hero_subtext": "Choose your bag color, pick an accent, and build a coordinated golf setup from towels, headcovers, tools, cart upgrades, and desk gifts.",
-        "primary_label": "Start Your Build",
-        "primary_link": "/pages/build-your-bag",
-        "primary_collection": "build-your-bag",
-        "secondary_label": "Shop Kits",
-        "secondary_link": "/pages/kit-guide",
-        "signal_label": "Build system highlights",
-        "signal_one": "Color locked",
-        "signal_two": "Kit ready",
-        "signal_three": "Cart built",
-        "builder_kicker": "Build Your Bag",
-        "builder_heading": "Build Your Bag",
-        "builder_subheading": "Choose your bag color. Pick your accent. Build a golf setup that actually matches.",
-        "bag_label": "Bag color",
-        "bag_colors": "Black, White, Navy, Green, Red",
-        "accent_label": "Accent color",
-        "accent_colors": "Black, White, Red, Blue, Green, Gold",
-        "collections_eyebrow": "Shop the setup",
-        "collections_heading": "Everything your bag needs",
-        "collections_intro": "Everything your bag needs, organized by setup.",
-        "kits_eyebrow": "Matching kits",
-        "kits_heading": "Start with a kit",
-        "kit_intro": "Start with a kit, then customize the details.",
-        "steps_eyebrow": "How it works",
-        "steps_heading": "Build it in three moves",
-        "step_one": "Pick your base bag color.",
-        "step_two": "Choose your accent color.",
-        "step_three": "Add a matching kit and upgrade from there.",
-        "brand_line": "Built for better rounds. Designed for cleaner bags.",
-        "background_color": "#ffffff",
-        "cream_color": "#f7f1e7",
-        "text_color": "#101010",
-        "muted_color": "#5b5a54",
-        "accent_green": "#0f3f2e",
-        "accent_red": "#b3261e"
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/ChatGPT_Image_Jun_27_2026_08_45_31_AM.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "flex-end",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "medium",
+        "section_height_custom": 5,
+        "background_color": "rgba(0,0,0,0)",
+        "toggle_overlay": true,
+        "overlay_color": "#03030314",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 24,
+        "padding-block-end": 100
       }
     },
-    "built_birdie_setup_matrix": {
-      "type": "built-birdie-setup-matrix",
+    "marquee_KN4PYb": {
+      "type": "marquee",
       "blocks": {
-        "matrix_clean": {
-          "type": "setup",
+        "text_kFiJUi": {
+          "type": "text",
           "settings": {
-            "kicker": "Clean",
-            "score": "86%",
-            "score_width": 86,
-            "title": "Clean Bag Kit",
-            "text": "A tight setup for golfers who want the bag sharper without adding noise.",
-            "base": "Any bag color",
-            "accent": "One quiet repeat",
-            "includes": "Towel, brush, marker",
-            "link_label": "View clean build",
-            "link": "/pages/clean-bag-kit"
-          }
+            "text": "<p>Build your bag with accessories that actually match from towel to tools to cart upgrades</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h6",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "text_color": "{{ settings.color_palette.background }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "matrix_starter": {
-          "type": "setup",
+        "text_separator": {
+          "type": "text",
           "settings": {
-            "kicker": "Starter",
-            "score": "91%",
-            "score_width": 91,
-            "title": "Starter Setup",
-            "text": "The practical first build: useful pieces, matched colors, and no overthinking.",
-            "base": "Black, white, navy",
-            "accent": "Red, green, gold",
-            "includes": "Towel, tools, cover",
-            "link_label": "View starter build",
-            "link": "/pages/starter-setup"
-          }
-        },
-        "matrix_tour": {
-          "type": "setup",
-          "settings": {
-            "kicker": "Tour",
-            "score": "96%",
-            "score_width": 96,
-            "title": "Tour Setup",
-            "text": "A fuller course-ready system for golfers who want every visible detail dialed.",
-            "base": "Any bold base",
-            "accent": "Consistent contrast",
-            "includes": "Covers, tools, cart, practice",
-            "link_label": "View tour build",
-            "link": "/pages/tour-setup"
-          }
-        },
-        "matrix_gift": {
-          "type": "setup",
-          "settings": {
-            "kicker": "Gift",
-            "score": "88%",
-            "score_width": 88,
-            "title": "Gift Finder",
-            "text": "A polished path for golf gifts that feel useful, matched, and easy to understand.",
-            "base": "Safe neutrals",
-            "accent": "Red, green, gold",
-            "includes": "Desk gift, towel, tool",
-            "link_label": "Find a gift",
-            "link": "/pages/gift-finder"
-          }
+            "text": "<p>/</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h6",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "matrix_clean",
-        "matrix_starter",
-        "matrix_tour",
-        "matrix_gift"
+        "text_kFiJUi",
+        "text_separator"
       ],
+      "name": "t:names.marquee_section",
       "settings": {
-        "eyebrow": "SETUP MATRIX",
-        "heading": "Choose the build path.",
-        "subheading": "Four clean ways to build a better golf setup: start minimal, cover the essentials, go full course-ready, or make it giftable.",
-        "base_label": "Base",
-        "accent_label": "Accent",
-        "includes_label": "Includes",
-        "background_color": "#ffffff",
-        "panel_color": "#ffffff",
-        "cream_color": "#f7f1e7",
-        "text_color": "#101010",
-        "muted_color": "#5b5a54",
-        "accent_green": "#0f3f2e",
-        "accent_red": "#b3261e"
+        "movement_direction": "reverse",
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 18,
+        "padding-block-end": 18,
+        "gap_between_elements": 28
       }
     },
-    "built_birdie_route_map": {
-      "type": "built-birdie-route-map",
+    "product_list_themegen": {
+      "type": "product-list",
       "blocks": {
-        "route_builder": {
-          "type": "route",
+        "static-header": {
+          "type": "_product-list-content",
+          "name": "t:names.header",
+          "static": true,
           "settings": {
-            "kicker": "Build",
-            "title": "Build Your Bag",
-            "text": "Choose the bag color, accent, and setup style that builds the cart.",
-            "link": "/pages/build-your-bag"
-          }
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "align_baseline": true,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "background_media": "none",
+            "background_color": "",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_list_text_Bd9pVh": {
+              "type": "_product-list-text",
+              "name": "t:names.collection_title",
+              "settings": {
+                "text": "<h2>Build your bag essentials</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.foreground }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_list_text_Bd9pVh"
+          ]
         },
-        "route_build_system": {
-          "type": "route",
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
           "settings": {
-            "kicker": "Command",
-            "title": "Build System",
-            "text": "Filter every Built Birdie route by build, color, kit, gift, and support.",
-            "link": "/pages/build-system"
-          }
+            "product_card_gap": 12,
+            "background_color": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_color": "",
+            "border_radius": 8,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_PhczVC": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "group_McqFAT": {
+              "type": "_product-card-group",
+              "name": "t:names.group",
+              "settings": {
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 4,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "text_MEKzFi": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<h5>{{ closest.product.title }}</h5>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "center",
+                    "type_preset": "custom",
+                    "font": "var(--font-subheading--family)",
+                    "font_size": "1.1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "{{ settings.color_palette.foreground }}",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "price_37riDf": {
+                  "type": "price",
+                  "name": "t:names.product_price",
+                  "settings": {
+                    "show_sale_price_first": true,
+                    "show_installments": false,
+                    "show_tax_info": false,
+                    "type_preset": "paragraph",
+                    "width": "100%",
+                    "alignment": "center",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "text_color": "{{ settings.color_palette.color1 }}",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "swatches_87VJC8": {
+                  "type": "swatches",
+                  "name": "t:names.swatches",
+                  "settings": {
+                    "product_swatches_alignment": "flex-start",
+                    "product_swatches_alignment_mobile": "flex-start",
+                    "hide_padding": false,
+                    "product_swatches_padding_top": 4,
+                    "product_swatches_padding_bottom": 0,
+                    "product_swatches_padding_left": 0,
+                    "product_swatches_padding_right": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_MEKzFi",
+                "price_37riDf",
+                "swatches_87VJC8"
+              ]
+            }
+          },
+          "block_order": [
+            "product_card_gallery_PhczVC",
+            "group_McqFAT"
+          ]
+        }
+      },
+      "name": "t:names.products_grid",
+      "settings": {
+        "collection": "build-your-bag",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "1",
+        "mobile_card_size": "60cqw",
+        "columns_gap": 18,
+        "rows_gap": 40,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "horizontal_alignment": "flex-start",
+        "gap": 28,
+        "background_color": "{{ settings.color_palette.background }}",
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
+    },
+    "section_x8mrnx": {
+      "type": "section",
+      "blocks": {
+        "text_pH8qby": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<p>BUILT BIRDIE</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h6",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.color4 }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "route_setup_finder": {
-          "type": "route",
+        "text_eFMntb": {
+          "type": "text",
           "settings": {
-            "kicker": "Finder",
-            "title": "Setup Finder",
-            "text": "Answer three choices and get the right Built Birdie build path.",
-            "link": "/pages/setup-finder"
-          }
+            "text": "<h2>Golf accessories that look like they belong together. Choose a bag color, pick an accent, and build a cleaner setup from the first tee to the trunk.</h2>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "{{ settings.color_palette.background }}",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "route_shop": {
-          "type": "route",
+        "button_TmU98M": {
+          "type": "button",
           "settings": {
-            "kicker": "Shop",
-            "title": "Shop Hub",
-            "text": "Browse the full Built Birdie category system from one clean route.",
-            "link": "/pages/shop-hub"
-          }
-        },
-        "route_kit": {
-          "type": "route",
-          "settings": {
-            "kicker": "Guide",
-            "title": "Kit Guide",
-            "text": "Compare Clean, Starter, Tour, and Gift builds before choosing.",
-            "link": "/pages/kit-guide"
-          }
-        },
-        "route_kit_compare": {
-          "type": "route",
-          "settings": {
-            "kicker": "Compare",
-            "title": "Kit Comparison",
-            "text": "Pick Clean, Starter, Tour, or Gift with a faster decision guide.",
-            "link": "/pages/kit-comparison"
-          }
-        },
-        "route_color": {
-          "type": "route",
-          "settings": {
-            "kicker": "Color",
-            "title": "Color Lab",
-            "text": "Learn the base and accent rules that make a bag look matched.",
-            "link": "/pages/color-lab"
-          }
-        },
-        "route_color_guide": {
-          "type": "route",
-          "settings": {
-            "kicker": "Rules",
-            "title": "Bag Color Guide",
-            "text": "Use base and accent pairings that make the setup feel premium.",
-            "link": "/pages/bag-color-guide"
-          }
-        },
-        "route_black_setup": {
-          "type": "route",
-          "settings": {
-            "kicker": "Color",
-            "title": "Black Bag Setup",
-            "text": "Start with the easiest high-contrast base and choose the accent.",
-            "link": "/pages/black-bag-setup"
-          }
-        },
-        "route_gifts": {
-          "type": "route",
-          "settings": {
-            "kicker": "Gift",
-            "title": "Gift Guide",
-            "text": "Find safe, useful golf gifts that do not feel generic.",
-            "link": "/pages/gift-guide"
-          }
-        },
-        "route_support": {
-          "type": "route",
-          "settings": {
-            "kicker": "Help",
-            "title": "Support FAQ",
-            "text": "Answer common questions and get back to the right store path.",
-            "link": "/pages/support-faq"
-          }
-        },
-        "route_corporate": {
-          "type": "route",
-          "settings": {
-            "kicker": "Groups",
-            "title": "Corporate Gifts",
-            "text": "Plan group kits, event gifts, and client-ready golf bundles.",
-            "link": "/pages/corporate-gifts"
-          }
-        },
-        "route_checklist": {
-          "type": "route",
-          "settings": {
-            "kicker": "Round",
-            "title": "Course Checklist",
-            "text": "Prep the bag, cart, and small tools before the first tee.",
-            "link": "/pages/course-checklist"
-          }
-        },
-        "route_bag_reset": {
-          "type": "route",
-          "settings": {
-            "kicker": "Reset",
-            "title": "Bag Reset Guide",
-            "text": "Clean up a cluttered setup and rebuild the visible layer.",
-            "link": "/pages/bag-reset-guide"
-          }
-        },
-        "route_essentials": {
-          "type": "route",
-          "settings": {
-            "kicker": "Round",
-            "title": "On-Course Essentials",
-            "text": "Build a cleaner round system for towel, tools, cart, and covers.",
-            "link": "/pages/on-course-essentials"
-          }
-        },
-        "route_cart_guide": {
-          "type": "route",
-          "settings": {
-            "kicker": "Cart",
-            "title": "Perfect Cart Guide",
-            "text": "See how the builder turns color and style choices into a cart.",
-            "link": "/pages/perfect-cart-guide"
-          }
-        },
-        "route_tournament": {
-          "type": "route",
-          "settings": {
-            "kicker": "Events",
-            "title": "Tournament Prizes",
-            "text": "Plan cleaner prize tables, tee gifts, and group golf kits.",
-            "link": "/pages/tournament-prizes"
-          }
+            "label": "Start your build ->",
+            "link": "shopify://collections/build-your-bag",
+            "open_in_new_tab": false,
+            "style_class": "link",
+            "custom_button_background": "{{ settings.color_palette.foreground }}",
+            "custom_button_text": "{{ settings.color_palette.background }}",
+            "custom_button_border": "{{ settings.color_palette.background }}",
+            "link_text_color": "{{ settings.color_palette.background }}",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "route_builder",
-        "route_build_system",
-        "route_setup_finder",
-        "route_shop",
-        "route_kit",
-        "route_kit_compare",
-        "route_color",
-        "route_color_guide",
-        "route_black_setup",
-        "route_gifts",
-        "route_support",
-        "route_corporate",
-        "route_checklist",
-        "route_bag_reset",
-        "route_essentials",
-        "route_cart_guide",
-        "route_tournament"
+        "text_pH8qby",
+        "text_eFMntb",
+        "button_TmU98M"
       ],
+      "name": "t:names.pull_quote",
       "settings": {
-        "eyebrow": "BUILT BIRDIE ROUTES",
-        "heading": "Pick the next move.",
-        "subheading": "Jump into the right part of the Built Birdie system: build a cart, browse collections, learn the color rules, or plan a gift.",
-        "matrix_label": "Built Birdie route matrix",
-        "matrix_one": "Base",
-        "matrix_two": "Accent",
-        "matrix_three": "Kit",
-        "matrix_four": "Cart",
-        "background_color": "#ffffff",
-        "panel_color": "#ffffff",
-        "cream_color": "#f7f1e7",
-        "text_color": "#101010",
-        "muted_color": "#5b5a54",
-        "accent_green": "#0f3f2e",
-        "accent_red": "#b3261e"
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 56,
+        "section_width": "page-width",
+        "section_height": "small",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 84,
+        "padding-block-end": 84
+      }
+    },
+    "media_with_content_xMM9EF": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/fe66525f21daffc6e18f28873980581e.png",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "text_tgFN9e": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Match the details</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.foreground }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_HqcftD": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Start with the essentials: towel, brush, headcover, tools, and upgrades in one cleaner bag language.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.foreground }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "button_dDjrqQ": {
+              "type": "button",
+              "settings": {
+                "label": "Shop bag essentials",
+                "link": "shopify://collections/towels-brushes",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "custom_button_background": "{{ settings.color_palette.color1 }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.color1 }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_tgFN9e",
+            "text_HqcftD",
+            "button_dDjrqQ"
+          ]
+        }
+      },
+      "custom_css": [],
+      "name": "t:names.media_with_text",
+      "settings": {
+        "media_position": "left",
+        "media_width": "wide",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "background_color": "{{ settings.color_palette.color2 }}",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "media_with_content_nrnzPh": {
+      "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/09531f0eec1ba4d19369d9eed81772c2.png",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "text_4BbAqH": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>Built for better rounds</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h3",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_tKc49J": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Keep the accessories sharp, useful, and coordinated without the cluttered pro-shop look.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "{{ settings.color_palette.background }}",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "button_AP3RH4": {
+              "type": "button",
+              "settings": {
+                "label": "Shop kits",
+                "link": "shopify://collections/build-your-bag",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "custom_button_background": "{{ settings.color_palette.background }}",
+                "custom_button_text": "{{ settings.color_palette.color1 }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_4BbAqH",
+            "text_tKc49J",
+            "button_AP3RH4"
+          ]
+        }
+      },
+      "name": "t:names.media_with_text",
+      "settings": {
+        "media_position": "right",
+        "media_width": "wide",
+        "media_height": "60svh",
+        "section_width": "full-width",
+        "extend_media": true,
+        "background_color": "{{ settings.color_palette.color1 }}",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },
   "order": [
-    "built_birdie_hero",
-    "built_birdie_setup_matrix",
-    "built_birdie_route_map"
+    "hero_p9CmMG",
+    "marquee_KN4PYb",
+    "product_list_themegen",
+    "section_x8mrnx",
+    "media_with_content_xMM9EF",
+    "media_with_content_nrnzPh"
   ]
 }
