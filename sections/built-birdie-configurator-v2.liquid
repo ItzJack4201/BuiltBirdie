@@ -808,24 +808,66 @@
   }
 
   .built-birdie-configurator-v2__dock-card {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.72);
     border: 1px solid var(--bbv2-border);
     border-radius: 8px;
     display: grid;
-    gap: 10px;
+    gap: 12px;
+    grid-template-columns: 68px minmax(0, 1fr);
+    min-height: 92px;
     padding: 12px;
+  }
+
+  .built-birdie-configurator-v2__dock-card-media {
+    align-items: center;
+    aspect-ratio: 1;
+    background: var(--bbv2-cream);
+    border: 1px solid var(--bbv2-border);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .built-birdie-configurator-v2__dock-card-media img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .built-birdie-configurator-v2__dock-card-media span {
+    color: var(--bbv2-green);
+    font-size: 1.15rem;
+    font-weight: 930;
+  }
+
+  .built-birdie-configurator-v2__dock-card-copy {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
   }
 
   .built-birdie-configurator-v2__dock-card strong {
     font-size: 0.98rem;
     line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 
-  .built-birdie-configurator-v2__dock-card span {
+  .built-birdie-configurator-v2__dock-card-role {
     color: var(--bbv2-red);
     font-size: 0.72rem;
     font-weight: 850;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  .built-birdie-configurator-v2__dock-card-price {
+    color: var(--bbv2-muted);
+    font-size: 0.82rem;
+    font-weight: 750;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
   }
 
   @media screen and (max-width: 1180px) {
@@ -1016,22 +1058,47 @@
           const title = product.dataset.title || 'Built Birdie item';
           const role = product.dataset.role || 'Item';
           const price = Number(product.dataset.price || 0);
+          const priceLabel = price > 0 ? moneyFormatter.format(price / 100) : comingSoonLabel;
 
           const item = document.createElement('li');
           const itemTitle = document.createElement('strong');
           const itemMeta = document.createElement('span');
           itemTitle.textContent = title;
-          itemMeta.textContent = price > 0 ? moneyFormatter.format(price / 100) : role;
+          itemMeta.textContent = price > 0 ? priceLabel : role;
           item.append(itemTitle, itemMeta);
           itemsList.append(item);
 
           const dockCard = document.createElement('article');
+          const dockMedia = document.createElement('div');
+          const dockCopy = document.createElement('div');
           const dockRole = document.createElement('span');
           const dockTitle = document.createElement('strong');
+          const dockPrice = document.createElement('span');
+          const sourceImage = product.querySelector('.built-birdie-configurator-v2__accessory-image');
+          const sourceFallback = product.querySelector('.built-birdie-configurator-v2__accessory-media span');
           dockCard.className = 'built-birdie-configurator-v2__dock-card';
+          dockMedia.className = 'built-birdie-configurator-v2__dock-card-media';
+          dockCopy.className = 'built-birdie-configurator-v2__dock-card-copy';
+          dockRole.className = 'built-birdie-configurator-v2__dock-card-role';
+          dockPrice.className = 'built-birdie-configurator-v2__dock-card-price';
+
+          if (sourceImage) {
+            const dockImage = document.createElement('img');
+            dockImage.src = sourceImage.currentSrc || sourceImage.src;
+            dockImage.alt = sourceImage.alt || title;
+            dockImage.loading = 'lazy';
+            dockMedia.append(dockImage);
+          } else {
+            const dockInitials = document.createElement('span');
+            dockInitials.textContent = sourceFallback?.textContent || role.slice(0, 2).toUpperCase();
+            dockMedia.append(dockInitials);
+          }
+
           dockRole.textContent = role;
           dockTitle.textContent = title;
-          dockCard.append(dockRole, dockTitle);
+          dockPrice.textContent = priceLabel;
+          dockCopy.append(dockRole, dockTitle, dockPrice);
+          dockCard.append(dockMedia, dockCopy);
           dock.append(dockCard);
         });
 
@@ -1043,6 +1110,27 @@
           itemMeta.textContent = comingSoonLabel;
           item.append(itemTitle, itemMeta);
           itemsList.append(item);
+
+          const dockCard = document.createElement('article');
+          const dockMedia = document.createElement('div');
+          const dockCopy = document.createElement('div');
+          const dockInitials = document.createElement('span');
+          const dockRole = document.createElement('span');
+          const dockTitle = document.createElement('strong');
+          const dockPrice = document.createElement('span');
+          dockCard.className = 'built-birdie-configurator-v2__dock-card';
+          dockMedia.className = 'built-birdie-configurator-v2__dock-card-media';
+          dockCopy.className = 'built-birdie-configurator-v2__dock-card-copy';
+          dockRole.className = 'built-birdie-configurator-v2__dock-card-role';
+          dockPrice.className = 'built-birdie-configurator-v2__dock-card-price';
+          dockInitials.textContent = 'BB';
+          dockRole.textContent = comingSoonLabel;
+          dockTitle.textContent = emptyStripLabel;
+          dockPrice.textContent = emptyMessage;
+          dockMedia.append(dockInitials);
+          dockCopy.append(dockRole, dockTitle, dockPrice);
+          dockCard.append(dockMedia, dockCopy);
+          dock.append(dockCard);
         }
       };
 
