@@ -10,7 +10,7 @@
 {
   "sections": {
     "built_birdie_configurator": {
-      "type": "built-birdie-configurator",
+      "type": "built-birdie-configurator-v2",
       "blocks": {
         "style_clean": {
           "type": "style_card",
