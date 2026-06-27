@@ -126,6 +126,17 @@
           </div>
 
           <div class="built-birdie-configurator-v2__visual" aria-hidden="true" data-bbv2-stage>
+            <div class="built-birdie-configurator-v2__palette">
+              <span>
+                <i data-bbv2-base-chip></i>
+                <b data-bbv2-base-label>Black base</b>
+              </span>
+              <span>
+                <i data-bbv2-accent-chip></i>
+                <b data-bbv2-accent-label>Black accent</b>
+              </span>
+            </div>
+
             <div class="built-birdie-configurator-v2__bag">
               <i></i>
               <span></span>
@@ -502,6 +513,44 @@
     height: 70px;
     position: absolute;
     width: min(78%, 520px);
+  }
+
+  .built-birdie-configurator-v2__palette {
+    display: flex;
+    gap: 8px;
+    left: 18px;
+    position: absolute;
+    top: 18px;
+    z-index: 6;
+  }
+
+  .built-birdie-configurator-v2__palette span {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--bbv2-border);
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 7px;
+    min-height: 34px;
+    padding: 7px 10px;
+  }
+
+  .built-birdie-configurator-v2__palette i {
+    background: var(--chip-color, var(--bbv2-text));
+    border: 1px solid rgba(17, 17, 17, 0.16);
+    border-radius: 999px;
+    display: block;
+    height: 14px;
+    width: 14px;
+  }
+
+  .built-birdie-configurator-v2__palette b {
+    color: var(--bbv2-text);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .built-birdie-configurator-v2__bag {
@@ -916,6 +965,22 @@
       min-height: 520px;
     }
 
+    .built-birdie-configurator-v2__palette {
+      flex-wrap: wrap;
+      left: 12px;
+      right: 12px;
+      top: 12px;
+    }
+
+    .built-birdie-configurator-v2__palette span {
+      min-height: 32px;
+      padding: 7px 9px;
+    }
+
+    .built-birdie-configurator-v2__palette b {
+      font-size: 0.66rem;
+    }
+
     .built-birdie-configurator-v2__bag {
       height: 330px;
       width: 210px;
@@ -951,6 +1016,10 @@
       const optionLabels = Array.from(configurator.querySelectorAll('[data-bbv2-option]'));
       const stage = configurator.querySelector('[data-bbv2-stage]');
       const stageTitle = configurator.querySelector('[data-bbv2-stage-title]');
+      const baseChip = configurator.querySelector('[data-bbv2-base-chip]');
+      const accentChip = configurator.querySelector('[data-bbv2-accent-chip]');
+      const baseLabel = configurator.querySelector('[data-bbv2-base-label]');
+      const accentLabel = configurator.querySelector('[data-bbv2-accent-label]');
       const buildName = configurator.querySelector('[data-bbv2-build-name]');
       const why = configurator.querySelector('[data-bbv2-why]');
       const selection = configurator.querySelector('[data-bbv2-selection]');
@@ -1158,6 +1227,18 @@
         stage.style.setProperty('--bbv2-bag', swatches[bag] || '#101010');
         stage.style.setProperty('--bbv2-accent', swatches[accent] || '#101010');
         stageTitle.textContent = buildTitle;
+        if (baseChip) {
+          baseChip.style.setProperty('--chip-color', swatches[bag] || '#101010');
+        }
+        if (accentChip) {
+          accentChip.style.setProperty('--chip-color', swatches[accent] || '#101010');
+        }
+        if (baseLabel) {
+          baseLabel.textContent = `${labelize(bag)} base`;
+        }
+        if (accentLabel) {
+          accentLabel.textContent = `${labelize(accent)} accent`;
+        }
         buildName.textContent = `${styleTitle} setup`;
         why.textContent = styleNote;
         selection.textContent = `${buildTitle}. ${styleTitle} style.`;
