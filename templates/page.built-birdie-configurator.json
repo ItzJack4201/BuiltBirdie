@@ -48,6 +48,146 @@
             "cart_note": "A polished gift build that works for office desks, clients, and golf friends."
           }
         },
+        "build_clean_black_black": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Black accent / Clean",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "black",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_black_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Clean",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_white_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Red accent / Clean",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_navy_white": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / White accent / Clean",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "white",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_green_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Clean",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "clean"
+          }
+        },
+        "build_starter_black_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Starter",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_white_blue": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Blue accent / Starter",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "blue",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_navy_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Gold accent / Starter",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "gold",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_green_white": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / White accent / Starter",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "white",
+            "style_group": "starter"
+          }
+        },
+        "build_tour_black_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Tour",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        "build_tour_navy_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Red accent / Tour",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "red",
+            "style_group": "tour"
+          }
+        },
+        "build_tour_green_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Tour",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        "build_gift_black_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Gift",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "gift"
+          }
+        },
+        "build_gift_white_green": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Green accent / Gift",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "green",
+            "style_group": "gift"
+          }
+        },
         "slot_towel": {
           "type": "product_slot",
           "settings": {
@@ -145,6 +285,20 @@
         "style_starter",
         "style_tour",
         "style_gift",
+        "build_clean_black_black",
+        "build_clean_black_red",
+        "build_clean_white_red",
+        "build_clean_navy_white",
+        "build_clean_green_gold",
+        "build_starter_black_red",
+        "build_starter_white_blue",
+        "build_starter_navy_gold",
+        "build_starter_green_white",
+        "build_tour_black_gold",
+        "build_tour_navy_red",
+        "build_tour_green_gold",
+        "build_gift_black_gold",
+        "build_gift_white_green",
         "slot_towel",
         "slot_brush",
         "slot_headcover",

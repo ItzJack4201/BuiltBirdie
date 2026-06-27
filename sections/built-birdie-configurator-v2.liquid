@@ -26,10 +26,29 @@
   class="built-birdie-configurator-v2"
   data-bbv2-configurator
   data-bbv2-empty-message="{{ section.settings.empty_message | escape }}"
+  data-bbv2-empty-strip-label="{{ section.settings.empty_strip_label | escape }}"
+  data-bbv2-coming-soon-label="{{ section.settings.coming_soon_label | escape }}"
   data-bbv2-loading-message="{{ section.settings.loading_message | escape }}"
   data-bbv2-error-message="{{ section.settings.error_message | escape }}"
 >
   <div class="built-birdie-configurator-v2__shell">
+    <div class="built-birdie-configurator-v2__support-map" hidden>
+      {% for block in section.blocks %}
+        {% if block.type == 'supported_build' %}
+          <span
+            data-bbv2-build
+            data-bag="{{ block.settings.bag_color }}"
+            data-accent="{{ block.settings.accent_color }}"
+            data-style="{{ block.settings.style_group }}"
+            data-supported="{{ block.settings.is_supported }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.title }}
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+
     <header class="built-birdie-configurator-v2__intro">
       <p class="built-birdie-configurator-v2__eyebrow">{{ section.settings.eyebrow }}</p>
       <h1>{{ section.settings.heading }}</h1>
@@ -886,6 +905,7 @@
 
     document.querySelectorAll('[data-bbv2-configurator]').forEach((configurator) => {
       const products = Array.from(configurator.querySelectorAll('[data-bbv2-product]'));
+      const builds = Array.from(configurator.querySelectorAll('[data-bbv2-build]'));
       const optionLabels = Array.from(configurator.querySelectorAll('[data-bbv2-option]'));
       const stage = configurator.querySelector('[data-bbv2-stage]');
       const stageTitle = configurator.querySelector('[data-bbv2-stage-title]');
@@ -899,6 +919,8 @@
       const addButton = configurator.querySelector('[data-bbv2-add]');
       const message = configurator.querySelector('[data-bbv2-message]');
       const emptyMessage = configurator.dataset.bbv2EmptyMessage || 'Products are being mapped for this build. Shop the collection while this setup is finished.';
+      const emptyStripLabel = configurator.dataset.bbv2EmptyStripLabel || 'Build mapping in progress';
+      const comingSoonLabel = configurator.dataset.bbv2ComingSoonLabel || 'Coming soon';
       const loadingMessage = configurator.dataset.bbv2LoadingMessage || 'Building your cart...';
       const errorMessage = configurator.dataset.bbv2ErrorMessage || 'We could not build the full cart. Open the collection and add the kit items from there.';
 
@@ -915,34 +937,75 @@
         return product.dataset.supported !== 'false' && (productBag === 'all' || productBag === bag) && (productAccent === 'all' || productAccent === accent) && (productStyle === 'all' || productStyle === style);
       };
 
+      const buildMatches = (build, criteria) => Object.entries(criteria).every(([key, value]) => {
+        const buildValue = build.dataset[key] || 'all';
+        return buildValue === 'all' || buildValue === value;
+      });
+
+      const selectionSupported = (bag, accent, style) => {
+        if (builds.length === 0) {
+          return products.some((product) => matches(product, bag, accent, style));
+        }
+
+        return builds.some((build) => build.dataset.supported !== 'false' && buildMatches(build, { bag, accent, style }));
+      };
+
       const supportsChoice = (type, value) => {
         const bag = type === 'bag' ? value : getChoice('bag');
         const accent = type === 'accent' ? value : getChoice('accent');
         const style = type === 'style' ? value : getChoice('style');
+
+        if (builds.length > 0) {
+          if (type === 'bag') {
+            return builds.some((build) => build.dataset.supported !== 'false' && buildMatches(build, { bag }));
+          }
+
+          if (type === 'accent') {
+            return builds.some((build) => build.dataset.supported !== 'false' && buildMatches(build, { bag, accent }));
+          }
+
+          return builds.some((build) => build.dataset.supported !== 'false' && buildMatches(build, { bag, accent, style }));
+        }
+
         return products.some((product) => matches(product, bag, accent, style));
       };
 
       const availableVisibleProducts = () => products.filter((product) => !product.hidden && product.dataset.variantId && product.dataset.available === 'true');
 
       const setOptionAvailability = () => {
-        optionLabels.forEach((label) => {
-          const input = label.querySelector('input');
-          const supported = supportsChoice(label.dataset.bbv2Option, label.dataset.bbv2OptionValue);
-          label.classList.toggle('is-coming-soon', !supported);
-          if (input) {
-            input.disabled = !supported;
-          }
-        });
-
-        ['bag', 'accent', 'style'].forEach((type) => {
-          const checked = configurator.querySelector(`[data-bbv2-choice="${type}"]:checked`);
-          if (checked && checked.disabled) {
-            const replacement = configurator.querySelector(`[data-bbv2-choice="${type}"]:not(:disabled)`);
-            if (replacement) {
-              replacement.checked = true;
+        const applyAvailability = () => {
+          optionLabels.forEach((label) => {
+            const input = label.querySelector('input');
+            const supported = supportsChoice(label.dataset.bbv2Option, label.dataset.bbv2OptionValue);
+            label.classList.toggle('is-coming-soon', !supported);
+            label.toggleAttribute('aria-disabled', !supported);
+            if (input) {
+              input.disabled = !supported;
             }
+          });
+        };
+
+        for (let pass = 0; pass < 4; pass += 1) {
+          let changed = false;
+          applyAvailability();
+
+          ['bag', 'accent', 'style'].forEach((type) => {
+            const checked = configurator.querySelector(`[data-bbv2-choice="${type}"]:checked`);
+            if (checked && checked.disabled) {
+              const replacement = Array.from(configurator.querySelectorAll(`[data-bbv2-choice="${type}"]`)).find((choice) => supportsChoice(type, choice.value));
+              if (replacement) {
+                replacement.checked = true;
+                changed = true;
+              }
+            }
+          });
+
+          if (!changed) {
+            break;
           }
-        });
+        }
+
+        applyAvailability();
       };
 
       const renderItems = (visible) => {
@@ -976,8 +1039,8 @@
           const item = document.createElement('li');
           const itemTitle = document.createElement('strong');
           const itemMeta = document.createElement('span');
-          itemTitle.textContent = 'Build mapping in progress';
-          itemMeta.textContent = 'Coming soon';
+          itemTitle.textContent = emptyStripLabel;
+          itemMeta.textContent = comingSoonLabel;
           item.append(itemTitle, itemMeta);
           itemsList.append(item);
         }
@@ -992,13 +1055,14 @@
         const styleInput = configurator.querySelector('[data-bbv2-choice="style"]:checked');
         const styleTitle = styleInput?.dataset.bbv2StyleTitle || labelize(style);
         const styleNote = styleInput?.dataset.bbv2StyleNote || '';
+        const supportedSelection = selectionSupported(bag, accent, style);
 
         products.forEach((product) => {
-          product.hidden = !matches(product, bag, accent, style);
+          product.hidden = !supportedSelection || !matches(product, bag, accent, style);
         });
 
         const visible = products.filter((product) => !product.hidden);
-        const available = availableVisibleProducts();
+        const available = supportedSelection ? availableVisibleProducts() : [];
         const cents = available.reduce((sum, product) => sum + Number(product.dataset.price || 0), 0);
         const buildTitle = `${labelize(bag)} bag / ${labelize(accent)} accent`;
         const itemRoles = visible.map((product) => product.dataset.role).filter(Boolean).slice(0, 4);
@@ -1009,9 +1073,9 @@
         buildName.textContent = `${styleTitle} setup`;
         why.textContent = styleNote;
         selection.textContent = `${buildTitle}. ${styleTitle} style.`;
-        strip.textContent = itemRoles.length > 0 ? itemRoles.join(' / ') : 'Build mapping in progress';
+        strip.textContent = itemRoles.length > 0 ? itemRoles.join(' / ') : emptyStripLabel;
         total.textContent = moneyFormatter.format(cents / 100);
-        addButton.disabled = available.length === 0;
+        addButton.disabled = !supportedSelection || available.length === 0;
         message.textContent = available.length === 0 ? emptyMessage : '';
         message.dataset.bbv2MessageStatus = available.length === 0 ? 'notice' : '';
         renderItems(visible);
@@ -1312,6 +1376,121 @@
       ]
     },
     {
+      "type": "supported_build",
+      "name": "Supported build",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Editor label",
+          "default": "Black bag / Black accent / Clean"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_supported",
+          "label": "Supported setup",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "bag_color",
+          "label": "Bag color",
+          "options": [
+            {
+              "value": "all",
+              "label": "All"
+            },
+            {
+              "value": "black",
+              "label": "Black"
+            },
+            {
+              "value": "white",
+              "label": "White"
+            },
+            {
+              "value": "navy",
+              "label": "Navy"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            },
+            {
+              "value": "red",
+              "label": "Red"
+            }
+          ],
+          "default": "black"
+        },
+        {
+          "type": "select",
+          "id": "accent_color",
+          "label": "Accent color",
+          "options": [
+            {
+              "value": "all",
+              "label": "All"
+            },
+            {
+              "value": "black",
+              "label": "Black"
+            },
+            {
+              "value": "white",
+              "label": "White"
+            },
+            {
+              "value": "red",
+              "label": "Red"
+            },
+            {
+              "value": "blue",
+              "label": "Blue"
+            },
+            {
+              "value": "green",
+              "label": "Green"
+            },
+            {
+              "value": "gold",
+              "label": "Gold"
+            }
+          ],
+          "default": "black"
+        },
+        {
+          "type": "select",
+          "id": "style_group",
+          "label": "Setup style",
+          "options": [
+            {
+              "value": "all",
+              "label": "All"
+            },
+            {
+              "value": "clean",
+              "label": "Clean"
+            },
+            {
+              "value": "starter",
+              "label": "Starter"
+            },
+            {
+              "value": "tour",
+              "label": "Tour"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            }
+          ],
+          "default": "clean"
+        }
+      ]
+    },
+    {
       "type": "product_slot",
       "name": "Product slot",
       "settings": [
@@ -1477,7 +1656,241 @@
   ],
   "presets": [
     {
-      "name": "BB configurator V2"
+      "name": "BB configurator V2",
+      "blocks": [
+        {
+          "type": "style_card",
+          "settings": {
+            "style_key": "clean",
+            "title": "Clean",
+            "description": "Minimal essentials for a sharper, tidier bag.",
+            "cart_note": "A low-noise setup for golfers who want the bag to look sharp without overbuilding it."
+          }
+        },
+        {
+          "type": "style_card",
+          "settings": {
+            "style_key": "starter",
+            "title": "Starter",
+            "description": "A practical first setup with the core matching pieces.",
+            "cart_note": "The easiest first build: towel, tools, and visible details that match the bag."
+          }
+        },
+        {
+          "type": "style_card",
+          "settings": {
+            "style_key": "tour",
+            "title": "Tour",
+            "description": "A fuller build for golfers who want every detail dialed.",
+            "cart_note": "A fuller course-ready setup for golfers who care about every visible detail."
+          }
+        },
+        {
+          "type": "style_card",
+          "settings": {
+            "style_key": "gift",
+            "title": "Gift",
+            "description": "A polished bundle for golf people on and off the course.",
+            "cart_note": "A polished gift build that works for office desks, clients, and golf friends."
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Black accent / Clean",
+            "bag_color": "black",
+            "accent_color": "black",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Clean",
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Red accent / Clean",
+            "bag_color": "white",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / White accent / Clean",
+            "bag_color": "navy",
+            "accent_color": "white",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Clean",
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Starter",
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Blue accent / Starter",
+            "bag_color": "white",
+            "accent_color": "blue",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Gold accent / Starter",
+            "bag_color": "navy",
+            "accent_color": "gold",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / White accent / Starter",
+            "bag_color": "green",
+            "accent_color": "white",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Tour",
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Red accent / Tour",
+            "bag_color": "navy",
+            "accent_color": "red",
+            "style_group": "tour"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Tour",
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Gift",
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "gift"
+          }
+        },
+        {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Green accent / Gift",
+            "bag_color": "white",
+            "accent_color": "green",
+            "style_group": "gift"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Towel",
+            "placeholder_title": "Matching towel",
+            "fallback_initials": "TW",
+            "stage_position": "upper-left",
+            "style_group": "all"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Brush",
+            "placeholder_title": "Bag brush",
+            "fallback_initials": "BR",
+            "stage_position": "middle-right",
+            "style_group": "clean"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Headcover",
+            "placeholder_title": "Matching headcover",
+            "fallback_initials": "HC",
+            "stage_position": "upper-right",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Green tools",
+            "placeholder_title": "Divot tool and marker",
+            "fallback_initials": "DT",
+            "stage_position": "lower-left",
+            "style_group": "starter"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Cart upgrade",
+            "placeholder_title": "Cart upgrade",
+            "fallback_initials": "CU",
+            "stage_position": "middle-left",
+            "style_group": "tour"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Practice",
+            "placeholder_title": "Practice add-on",
+            "fallback_initials": "PT",
+            "stage_position": "lower-right",
+            "style_group": "tour"
+          }
+        },
+        {
+          "type": "product_slot",
+          "settings": {
+            "role": "Desk gift",
+            "placeholder_title": "Golf desk gift",
+            "fallback_initials": "DG",
+            "stage_position": "upper-right",
+            "style_group": "gift"
+          }
+        }
+      ]
     }
   ]
 }
