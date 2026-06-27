@@ -75,6 +75,7 @@
         <fieldset>
           <legend>{{ section.settings.style_label }}</legend>
           <div class="built-birdie-configurator-v2__styles">
+            {% assign first_style_checked = false %}
             {% for block in section.blocks %}
               {% if block.type == 'style_card' %}
                 <label class="built-birdie-configurator-v2__style" data-bbv2-option="style" data-bbv2-option-value="{{ block.settings.style_key }}" {{ block.shopify_attributes }}>
@@ -85,12 +86,13 @@
                     data-bbv2-choice="style"
                     data-bbv2-style-title="{{ block.settings.title | escape }}"
                     data-bbv2-style-note="{{ block.settings.cart_note | escape }}"
-                    {% if forloop.first %}checked{% endif %}
+                    {% unless first_style_checked %}checked{% endunless %}
                   >
                   <span>{{ block.settings.title }}</span>
                   <small>{{ block.settings.description }}</small>
                   <b>{{ section.settings.coming_soon_label }}</b>
                 </label>
+                {% assign first_style_checked = true %}
               {% endif %}
             {% endfor %}
           </div>
