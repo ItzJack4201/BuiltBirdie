@@ -944,8 +944,8 @@
       };
 
       const renderItems = (visible) => {
-        itemsList.innerHTML = '';
-        dock.innerHTML = '';
+        itemsList.replaceChildren();
+        dock.replaceChildren();
 
         visible.forEach((product) => {
           const title = product.dataset.title || 'Built Birdie item';
@@ -953,18 +953,30 @@
           const price = Number(product.dataset.price || 0);
 
           const item = document.createElement('li');
-          item.innerHTML = `<strong>${title}</strong><span>${price > 0 ? moneyFormatter.format(price / 100) : role}</span>`;
+          const itemTitle = document.createElement('strong');
+          const itemMeta = document.createElement('span');
+          itemTitle.textContent = title;
+          itemMeta.textContent = price > 0 ? moneyFormatter.format(price / 100) : role;
+          item.append(itemTitle, itemMeta);
           itemsList.append(item);
 
           const dockCard = document.createElement('article');
+          const dockRole = document.createElement('span');
+          const dockTitle = document.createElement('strong');
           dockCard.className = 'built-birdie-configurator-v2__dock-card';
-          dockCard.innerHTML = `<span>${role}</span><strong>${title}</strong>`;
+          dockRole.textContent = role;
+          dockTitle.textContent = title;
+          dockCard.append(dockRole, dockTitle);
           dock.append(dockCard);
         });
 
         if (visible.length === 0) {
           const item = document.createElement('li');
-          item.innerHTML = '<strong>Build mapping in progress</strong><span>Coming soon</span>';
+          const itemTitle = document.createElement('strong');
+          const itemMeta = document.createElement('span');
+          itemTitle.textContent = 'Build mapping in progress';
+          itemMeta.textContent = 'Coming soon';
+          item.append(itemTitle, itemMeta);
           itemsList.append(item);
         }
       };
