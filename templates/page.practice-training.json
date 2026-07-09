@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "practice_training": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Practice",
+            "title": "Keep reps close",
+            "text": "Practice gear belongs near the places golfers actually spend time: the office, garage, mat, and putting corner."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Training",
+            "title": "Useful beats loud",
+            "text": "The best training accessories are simple, repeatable, and easy to keep in rotation."
+          }
+        },
+        "collection_training": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Collection",
+            "title": "Practice & Training",
+            "text": "Simple tools for staying connected to the game.",
+            "collection": "practice-training",
+            "link": "/collections/practice-training",
+            "initials": "PT"
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Pair with",
+            "title": "Golf Desk Gifts",
+            "text": "Off-course pieces that keep golf in view.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "collection_training",
+        "collection_gifts"
+      ],
+      "settings": {
+        "eyebrow": "PRACTICE & TRAINING",
+        "heading": "Keep the game in motion.",
+        "subheading": "A cleaner practice setup for golfers who like useful tools, simple reps, and gear that still fits the Built Birdie system.",
+        "primary_label": "Shop Practice",
+        "primary_link": "/collections/practice-training",
+        "secondary_label": "Build Your Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "practice_training"
+  ]
+}

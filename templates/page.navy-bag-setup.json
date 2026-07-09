@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "navy_bag_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "White keeps navy crisp.",
+            "text": "White details make navy feel athletic, clean, and easy to shop."
+          }
+        },
+        "feature_gold": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Gold makes it classic.",
+            "text": "Gold adds polish to navy without making the bag look too loud."
+          }
+        },
+        "feature_red": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Red adds energy.",
+            "text": "Use red as a controlled detail when the setup needs more punch."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Anchor in navy",
+            "text": "Navy is already a strong athletic base."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose bright contrast",
+            "text": "White or gold works cleanly. Red should stay small."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Keep it sporty",
+            "text": "Navy setups should feel sharp, useful, and easy to wear on any course."
+          }
+        }
+      },
+      "block_order": [
+        "feature_white",
+        "feature_gold",
+        "feature_red",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "NAVY BAG SETUP",
+        "heading": "Build around a navy bag.",
+        "subheading": "Navy is a safe athletic base. Add crisp contrast and keep the accessory system tidy.",
+        "primary_label": "Build Navy Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "navy_bag_setup"
+  ]
+}

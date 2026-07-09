@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "red_bag_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_black": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Black grounds the red.",
+            "text": "Black is the safest accent when the bag is already loud."
+          }
+        },
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "White keeps it sharp.",
+            "text": "White works well as a clean contrast, especially in towels or small details."
+          }
+        },
+        "feature_navy": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Navy makes it more athletic.",
+            "text": "Navy can soften a red bag and keep the setup from feeling too aggressive."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Let red lead",
+            "text": "Red is already the statement color."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose a quiet accent",
+            "text": "Black, white, or navy keeps the setup controlled."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Skip extra highlights",
+            "text": "Avoid adding more loud colors. The bag already has the energy."
+          }
+        }
+      },
+      "block_order": [
+        "feature_black",
+        "feature_white",
+        "feature_navy",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "RED BAG SETUP",
+        "heading": "Build around a red bag.",
+        "subheading": "Red is bold by default. Keep the rest of the setup quiet, useful, and tightly matched.",
+        "primary_label": "Build Red Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "red_bag_setup"
+  ]
+}

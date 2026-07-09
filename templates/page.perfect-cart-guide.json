@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "perfect_cart_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_builder": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Configurator",
+            "title": "The perfect cart starts with constraints.",
+            "text": "The builder works best when the golfer chooses a base color, one accent, and a setup style before adding products.",
+            "link": "/pages/build-your-bag"
+          }
+        },
+        "feature_slots": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Product slots",
+            "title": "Assign products by role.",
+            "text": "In the theme editor, each slot can be tuned by bag color, accent, and setup style so the cart feels curated."
+          }
+        },
+        "feature_review": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Review",
+            "title": "Let golfers remove extras.",
+            "text": "The included toggles keep the build flexible: shoppers can keep the kit tight or add the fuller setup."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the profile",
+            "text": "Clean, Starter, Tour, or Gift sets the use case before any product is added."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Read the build code",
+            "text": "The build code turns bag, accent, and kit type into a simple internal shorthand."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Build the cart",
+            "text": "The add button sends the selected available product slots into the Shopify cart."
+          }
+        },
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do products need to be assigned first?",
+            "answer": "Yes. The configurator can show placeholder slots, but the cart button needs real products assigned in the theme editor."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can one product appear in multiple builds?",
+            "answer": "Yes. Set the product slot to all bag colors, all accents, or all styles when it should be recommended broadly."
+          }
+        },
+        "faq_three": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should every build have the same number of products?",
+            "answer": "No. Clean should stay tight, Starter should cover core essentials, Tour can be fuller, and Gift should stay easy to understand."
+          }
+        }
+      },
+      "block_order": [
+        "feature_builder",
+        "feature_slots",
+        "feature_review",
+        "step_one",
+        "step_two",
+        "step_three",
+        "faq_one",
+        "faq_two",
+        "faq_three"
+      ],
+      "settings": {
+        "eyebrow": "PERFECT CART GUIDE",
+        "heading": "How the builder thinks.",
+        "subheading": "A plain-English guide for setting up the Build Your Bag configurator so it creates useful, matched carts instead of random bundles.",
+        "primary_label": "Open Builder",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Compare Kits",
+        "secondary_link": "/pages/kit-comparison",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "perfect_cart_guide"
+  ]
+}

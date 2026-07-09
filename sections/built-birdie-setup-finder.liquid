@@ -1,0 +1,718 @@
+{% liquid
+  assign bag_colors = section.settings.bag_colors | split: ','
+  assign accent_colors = section.settings.accent_colors | split: ','
+%}
+
+{% style %}
+  #BuiltBirdieSetupFinder-{{ section.id }} {
+    --bbsf-bg: {{ section.settings.background_color }};
+    --bbsf-panel: {{ section.settings.panel_color }};
+    --bbsf-cream: {{ section.settings.cream_color }};
+    --bbsf-text: {{ section.settings.text_color }};
+    --bbsf-muted: {{ section.settings.muted_color }};
+    --bbsf-green: {{ section.settings.accent_green }};
+    --bbsf-red: {{ section.settings.accent_red }};
+    --bbsf-border: rgba(255, 255, 255, 0.14);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieSetupFinder-{{ section.id }}" class="built-birdie-setup-finder" data-bb-setup-finder>
+  <div class="built-birdie-setup-finder__inner">
+    <div class="built-birdie-setup-finder__head">
+      <p class="built-birdie-setup-finder__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="built-birdie-setup-finder__layout">
+      <div class="built-birdie-setup-finder__controls">
+        <fieldset>
+          <legend>{{ section.settings.bag_label }}</legend>
+          <div class="built-birdie-setup-finder__options">
+            {% for color in bag_colors %}
+              {% liquid
+                assign color_label = color | strip
+                assign color_handle = color_label | handleize
+              %}
+              <label class="built-birdie-setup-finder__pill built-birdie-setup-finder__pill--{{ color_handle }}">
+                <input type="radio" name="bbsf-bag-{{ section.id }}" value="{{ color_handle }}" data-bbsf-choice="bag" {% if forloop.first %}checked{% endif %}>
+                <span>{{ color_label }}</span>
+              </label>
+            {% endfor %}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>{{ section.settings.accent_label }}</legend>
+          <div class="built-birdie-setup-finder__options">
+            {% for color in accent_colors %}
+              {% liquid
+                assign color_label = color | strip
+                assign color_handle = color_label | handleize
+              %}
+              <label class="built-birdie-setup-finder__pill built-birdie-setup-finder__pill--{{ color_handle }}">
+                <input type="radio" name="bbsf-accent-{{ section.id }}" value="{{ color_handle }}" data-bbsf-choice="accent" {% if forloop.first %}checked{% endif %}>
+                <span>{{ color_label }}</span>
+              </label>
+            {% endfor %}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>{{ section.settings.intent_label }}</legend>
+          <div class="built-birdie-setup-finder__intents">
+            {% for block in section.blocks %}
+              <label class="built-birdie-setup-finder__intent" {{ block.shopify_attributes }}>
+                <input type="radio" name="bbsf-intent-{{ section.id }}" value="{{ block.settings.result_key }}" data-bbsf-choice="intent" {% if forloop.first %}checked{% endif %}>
+                <span>{{ block.settings.kicker }}</span>
+                <strong>{{ block.settings.title }}</strong>
+                <small>{{ block.settings.text }}</small>
+              </label>
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="built-birdie-setup-finder__result" aria-live="polite">
+        <div class="built-birdie-setup-finder__screen" aria-hidden="true">
+          <span></span>
+          <i></i>
+          <b></b>
+        </div>
+        <div class="built-birdie-setup-finder__readout">
+          <span>{{ section.settings.result_label }}</span>
+          <strong data-bbsf-code>BB-BLK-BLK-CLN</strong>
+        </div>
+        <div class="built-birdie-setup-finder__match">
+          <span>{{ section.settings.match_label }}</span>
+          <strong data-bbsf-score>88%</strong>
+        </div>
+        {% for block in section.blocks %}
+          <div class="built-birdie-setup-finder__recommendation" data-bbsf-result="{{ block.settings.result_key }}" {% unless forloop.first %}hidden{% endunless %}>
+            <p>{{ block.settings.kicker }}</p>
+            <h2>{{ block.settings.result_title }}</h2>
+            <span>{{ block.settings.result_text }}</span>
+            {% if block.settings.link != blank %}
+              {% capture result_url %}
+                {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+              {% endcapture %}
+              <a href="{{ result_url | strip }}">{{ block.settings.link_label }}</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </aside>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-setup-finder {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      var(--bbsf-bg);
+    background-size: 36px 36px, 36px 36px, auto;
+    color: var(--bbsf-text);
+    padding: clamp(42px, 7vw, 96px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-setup-finder * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-setup-finder__inner {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-setup-finder__head {
+    margin-block-end: clamp(28px, 5vw, 56px);
+    max-width: 880px;
+  }
+
+  .built-birdie-setup-finder__eyebrow,
+  .built-birdie-setup-finder__recommendation p {
+    color: var(--bbsf-red);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-setup-finder h1,
+  .built-birdie-setup-finder h2,
+  .built-birdie-setup-finder p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-setup-finder h1 {
+    font-size: clamp(3.1rem, 8vw, 7rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin-block-end: 22px;
+  }
+
+  .built-birdie-setup-finder__head > p,
+  .built-birdie-setup-finder__intent small,
+  .built-birdie-setup-finder__recommendation span {
+    color: var(--bbsf-muted);
+    line-height: 1.55;
+  }
+
+  .built-birdie-setup-finder__layout {
+    align-items: start;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
+  }
+
+  .built-birdie-setup-finder__controls,
+  .built-birdie-setup-finder__result {
+    background: color-mix(in srgb, var(--bbsf-panel) 88%, transparent);
+    border: 1px solid var(--bbsf-border);
+    border-radius: 8px;
+  }
+
+  .built-birdie-setup-finder__controls {
+    display: grid;
+    gap: 18px;
+    padding: clamp(18px, 3vw, 30px);
+  }
+
+  .built-birdie-setup-finder fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .built-birdie-setup-finder legend {
+    color: var(--bbsf-text);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    margin-block-end: 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-setup-finder__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .built-birdie-setup-finder__pill,
+  .built-birdie-setup-finder__intent {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .built-birdie-setup-finder__pill {
+    align-items: center;
+    border: 1px solid var(--bbsf-border);
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 9px;
+    min-height: 44px;
+    padding: 9px 14px 9px 10px;
+  }
+
+  .built-birdie-setup-finder__pill input,
+  .built-birdie-setup-finder__intent input {
+    cursor: pointer;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .built-birdie-setup-finder__pill::before {
+    background: var(--swatch, var(--bbsf-text));
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 999px;
+    content: "";
+    height: 18px;
+    width: 18px;
+  }
+
+  .built-birdie-setup-finder__pill span {
+    font-size: 0.93rem;
+    font-weight: 800;
+  }
+
+  .built-birdie-setup-finder__pill:has(input:checked),
+  .built-birdie-setup-finder__intent:has(input:checked) {
+    background: rgba(143, 214, 170, 0.1);
+    border-color: var(--bbsf-green);
+  }
+
+  .built-birdie-setup-finder__pill:focus-within,
+  .built-birdie-setup-finder__intent:focus-within {
+    outline: 2px solid var(--bbsf-green);
+    outline-offset: 3px;
+  }
+
+  .built-birdie-setup-finder__pill--black {
+    --swatch: #101010;
+  }
+
+  .built-birdie-setup-finder__pill--white {
+    --swatch: #ffffff;
+  }
+
+  .built-birdie-setup-finder__pill--navy,
+  .built-birdie-setup-finder__pill--blue {
+    --swatch: #17355f;
+  }
+
+  .built-birdie-setup-finder__pill--green {
+    --swatch: var(--bbsf-green);
+  }
+
+  .built-birdie-setup-finder__pill--red {
+    --swatch: var(--bbsf-red);
+  }
+
+  .built-birdie-setup-finder__pill--gold {
+    --swatch: #c59a2d;
+  }
+
+  .built-birdie-setup-finder__intents {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .built-birdie-setup-finder__intent {
+    border: 1px solid var(--bbsf-border);
+    border-radius: 8px;
+    display: grid;
+    gap: 8px;
+    min-height: 150px;
+    padding: 18px;
+  }
+
+  .built-birdie-setup-finder__intent span {
+    color: var(--bbsf-red);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-setup-finder__intent strong {
+    font-size: 1.2rem;
+    letter-spacing: 0;
+    line-height: 1.05;
+  }
+
+  .built-birdie-setup-finder__result {
+    display: grid;
+    gap: 14px;
+    padding: clamp(18px, 3vw, 26px);
+    position: sticky;
+    top: 18px;
+  }
+
+  .built-birdie-setup-finder__screen {
+    aspect-ratio: 1.35;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      #101010;
+    background-size: 22px 22px, 22px 22px, auto;
+    border: 1px solid var(--bbsf-border);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .built-birdie-setup-finder__screen::before {
+    background: var(--bb-bag-swatch, #101010);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 10px 10px 6px 6px;
+    bottom: 28px;
+    content: "";
+    height: 72px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 86px;
+  }
+
+  .built-birdie-setup-finder__screen::after {
+    background: var(--bb-accent-swatch, #101010);
+    bottom: 54px;
+    content: "";
+    height: 9px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 110px;
+  }
+
+  .built-birdie-setup-finder__screen span {
+    border: 5px solid var(--bb-bag-swatch, #101010);
+    border-bottom: 0;
+    border-radius: 999px 999px 0 0;
+    height: 42px;
+    left: 50%;
+    position: absolute;
+    top: 34px;
+    transform: translateX(-50%);
+    width: 58px;
+  }
+
+  .built-birdie-setup-finder__screen i,
+  .built-birdie-setup-finder__screen b {
+    background: var(--bbsf-red);
+    border-radius: 999px;
+    content: "";
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+  }
+
+  .built-birdie-setup-finder__screen i {
+    right: 28%;
+    top: 34%;
+  }
+
+  .built-birdie-setup-finder__screen b {
+    background: var(--bbsf-green);
+    bottom: 22%;
+    left: 26%;
+  }
+
+  .built-birdie-setup-finder__readout,
+  .built-birdie-setup-finder__match {
+    align-items: center;
+    border: 1px solid var(--bbsf-border);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px;
+  }
+
+  .built-birdie-setup-finder__readout span,
+  .built-birdie-setup-finder__match span {
+    color: var(--bbsf-muted);
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-setup-finder__readout strong,
+  .built-birdie-setup-finder__match strong {
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  .built-birdie-setup-finder__recommendation[hidden] {
+    display: none;
+  }
+
+  .built-birdie-setup-finder__recommendation {
+    display: grid;
+    gap: 12px;
+  }
+
+  .built-birdie-setup-finder__recommendation h2 {
+    font-size: clamp(1.8rem, 3.8vw, 3.2rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.92;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-setup-finder__recommendation span {
+    display: block;
+  }
+
+  .built-birdie-setup-finder__recommendation a {
+    align-items: center;
+    background: var(--bbsf-text);
+    border-radius: 999px;
+    color: var(--bbsf-bg);
+    display: inline-flex;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-setup-finder__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .built-birdie-setup-finder__result {
+      position: static;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-setup-finder {
+      padding: 36px 16px 48px;
+    }
+
+    .built-birdie-setup-finder__intents {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (() => {
+    const bbsfLabelize = (value) => value.replace(/-/g, ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+    const bbsfSwatches = {
+      black: '#101010',
+      white: '#ffffff',
+      navy: '#17355f',
+      blue: '#17355f',
+      green: '#0f3f2e',
+      red: '#b3261e',
+      gold: '#c59a2d'
+    };
+    const bbsfCodes = {
+      black: 'BLK',
+      white: 'WHT',
+      navy: 'NVY',
+      blue: 'BLU',
+      green: 'GRN',
+      red: 'RED',
+      gold: 'GLD',
+      clean: 'CLN',
+      starter: 'STR',
+      tour: 'TR',
+      gift: 'GFT'
+    };
+
+    document.querySelectorAll('[data-bb-setup-finder]').forEach((finder) => {
+      const code = finder.querySelector('[data-bbsf-code]');
+      const score = finder.querySelector('[data-bbsf-score]');
+      const screen = finder.querySelector('.built-birdie-setup-finder__screen');
+      const results = Array.from(finder.querySelectorAll('[data-bbsf-result]'));
+
+      if (!code || !score || !screen) {
+        return;
+      }
+
+      const getChoice = (type) => finder.querySelector(`[data-bbsf-choice="${type}"]:checked`)?.value || 'clean';
+
+      const update = () => {
+        const bag = getChoice('bag');
+        const accent = getChoice('accent');
+        const intent = getChoice('intent');
+        const matchScore = Math.min(98, 76 + (bag !== accent ? 8 : 2) + (intent === 'tour' ? 10 : 4));
+
+        code.textContent = `BB-${bbsfCodes[bag] || bag.slice(0, 3).toUpperCase()}-${bbsfCodes[accent] || accent.slice(0, 3).toUpperCase()}-${bbsfCodes[intent] || intent.slice(0, 3).toUpperCase()}`;
+        score.textContent = `${matchScore}%`;
+        screen.style.setProperty('--bb-bag-swatch', bbsfSwatches[bag] || '#101010');
+        screen.style.setProperty('--bb-accent-swatch', bbsfSwatches[accent] || '#101010');
+        screen.setAttribute('aria-label', `${bbsfLabelize(bag)} bag with ${bbsfLabelize(accent)} accent`);
+
+        results.forEach((result) => {
+          result.hidden = result.dataset.bbsfResult !== intent;
+        });
+      };
+
+      finder.addEventListener('change', update);
+      update();
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "BB setup finder",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "SETUP FINDER"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find the build that fits."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Choose the bag color, accent, and setup intent. Built Birdie will point you toward the right build path."
+    },
+    {
+      "type": "text",
+      "id": "bag_label",
+      "label": "Bag label",
+      "default": "Bag color"
+    },
+    {
+      "type": "text",
+      "id": "bag_colors",
+      "label": "Bag colors",
+      "default": "Black, White, Navy, Green, Red"
+    },
+    {
+      "type": "text",
+      "id": "accent_label",
+      "label": "Accent label",
+      "default": "Accent color"
+    },
+    {
+      "type": "text",
+      "id": "accent_colors",
+      "label": "Accent colors",
+      "default": "Black, White, Red, Blue, Green, Gold"
+    },
+    {
+      "type": "text",
+      "id": "intent_label",
+      "label": "Intent label",
+      "default": "Setup intent"
+    },
+    {
+      "type": "text",
+      "id": "result_label",
+      "label": "Result label",
+      "default": "Build code"
+    },
+    {
+      "type": "text",
+      "id": "match_label",
+      "label": "Match label",
+      "default": "Match score"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#171717"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#c8c2b8"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Green",
+      "default": "#8fd6aa"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red",
+      "default": "#ef4d42"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result",
+      "settings": [
+        {
+          "type": "select",
+          "id": "result_key",
+          "label": "Result key",
+          "options": [
+            {
+              "value": "clean",
+              "label": "Clean"
+            },
+            {
+              "value": "starter",
+              "label": "Starter"
+            },
+            {
+              "value": "tour",
+              "label": "Tour"
+            },
+            {
+              "value": "gift",
+              "label": "Gift"
+            }
+          ],
+          "default": "clean"
+        },
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Clean"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Intent title",
+          "default": "Clean setup"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Intent text",
+          "default": "Minimal essentials with a tighter look."
+        },
+        {
+          "type": "text",
+          "id": "result_title",
+          "label": "Result title",
+          "default": "Start with Clean Bag Kit"
+        },
+        {
+          "type": "textarea",
+          "id": "result_text",
+          "label": "Result text",
+          "default": "A simple first build that keeps the visible setup matched without adding extra noise."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Open build"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB setup finder"
+    }
+  ]
+}
+{% endschema %}

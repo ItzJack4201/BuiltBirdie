@@ -1,0 +1,418 @@
+{% style %}
+  #BuiltBirdieColorMatrix-{{ section.id }} {
+    --bbcm-bg: {{ section.settings.background_color }};
+    --bbcm-panel: {{ section.settings.panel_color }};
+    --bbcm-cream: {{ section.settings.cream_color }};
+    --bbcm-text: {{ section.settings.text_color }};
+    --bbcm-muted: {{ section.settings.muted_color }};
+    --bbcm-green: {{ section.settings.accent_green }};
+    --bbcm-red: {{ section.settings.accent_red }};
+    --bbcm-border: rgba(255, 255, 255, 0.14);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieColorMatrix-{{ section.id }}" class="built-birdie-color-matrix">
+  <div class="built-birdie-color-matrix__inner">
+    <div class="built-birdie-color-matrix__head">
+      <div>
+        <p class="built-birdie-color-matrix__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="built-birdie-color-matrix__grid">
+      {% for block in section.blocks %}
+        <article class="built-birdie-color-matrix__card" style="--base-swatch: {{ block.settings.base_color }}; --accent-one: {{ block.settings.accent_one_color }}; --accent-two: {{ block.settings.accent_two_color }}; --accent-three: {{ block.settings.accent_three_color }};" {{ block.shopify_attributes }}>
+          <div class="built-birdie-color-matrix__visual" aria-hidden="true">
+            <span></span>
+            <i></i>
+            <b></b>
+          </div>
+          <div class="built-birdie-color-matrix__copy">
+            <p>{{ block.settings.kicker }}</p>
+            <h3>{{ block.settings.title }}</h3>
+            <span>{{ block.settings.text }}</span>
+          </div>
+          <div class="built-birdie-color-matrix__chips" aria-label="{{ block.settings.title | escape }} {{ section.settings.accent_label | escape }}">
+            <span>{{ block.settings.accent_one_label }}</span>
+            <span>{{ block.settings.accent_two_label }}</span>
+            <span>{{ block.settings.accent_three_label }}</span>
+          </div>
+          {% if block.settings.link != blank %}
+            {% capture color_url %}
+              {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+            {% endcapture %}
+            <a href="{{ color_url | strip }}">{{ block.settings.link_label }}</a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-color-matrix {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      var(--bbcm-bg);
+    background-size: 36px 36px, 36px 36px, auto;
+    color: var(--bbcm-text);
+    padding: clamp(42px, 7vw, 92px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-color-matrix * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-color-matrix__inner {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-color-matrix__head {
+    align-items: end;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.42fr);
+    margin-block-end: 18px;
+  }
+
+  .built-birdie-color-matrix__eyebrow,
+  .built-birdie-color-matrix__copy p {
+    color: var(--bbcm-red);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-color-matrix h2,
+  .built-birdie-color-matrix h3,
+  .built-birdie-color-matrix p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-color-matrix h2 {
+    font-size: clamp(2.6rem, 5.8vw, 5.8rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-color-matrix__head > p,
+  .built-birdie-color-matrix__copy span {
+    color: var(--bbcm-muted);
+    line-height: 1.55;
+  }
+
+  .built-birdie-color-matrix__grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .built-birdie-color-matrix__card {
+    background: color-mix(in srgb, var(--bbcm-panel) 88%, transparent);
+    border: 1px solid var(--bbcm-border);
+    border-radius: 8px;
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .built-birdie-color-matrix__visual {
+    aspect-ratio: 1.15;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+      #101010;
+    background-size: 18px 18px, 18px 18px, auto;
+    border: 1px solid var(--bbcm-border);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .built-birdie-color-matrix__visual::before {
+    background: var(--base-swatch);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 10px 10px 6px 6px;
+    bottom: 24px;
+    content: "";
+    height: 58px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 66px;
+  }
+
+  .built-birdie-color-matrix__visual::after {
+    background: var(--accent-one);
+    bottom: 42px;
+    content: "";
+    height: 8px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 82px;
+  }
+
+  .built-birdie-color-matrix__visual span {
+    border: 5px solid var(--base-swatch);
+    border-bottom: 0;
+    border-radius: 999px 999px 0 0;
+    height: 34px;
+    left: 50%;
+    position: absolute;
+    top: 24px;
+    transform: translateX(-50%);
+    width: 48px;
+  }
+
+  .built-birdie-color-matrix__visual i,
+  .built-birdie-color-matrix__visual b {
+    border-radius: 999px;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+  }
+
+  .built-birdie-color-matrix__visual i {
+    background: var(--accent-two);
+    right: 22%;
+    top: 32%;
+  }
+
+  .built-birdie-color-matrix__visual b {
+    background: var(--accent-three);
+    bottom: 20%;
+    left: 24%;
+  }
+
+  .built-birdie-color-matrix h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-block-end: 10px;
+  }
+
+  .built-birdie-color-matrix__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .built-birdie-color-matrix__chips span {
+    border: 1px solid var(--bbcm-border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 7px 9px;
+  }
+
+  .built-birdie-color-matrix__card a {
+    align-items: center;
+    background: var(--bbcm-text);
+    border-radius: 999px;
+    color: var(--bbcm-bg);
+    display: inline-flex;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 16px;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1180px) {
+    .built-birdie-color-matrix__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-color-matrix__head {
+      grid-template-columns: 1fr;
+    }
+
+    .built-birdie-color-matrix__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-color-matrix {
+      padding: 36px 16px 48px;
+    }
+
+    .built-birdie-color-matrix__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB color matrix",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "COLOR MATRIX"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Choose the base. Lock the accent."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Use the matrix to move from bag color to a cleaner matching setup without stacking too many colors."
+    },
+    {
+      "type": "text",
+      "id": "accent_label",
+      "label": "Accent label",
+      "default": "accent options"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#171717"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#c8c2b8"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Green",
+      "default": "#8fd6aa"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red",
+      "default": "#ef4d42"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "base",
+      "name": "Base color",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Base"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Black bag"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "High contrast, modern, and easy to match."
+        },
+        {
+          "type": "color",
+          "id": "base_color",
+          "label": "Base color",
+          "default": "#101010"
+        },
+        {
+          "type": "text",
+          "id": "accent_one_label",
+          "label": "Accent one label",
+          "default": "White"
+        },
+        {
+          "type": "color",
+          "id": "accent_one_color",
+          "label": "Accent one color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "accent_two_label",
+          "label": "Accent two label",
+          "default": "Red"
+        },
+        {
+          "type": "color",
+          "id": "accent_two_color",
+          "label": "Accent two color",
+          "default": "#b3261e"
+        },
+        {
+          "type": "text",
+          "id": "accent_three_label",
+          "label": "Accent three label",
+          "default": "Gold"
+        },
+        {
+          "type": "color",
+          "id": "accent_three_color",
+          "label": "Accent three color",
+          "default": "#c59a2d"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "View setup"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB color matrix"
+    }
+  ]
+}
+{% endschema %}

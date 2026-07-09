@@ -1,0 +1,402 @@
+{% style %}
+  #BuiltBirdieKitMatrix-{{ section.id }} {
+    --bbk-bg: {{ section.settings.background_color }};
+    --bbk-panel: {{ section.settings.panel_color }};
+    --bbk-cream: {{ section.settings.cream_color }};
+    --bbk-text: {{ section.settings.text_color }};
+    --bbk-muted: {{ section.settings.muted_color }};
+    --bbk-green: {{ section.settings.accent_green }};
+    --bbk-red: {{ section.settings.accent_red }};
+    --bbk-border: rgba(17, 17, 17, 0.12);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieKitMatrix-{{ section.id }}" class="built-birdie-kit-matrix">
+  <div class="built-birdie-kit-matrix__inner">
+    <div class="built-birdie-kit-matrix__head">
+      <div>
+        <p class="built-birdie-kit-matrix__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2>{{ section.settings.heading }}</h2>
+      </div>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="built-birdie-kit-matrix__table" role="table" aria-label="{{ section.settings.table_label | escape }}">
+      <div class="built-birdie-kit-matrix__row built-birdie-kit-matrix__row--head" role="row">
+        <span role="columnheader">{{ section.settings.kit_label }}</span>
+        <span role="columnheader">{{ section.settings.best_for_label }}</span>
+        <span role="columnheader">{{ section.settings.includes_label }}</span>
+        <span role="columnheader">{{ section.settings.next_label }}</span>
+      </div>
+      {% for block in section.blocks %}
+        <div class="built-birdie-kit-matrix__row" role="row" {{ block.shopify_attributes }}>
+          <div role="cell">
+            <small>{{ block.settings.kicker }}</small>
+            <strong>{{ block.settings.title }}</strong>
+          </div>
+          <p role="cell">{{ block.settings.best_for }}</p>
+          <p role="cell">{{ block.settings.includes }}</p>
+          <div role="cell">
+            {% if block.settings.link != blank %}
+              {% capture kit_url %}
+                {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+              {% endcapture %}
+              <a href="{{ kit_url | strip }}">{{ block.settings.link_label }}</a>
+            {% else %}
+              <span>{{ block.settings.link_label }}</span>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="built-birdie-kit-matrix__note">
+      <span>{{ section.settings.note_kicker }}</span>
+      <p>{{ section.settings.note_text }}</p>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-kit-matrix {
+    background:
+      linear-gradient(90deg, rgba(15, 63, 46, 0.05) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 63, 46, 0.05) 1px, transparent 1px),
+      linear-gradient(180deg, var(--bbk-bg), var(--bbk-cream));
+    background-size: 36px 36px, 36px 36px, auto;
+    color: var(--bbk-text);
+    padding: clamp(42px, 7vw, 92px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-kit-matrix * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-kit-matrix__inner {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-kit-matrix__head {
+    align-items: end;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.42fr);
+    margin-block-end: 18px;
+  }
+
+  .built-birdie-kit-matrix__eyebrow,
+  .built-birdie-kit-matrix__row small,
+  .built-birdie-kit-matrix__note span {
+    color: var(--bbk-red);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-kit-matrix h2,
+  .built-birdie-kit-matrix p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-kit-matrix h2 {
+    font-size: clamp(2.6rem, 5.8vw, 5.8rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-kit-matrix__head > p,
+  .built-birdie-kit-matrix__row p,
+  .built-birdie-kit-matrix__note p {
+    color: var(--bbk-muted);
+    line-height: 1.55;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-kit-matrix__table {
+    border: 1px solid var(--bbk-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .built-birdie-kit-matrix__row {
+    background: color-mix(in srgb, var(--bbk-panel) 90%, transparent);
+    display: grid;
+    gap: 1px;
+    grid-template-columns: minmax(180px, 0.75fr) minmax(220px, 1fr) minmax(220px, 1fr) minmax(150px, 0.55fr);
+  }
+
+  .built-birdie-kit-matrix__row + .built-birdie-kit-matrix__row {
+    border-block-start: 1px solid var(--bbk-border);
+  }
+
+  .built-birdie-kit-matrix__row > * {
+    margin: 0;
+    padding: 18px;
+  }
+
+  .built-birdie-kit-matrix__row--head {
+    background: var(--bbk-text);
+    color: var(--bbk-bg);
+  }
+
+  .built-birdie-kit-matrix__row--head span {
+    color: var(--bbk-bg);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    padding: 14px 18px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-kit-matrix__row small {
+    display: block;
+    margin-block-end: 8px;
+  }
+
+  .built-birdie-kit-matrix__row strong {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .built-birdie-kit-matrix__row a,
+  .built-birdie-kit-matrix__row div[role="cell"] > span {
+    align-items: center;
+    border: 1px solid var(--bbk-border);
+    border-radius: 999px;
+    color: var(--bbk-text);
+    display: inline-flex;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 14px;
+    text-decoration: none;
+  }
+
+  .built-birdie-kit-matrix__row a {
+    background: var(--bbk-text);
+    color: var(--bbk-bg);
+  }
+
+  .built-birdie-kit-matrix__note {
+    align-items: center;
+    background: color-mix(in srgb, var(--bbk-panel) 88%, transparent);
+    border: 1px solid var(--bbk-border);
+    border-radius: 8px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: minmax(140px, 0.22fr) minmax(0, 1fr);
+    margin-block-start: 14px;
+    padding: 18px;
+  }
+
+  .built-birdie-kit-matrix__note span {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-kit-matrix__head {
+      grid-template-columns: 1fr;
+    }
+
+    .built-birdie-kit-matrix__table {
+      border: 0;
+      display: grid;
+      gap: 12px;
+      overflow: visible;
+    }
+
+    .built-birdie-kit-matrix__row--head {
+      display: none;
+    }
+
+    .built-birdie-kit-matrix__row {
+      border: 1px solid var(--bbk-border);
+      border-radius: 8px;
+      grid-template-columns: 1fr;
+      overflow: hidden;
+    }
+
+    .built-birdie-kit-matrix__row + .built-birdie-kit-matrix__row {
+      border-block-start: 1px solid var(--bbk-border);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-kit-matrix {
+      padding: 36px 16px 48px;
+    }
+
+    .built-birdie-kit-matrix__note {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB kit matrix",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "KIT MATRIX"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Compare the builds."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Use the matrix to choose the right starting point before the configurator builds the cart."
+    },
+    {
+      "type": "text",
+      "id": "table_label",
+      "label": "Table label",
+      "default": "Built Birdie kit comparison matrix"
+    },
+    {
+      "type": "text",
+      "id": "kit_label",
+      "label": "Kit label",
+      "default": "Kit"
+    },
+    {
+      "type": "text",
+      "id": "best_for_label",
+      "label": "Best for label",
+      "default": "Best for"
+    },
+    {
+      "type": "text",
+      "id": "includes_label",
+      "label": "Includes label",
+      "default": "Includes"
+    },
+    {
+      "type": "text",
+      "id": "next_label",
+      "label": "Next label",
+      "default": "Next"
+    },
+    {
+      "type": "text",
+      "id": "note_kicker",
+      "label": "Note kicker",
+      "default": "Rule"
+    },
+    {
+      "type": "textarea",
+      "id": "note_text",
+      "label": "Note text",
+      "default": "When in doubt, start smaller. You can always add cart upgrades, headcovers, or desk gifts after the color system is clear."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7f1e7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#5b5a54"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Dark green",
+      "default": "#0f3f2e"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red",
+      "default": "#b3261e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "kit",
+      "name": "Kit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Clean"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Clean Bag Kit"
+        },
+        {
+          "type": "textarea",
+          "id": "best_for",
+          "label": "Best for",
+          "default": "Golfers who want the bag sharper without adding extra gear."
+        },
+        {
+          "type": "textarea",
+          "id": "includes",
+          "label": "Includes",
+          "default": "Towel, brush, marker, and one clean accent."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "View kit"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB kit matrix"
+    }
+  ]
+}
+{% endschema %}

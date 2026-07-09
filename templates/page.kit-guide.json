@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "kit_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Start clean",
+            "text": "Pick the essentials that keep the bag useful every round: towel, brush, and a simple color direction."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Add identity",
+            "text": "Bring in the accent with headcovers, markers, and small details that make the setup feel personal."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Upgrade the edges",
+            "text": "Finish with cart upgrades, practice tools, or desk gifts depending on how the golfer actually plays."
+          }
+        },
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Main kit",
+            "title": "Build Your Bag",
+            "text": "The core path for matching your setup.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BY"
+          }
+        },
+        "collection_towels": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Clean kit",
+            "title": "Towels & Brushes",
+            "text": "The most useful first upgrade.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        },
+        "collection_headcovers": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Visual kit",
+            "title": "Headcovers",
+            "text": "The fastest way to make the bag look complete.",
+            "collection": "headcovers",
+            "link": "/collections/headcovers",
+            "initials": "HC"
+          }
+        }
+      },
+      "block_order": [
+        "step_one",
+        "step_two",
+        "step_three",
+        "collection_build",
+        "collection_towels",
+        "collection_headcovers"
+      ],
+      "settings": {
+        "eyebrow": "KIT GUIDE",
+        "heading": "Choose the right setup.",
+        "subheading": "A simple guide for picking the Built Birdie kit that fits your bag, your colors, and the way you play.",
+        "primary_label": "Use Configurator",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Build Your Bag",
+        "secondary_link": "/collections/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "kit_guide"
+  ]
+}

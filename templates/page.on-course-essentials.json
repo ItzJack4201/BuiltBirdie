@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "on_course_essentials": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_clean": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Clean",
+            "label": "Towel and brush within reach."
+          }
+        },
+        "stat_mark": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Mark",
+            "label": "Divot tool and marker where they are easy to grab."
+          }
+        },
+        "stat_cover": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Cover",
+            "label": "Headcovers that carry the same accent signal."
+          }
+        },
+        "feature_round": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Round system",
+            "title": "The bag should reset quickly.",
+            "text": "Good accessories do not just look matched. They make the next shot, next green, and next round easier to start."
+          }
+        },
+        "feature_cart": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Cart system",
+            "title": "Keep the useful pieces visible.",
+            "text": "Cart upgrades should hold the things golfers actually touch: towel, brush, marker, drink, phone, and small extras."
+          }
+        },
+        "feature_training": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Practice system",
+            "title": "Improvement should stay close.",
+            "text": "Practice and training pieces are strongest when they are easy to keep with the bag instead of buried at home."
+          }
+        },
+        "collection_towels": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Clean",
+            "title": "Towels & Brushes",
+            "text": "The most useful everyday round upgrade.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Green",
+            "title": "Divot Tools & Markers",
+            "text": "Small gear that belongs in the pocket every round.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        },
+        "collection_cart": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Ride",
+            "title": "Cart Upgrades",
+            "text": "Make the cart feel as organized as the bag.",
+            "collection": "cart-upgrades",
+            "link": "/collections/cart-upgrades",
+            "initials": "CU"
+          }
+        }
+      },
+      "block_order": [
+        "stat_clean",
+        "stat_mark",
+        "stat_cover",
+        "feature_round",
+        "feature_cart",
+        "feature_training",
+        "collection_towels",
+        "collection_tools",
+        "collection_cart"
+      ],
+      "settings": {
+        "eyebrow": "ON-COURSE ESSENTIALS",
+        "heading": "Build for the round, not just the shelf.",
+        "subheading": "A cleaner bag setup should make the round smoother: clean clubs, mark greens, keep essentials reachable, and reset fast.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Course Checklist",
+        "secondary_link": "/pages/course-checklist",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "on_course_essentials"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "team_orders": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Groups",
+            "title": "One look for the whole crew",
+            "text": "Built Birdie can frame team, event, or group gifting around a shared color system."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Events",
+            "title": "Tournament-ready kits",
+            "text": "Use matched towels, markers, cart pieces, or desk gifts for outings and sponsor tables."
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Gifts",
+            "title": "Better than generic swag",
+            "text": "Useful golf accessories feel more premium when the colors line up."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose the audience",
+            "text": "Team, event, office, client gift, or foursome."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the color system",
+            "text": "Use brand colors or a neutral golf palette."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Build the kit",
+            "text": "Select the right mix of useful accessories and giftable add-ons."
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "feature_three",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "TEAM ORDERS",
+        "heading": "Matched golf kits for groups.",
+        "subheading": "A simple page for team orders, golf outings, corporate gifts, and event kits that still feel like Built Birdie.",
+        "primary_label": "Contact Built Birdie",
+        "primary_link": "/pages/contact",
+        "secondary_label": "Gift Guide",
+        "secondary_link": "/pages/gift-guide",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "team_orders"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "clean_bag_kit": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_one": {
+          "type": "stat_card",
+          "settings": {
+            "value": "01",
+            "label": "One base color and one accent."
+          }
+        },
+        "stat_two": {
+          "type": "stat_card",
+          "settings": {
+            "value": "03",
+            "label": "Towel, brush, and marker as the clean core."
+          }
+        },
+        "feature_towel": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Towel",
+            "title": "Start with what gets used.",
+            "text": "The towel is the most visible everyday piece. Match it first and the bag immediately feels more intentional.",
+            "link": "/collections/towels-brushes"
+          }
+        },
+        "feature_brush": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Brush",
+            "title": "Keep the useful piece reachable.",
+            "text": "A clean bag is not just visual. It should make club care easier before the next shot."
+          }
+        },
+        "feature_marker": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Marker",
+            "title": "Repeat the accent in small details.",
+            "text": "A matching marker or divot tool gives the setup a finished signal without adding clutter.",
+            "link": "/collections/divot-tools-markers"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the base",
+            "text": "Use the bag color you already carry as the anchor."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose one accent",
+            "text": "Keep the towel, marker, and visible trim in the same color family."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Stop before it gets busy",
+            "text": "Clean works because it is restrained. Add more only if the setup needs it."
+          }
+        }
+      },
+      "block_order": [
+        "stat_one",
+        "stat_two",
+        "feature_towel",
+        "feature_brush",
+        "feature_marker",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "CLEAN BAG KIT",
+        "heading": "The cleanest first upgrade.",
+        "subheading": "A minimal matching setup for golfers who want the bag sharper, easier to reset, and free from random accessories.",
+        "primary_label": "Build Clean Cart",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Towels & Brushes",
+        "secondary_link": "/collections/towels-brushes",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "clean_bag_kit"
+  ]
+}

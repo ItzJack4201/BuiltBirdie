@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "shipping_returns": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_shipping": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Shipping",
+            "title": "Clear tracking",
+            "text": "Use this page for shipping windows, tracking expectations, and order handling notes."
+          }
+        },
+        "feature_returns": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Returns",
+            "title": "Simple return path",
+            "text": "Keep return rules plain so customers know what can be returned and how to start."
+          }
+        },
+        "feature_exchanges": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Exchanges",
+            "title": "Wrong color, easy fix",
+            "text": "Color and setup changes are common for accessory brands. This page gives customers a clean place to start."
+          }
+        },
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do I add the exact policy?",
+            "answer": "Edit this template in the Shopify customizer and replace the placeholder policy copy with your final store rules."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should this page link in the footer?",
+            "answer": "Yes. Shipping, returns, support, and contact should be available from the footer before launch."
+          }
+        }
+      },
+      "block_order": [
+        "feature_shipping",
+        "feature_returns",
+        "feature_exchanges",
+        "faq_one",
+        "faq_two"
+      ],
+      "settings": {
+        "eyebrow": "SHIPPING & RETURNS",
+        "heading": "Order help without the noise.",
+        "subheading": "A clean policy page structure for shipping, returns, exchanges, and customer confidence before checkout.",
+        "primary_label": "Contact Support",
+        "primary_link": "/pages/contact",
+        "secondary_label": "FAQ",
+        "secondary_link": "/pages/support-faq",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "shipping_returns"
+  ]
+}

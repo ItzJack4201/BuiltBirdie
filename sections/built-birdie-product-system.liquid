@@ -1,0 +1,369 @@
+{% liquid
+  assign primary_url = section.settings.primary_link
+  if primary_url == blank
+    assign primary_url = '/pages/build-your-bag'
+  endif
+%}
+
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% style %}
+  #BuiltBirdieProductSystem-{{ section.id }} {
+    --bbp-bg: {{ section.settings.background_color }};
+    --bbp-panel: {{ section.settings.panel_color }};
+    --bbp-cream: {{ section.settings.cream_color }};
+    --bbp-text: {{ section.settings.text_color }};
+    --bbp-muted: {{ section.settings.muted_color }};
+    --bbp-green: {{ section.settings.accent_green }};
+    --bbp-red: {{ section.settings.accent_red }};
+    --bbp-border: rgba(17, 17, 17, 0.12);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieProductSystem-{{ section.id }}" class="built-birdie-product-system">
+  <div class="built-birdie-product-system__inner">
+    <div class="built-birdie-product-system__header">
+      <p class="built-birdie-product-system__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.subheading }}</p>
+    </div>
+
+    <div class="built-birdie-product-system__layout">
+      <div class="built-birdie-product-system__panel">
+        <p class="built-birdie-product-system__panel-label">{{ section.settings.fit_label }}</p>
+        <h3>{{ product.title }}</h3>
+        <div class="built-birdie-product-system__tags">
+          {% if product.type != blank %}
+            <span>{{ product.type }}</span>
+          {% endif %}
+          {% if product.vendor != blank %}
+            <span>{{ product.vendor }}</span>
+          {% endif %}
+          <span>{{ section.settings.system_tag }}</span>
+        </div>
+        <a class="built-birdie-product-system__button" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
+      </div>
+
+      <div class="built-birdie-product-system__cards">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'system_card' %}
+              <div class="built-birdie-product-system__card" {{ block.shopify_attributes }}>
+                <span>{{ block.settings.kicker }}</span>
+                <strong>{{ block.settings.title }}</strong>
+                <p>{{ block.settings.text }}</p>
+              </div>
+            {% when 'faq_item' %}
+              <details class="built-birdie-product-system__card built-birdie-product-system__faq" {{ block.shopify_attributes }}>
+                <summary>{{ block.settings.question }}</summary>
+                <p>{{ block.settings.answer }}</p>
+              </details>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-product-system {
+    background:
+      linear-gradient(90deg, rgba(15, 63, 46, 0.05) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 63, 46, 0.05) 1px, transparent 1px),
+      var(--bbp-bg);
+    background-size: 42px 42px, 42px 42px, auto;
+    color: var(--bbp-text);
+    padding: clamp(42px, 6vw, 78px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-product-system * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-product-system__inner {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-product-system__header {
+    margin-block-end: 24px;
+    max-width: 720px;
+  }
+
+  .built-birdie-product-system__eyebrow,
+  .built-birdie-product-system__panel-label,
+  .built-birdie-product-system__card span {
+    color: var(--bbp-red);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-product-system h2,
+  .built-birdie-product-system h3,
+  .built-birdie-product-system p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-product-system h2 {
+    font-size: clamp(2.1rem, 4.8vw, 4.4rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.95;
+    margin-block-end: 14px;
+  }
+
+  .built-birdie-product-system__header p,
+  .built-birdie-product-system__card p,
+  .built-birdie-product-system__faq p {
+    color: var(--bbp-muted);
+    line-height: 1.55;
+  }
+
+  .built-birdie-product-system__layout {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: minmax(280px, 0.42fr) minmax(0, 1fr);
+  }
+
+  .built-birdie-product-system__panel,
+  .built-birdie-product-system__card {
+    background: color-mix(in srgb, var(--bbp-panel) 88%, transparent);
+    border: 1px solid var(--bbp-border);
+    border-radius: 8px;
+  }
+
+  .built-birdie-product-system__panel {
+    padding: clamp(20px, 3vw, 30px);
+  }
+
+  .built-birdie-product-system h3 {
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 1;
+    margin-block-end: 18px;
+  }
+
+  .built-birdie-product-system__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block-end: 26px;
+  }
+
+  .built-birdie-product-system__tags span {
+    background: var(--bbp-cream);
+    border-radius: 999px;
+    color: var(--bbp-green);
+    font-size: 0.78rem;
+    font-weight: 850;
+    padding: 7px 10px;
+  }
+
+  .built-birdie-product-system__button {
+    align-items: center;
+    background: var(--bbp-text);
+    border-radius: 999px;
+    color: var(--bbp-bg);
+    display: inline-flex;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .built-birdie-product-system__cards {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .built-birdie-product-system__card {
+    padding: 22px;
+  }
+
+  .built-birdie-product-system__card strong,
+  .built-birdie-product-system__faq summary {
+    display: block;
+    font-size: 1.16rem;
+    font-weight: 900;
+    line-height: 1.12;
+    margin-block-end: 10px;
+  }
+
+  .built-birdie-product-system__card p {
+    margin-block-end: 0;
+  }
+
+  .built-birdie-product-system__faq summary {
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .built-birdie-product-system__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-product-system__layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-product-system {
+      padding: 36px 16px 48px;
+    }
+
+    .built-birdie-product-system__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB product system",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BUILT BIRDIE FIT SYSTEM"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Make it part of the full setup."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Every accessory should connect back to a base bag color, an accent, and a cleaner round."
+    },
+    {
+      "type": "text",
+      "id": "fit_label",
+      "label": "Fit label",
+      "default": "Product role"
+    },
+    {
+      "type": "text",
+      "id": "system_tag",
+      "label": "System tag",
+      "default": "Build-ready"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Add to a Build"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7f1e7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#5b5a54"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Dark green",
+      "default": "#0f3f2e"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red accent",
+      "default": "#b3261e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "system_card",
+      "name": "System card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Match"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Color system"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Use this piece to repeat the accent color through your setup."
+        }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How should I match this?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Match it to your bag accent color, then repeat that color in one or two other visible accessories."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB product system"
+    }
+  ]
+}
+{% endschema %}

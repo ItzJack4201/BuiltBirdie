@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "materials_fit": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Feel",
+            "title": "Clean hand, clean bag",
+            "text": "Built Birdie product pages should explain how each accessory feels, carries, clips, wipes, or stores in a real golf setup."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Fit",
+            "title": "Designed around bag behavior",
+            "text": "Every product should answer a simple question: where does it live on the bag, cart, desk, or practice station?"
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Finish",
+            "title": "Small details do the work",
+            "text": "Texture, color repeat, and attachment points are what make accessories feel intentional instead of random."
+          }
+        },
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where should final material specs go?",
+            "answer": "Use this page and individual product descriptions for exact fabric, finish, size, care, and compatibility notes."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why add a materials page before launch?",
+            "answer": "It gives the store a credible place for product education as the catalog fills in."
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "feature_three",
+        "faq_one",
+        "faq_two"
+      ],
+      "settings": {
+        "eyebrow": "MATERIALS & FIT",
+        "heading": "Useful gear should feel obvious.",
+        "subheading": "A clean product education page for material notes, fit expectations, care details, and how each accessory belongs in the setup.",
+        "primary_label": "Shop Hub",
+        "primary_link": "/pages/shop-hub",
+        "secondary_label": "Care Guide",
+        "secondary_link": "/pages/care-guide",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "materials_fit"
+  ]
+}

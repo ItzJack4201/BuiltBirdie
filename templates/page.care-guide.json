@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "care_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Towels",
+            "title": "Keep one clean side",
+            "text": "Use one side for clubs and one side for hands or face contact. A cleaner towel keeps the whole setup sharper."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Brushes",
+            "title": "Brush before buildup",
+            "text": "Quick cleaning between shots beats deep cleaning after several rounds."
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Storage",
+            "title": "Let gear dry",
+            "text": "Avoid trapping damp accessories in pockets. Let towels and covers breathe after wet rounds."
+          }
+        },
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How often should I clean my golf towel?",
+            "answer": "For regular players, wash it every few rounds or anytime it starts transferring dirt back onto clubs."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I keep colors looking matched?",
+            "answer": "Stick to one accent color and replace the most visible worn pieces first: towel, headcover, and marker."
+          }
+        }
+      },
+      "block_order": [
+        "feature_one",
+        "feature_two",
+        "feature_three",
+        "faq_one",
+        "faq_two"
+      ],
+      "settings": {
+        "eyebrow": "CARE GUIDE",
+        "heading": "Keep the setup clean.",
+        "subheading": "Simple care rules for making towels, brushes, covers, and small accessories look better for longer.",
+        "primary_label": "Shop Cleaning Essentials",
+        "primary_link": "/collections/towels-brushes",
+        "secondary_label": "Build Your Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "care_guide"
+  ]
+}

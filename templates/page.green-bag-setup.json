@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "green_bag_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_cream": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Cream makes it classic.",
+            "text": "Cream and green feels golf-native without looking novelty."
+          }
+        },
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "White keeps it clean.",
+            "text": "White accents sharpen the setup while keeping the green base calm."
+          }
+        },
+        "feature_gold": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Gold adds a premium edge.",
+            "text": "Use gold for small details rather than the main visual layer."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Let green be the signal",
+            "text": "The bag already says golf. The accessories should support it."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose classic contrast",
+            "text": "Cream, white, or gold are the safest directions."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Avoid loud extras",
+            "text": "Green works best when the rest of the setup feels controlled."
+          }
+        }
+      },
+      "block_order": [
+        "feature_cream",
+        "feature_white",
+        "feature_gold",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "GREEN BAG SETUP",
+        "heading": "Build around a green bag.",
+        "subheading": "Green already carries the golf signal. Pair it with calm accents for a mature setup.",
+        "primary_label": "Build Green Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "green_bag_setup"
+  ]
+}

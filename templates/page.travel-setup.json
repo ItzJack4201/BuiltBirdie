@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "travel_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_reset": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Travel",
+            "title": "Pack the pieces you will actually use.",
+            "text": "Travel setups should stay tight: towel, marker, brush, and a few small accessories that reset fast."
+          }
+        },
+        "feature_color": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Color",
+            "title": "Keep the accent easy to spot.",
+            "text": "A consistent accent makes it easier to recognize your gear when bags and carts get mixed."
+          }
+        },
+        "feature_gift": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Trip",
+            "title": "Good golf-trip gifts should be useful.",
+            "text": "Small matched accessories work well for buddy trips, member-guests, and destination rounds.",
+            "link": "/pages/gift-finder"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pack visible essentials",
+            "text": "Towel, brush, marker, and one accent color are enough for most trips."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Avoid fragile extras",
+            "text": "Travel favors simple gear that can be cleaned, packed, and reset quickly."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Reset after the round",
+            "text": "Keep the same routine after each day so the next tee time starts clean."
+          }
+        }
+      },
+      "block_order": [
+        "feature_reset",
+        "feature_color",
+        "feature_gift",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "TRAVEL SETUP",
+        "heading": "Build a bag that travels clean.",
+        "subheading": "A simple setup path for golf trips, destination rounds, and keeping the useful pieces easy to find.",
+        "primary_label": "Build Travel Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Bag Reset Guide",
+        "secondary_link": "/pages/bag-reset-guide",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "travel_setup"
+  ]
+}

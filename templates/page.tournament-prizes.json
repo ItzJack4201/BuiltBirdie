@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "tournament_prizes": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_one": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Event",
+            "label": "Prize tables, tee gifts, client bags, and team sets."
+          }
+        },
+        "stat_two": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Match",
+            "label": "One accent color makes group gifts look planned."
+          }
+        },
+        "feature_prizes": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Prize table",
+            "title": "Make the table look intentional.",
+            "text": "Use a tight color system so towels, markers, and desk gifts look like a set instead of leftovers."
+          }
+        },
+        "feature_clients": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Client gift",
+            "title": "Golf gifts can still feel polished.",
+            "text": "Avoid novelty-first pieces. Use clean accessories that work on or off the course.",
+            "link": "/pages/corporate-gifts"
+          }
+        },
+        "feature_groups": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Groups",
+            "title": "Build repeatable kits.",
+            "text": "For groups, choose a safe base and one event accent so every kit feels connected."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the event color",
+            "text": "Use the event, club, or sponsor color as the accent."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose the prize tier",
+            "text": "Small tier: tools and markers. Mid tier: towels and brushes. Premium tier: fuller kit or desk bundle."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Keep the table clean",
+            "text": "Repeat the same color story across all prize levels."
+          }
+        }
+      },
+      "block_order": [
+        "stat_one",
+        "stat_two",
+        "feature_prizes",
+        "feature_clients",
+        "feature_groups",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "TOURNAMENT PRIZES",
+        "heading": "Event gifts that look organized.",
+        "subheading": "A planning page for tournaments, scrambles, corporate outings, prize tables, and client golf gifts.",
+        "primary_label": "Plan Team Orders",
+        "primary_link": "/pages/team-orders",
+        "secondary_label": "View Corporate Gifts",
+        "secondary_link": "/pages/corporate-gifts",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "tournament_prizes"
+  ]
+}

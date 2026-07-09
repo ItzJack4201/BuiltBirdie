@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "course_checklist": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Before the round",
+            "text": "Check towel, brush, marker, tees, ball, and one visible accent color before the bag hits the trunk."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "At the cart",
+            "text": "Keep the cleaning tools reachable and avoid burying the useful stuff in side pockets."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "After the round",
+            "text": "Dry the towel, clean the brush, reset the marker, and keep the bag ready for the next tee time."
+          }
+        },
+        "collection_clean": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Start",
+            "title": "Towels & Brushes",
+            "text": "The foundation of a cleaner round.",
+            "collection": "towels-brushes",
+            "link": "/collections/towels-brushes",
+            "initials": "TB"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Green",
+            "title": "Divot Tools & Markers",
+            "text": "Small pieces you actually use every round.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        },
+        "collection_cart": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Ride",
+            "title": "Cart Upgrades",
+            "text": "Keep the ride organized too.",
+            "collection": "cart-upgrades",
+            "link": "/collections/cart-upgrades",
+            "initials": "CU"
+          }
+        }
+      },
+      "block_order": [
+        "step_one",
+        "step_two",
+        "step_three",
+        "collection_clean",
+        "collection_tools",
+        "collection_cart"
+      ],
+      "settings": {
+        "eyebrow": "COURSE CHECKLIST",
+        "heading": "Round-ready without the scramble.",
+        "subheading": "A practical checklist page for golfers who want the bag, cart, and pocket essentials ready before the first tee.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Clean Essentials",
+        "secondary_link": "/collections/towels-brushes",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "course_checklist"
+  ]
+}

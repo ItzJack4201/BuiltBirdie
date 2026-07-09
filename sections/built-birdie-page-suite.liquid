@@ -1,0 +1,679 @@
+{% liquid
+  assign primary_url = section.settings.primary_link
+  assign secondary_url = section.settings.secondary_link
+%}
+
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% capture secondary_safe_url %}
+  {% render 'built-birdie-safe-link', link: secondary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% style %}
+  #BuiltBirdiePageSuite-{{ section.id }} {
+    --bbp-bg: {{ section.settings.background_color }};
+    --bbp-panel: {{ section.settings.panel_color }};
+    --bbp-cream: {{ section.settings.cream_color }};
+    --bbp-text: {{ section.settings.text_color }};
+    --bbp-muted: {{ section.settings.muted_color }};
+    --bbp-green: {{ section.settings.accent_green }};
+    --bbp-red: {{ section.settings.accent_red }};
+    --bbp-border: rgba(17, 17, 17, 0.12);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdiePageSuite-{{ section.id }}" class="built-birdie-page-suite built-birdie-page-suite--{{ section.settings.theme_style }}">
+  <div class="built-birdie-page-suite__shell">
+    <div class="built-birdie-page-suite__hero">
+      <div class="built-birdie-page-suite__hero-copy">
+        <p class="built-birdie-page-suite__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h1>{{ section.settings.heading }}</h1>
+        <p>{{ section.settings.subheading }}</p>
+        <div class="built-birdie-page-suite__actions">
+          {% if section.settings.primary_label != blank and primary_url != blank %}
+            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--primary" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
+          {% endif %}
+          {% if section.settings.secondary_label != blank and secondary_url != blank %}
+            <a class="built-birdie-page-suite__button built-birdie-page-suite__button--secondary" href="{{ secondary_safe_url | strip }}">{{ section.settings.secondary_label }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="built-birdie-page-suite__visual" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="built-birdie-page-suite__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'feature_card' %}
+            {% liquid
+              assign feature_url = block.settings.link
+              assign feature_tag = 'div'
+              if feature_url != blank
+                assign feature_tag = 'a'
+              endif
+            %}
+            {% capture feature_safe_url %}
+              {% render 'built-birdie-safe-link', link: feature_url, fallback: routes.root_url %}
+            {% endcapture %}
+            <{{ feature_tag }} class="built-birdie-page-suite__card built-birdie-page-suite__card--feature" {% if feature_url != blank %}href="{{ feature_safe_url | strip }}"{% endif %} {{ block.shopify_attributes }}>
+              <p>{{ block.settings.kicker }}</p>
+              <h2>{{ block.settings.title }}</h2>
+              <span>{{ block.settings.text }}</span>
+            </{{ feature_tag }}>
+          {% when 'stat_card' %}
+            <div class="built-birdie-page-suite__card built-birdie-page-suite__card--stat" {{ block.shopify_attributes }}>
+              <strong>{{ block.settings.value }}</strong>
+              <p>{{ block.settings.label }}</p>
+            </div>
+          {% when 'process_step' %}
+            <div class="built-birdie-page-suite__card built-birdie-page-suite__card--step" {{ block.shopify_attributes }}>
+              <small>{{ forloop.index }}</small>
+              <h2>{{ block.settings.title }}</h2>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {% when 'collection_callout' %}
+            {% liquid
+              assign card_collection = block.settings.collection
+              assign collection_url = block.settings.link
+              if collection_url == blank
+                if card_collection != blank
+                  assign collection_url = card_collection.url
+                else
+                  assign collection_url = routes.collections_url
+                endif
+              endif
+            %}
+            {% capture collection_safe_url %}
+              {% render 'built-birdie-safe-link', link: collection_url, fallback: routes.collections_url %}
+            {% endcapture %}
+            <a class="built-birdie-page-suite__card built-birdie-page-suite__card--collection" href="{{ collection_safe_url | strip }}" {{ block.shopify_attributes }}>
+              <div class="built-birdie-page-suite__collection-media">
+                {% if card_collection.featured_image != blank %}
+                  {{ card_collection.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', class: 'built-birdie-page-suite__image', alt: block.settings.title }}
+                {% elsif card_collection.image != blank %}
+                  {{ card_collection.image | image_url: width: 720 | image_tag: loading: 'lazy', class: 'built-birdie-page-suite__image', alt: block.settings.title }}
+                {% else %}
+                  <span>{{ block.settings.initials }}</span>
+                {% endif %}
+              </div>
+              <p>{{ block.settings.kicker }}</p>
+              <h2>{{ block.settings.title }}</h2>
+              <span>{{ block.settings.text }}</span>
+            </a>
+          {% when 'faq_item' %}
+            <details class="built-birdie-page-suite__card built-birdie-page-suite__faq" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.question }}</summary>
+              <p>{{ block.settings.answer }}</p>
+            </details>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-page-suite {
+    background:
+      linear-gradient(90deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, var(--bbp-cream), var(--bbp-bg) 34%);
+    background-size: 42px 42px, 42px 42px, auto;
+    color: var(--bbp-text);
+    padding: clamp(42px, 7vw, 96px) clamp(16px, 4vw, 56px);
+  }
+
+  .built-birdie-page-suite * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-page-suite__shell {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-page-suite__hero {
+    align-items: end;
+    display: grid;
+    gap: clamp(24px, 4vw, 56px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+    margin-block-end: clamp(34px, 6vw, 72px);
+  }
+
+  .built-birdie-page-suite__eyebrow {
+    color: var(--bbp-green);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-page-suite h1,
+  .built-birdie-page-suite h2,
+  .built-birdie-page-suite p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-page-suite h1 {
+    font-size: clamp(3.2rem, 8.5vw, 7.6rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin-block-end: 22px;
+    max-width: 900px;
+  }
+
+  .built-birdie-page-suite__hero-copy > p:last-of-type {
+    color: var(--bbp-muted);
+    font-size: clamp(1.02rem, 1.8vw, 1.32rem);
+    line-height: 1.55;
+    max-width: 720px;
+  }
+
+  .built-birdie-page-suite__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-block-start: 28px;
+  }
+
+  .built-birdie-page-suite__button {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 0.94rem;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    text-decoration: none;
+  }
+
+  .built-birdie-page-suite__button--primary {
+    background: var(--bbp-text);
+    color: var(--bbp-bg);
+  }
+
+  .built-birdie-page-suite__button--secondary {
+    border: 1px solid var(--bbp-border);
+    color: var(--bbp-text);
+  }
+
+  .built-birdie-page-suite__visual {
+    aspect-ratio: 1;
+    border: 1px solid var(--bbp-border);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .built-birdie-page-suite__visual::before,
+  .built-birdie-page-suite__visual::after {
+    content: "";
+    position: absolute;
+  }
+
+  .built-birdie-page-suite__visual::before {
+    border: 2px solid var(--bbp-green);
+    border-radius: 50%;
+    inset: 18%;
+  }
+
+  .built-birdie-page-suite__visual::after {
+    background: var(--bbp-red);
+    height: 7px;
+    left: 18%;
+    top: 50%;
+    transform: rotate(-18deg);
+    width: 70%;
+  }
+
+  .built-birdie-page-suite__visual span {
+    background: var(--bbp-green);
+    border-radius: 999px;
+    position: absolute;
+  }
+
+  .built-birdie-page-suite__visual span:nth-child(1) {
+    height: 36%;
+    left: 49%;
+    top: 12%;
+    width: 4px;
+  }
+
+  .built-birdie-page-suite__visual span:nth-child(2) {
+    height: 4px;
+    left: 20%;
+    top: 68%;
+    width: 58%;
+  }
+
+  .built-birdie-page-suite__visual span:nth-child(3) {
+    clip-path: polygon(0 0, 100% 16%, 0 58%);
+    height: 44px;
+    left: 51%;
+    top: 13%;
+    width: 78px;
+  }
+
+  .built-birdie-page-suite__grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .built-birdie-page-suite__card {
+    background: color-mix(in srgb, var(--bbp-panel) 88%, transparent);
+    border: 1px solid var(--bbp-border);
+    border-radius: 8px;
+    color: var(--bbp-text);
+    min-height: 100%;
+    padding: clamp(18px, 2.6vw, 28px);
+    text-decoration: none;
+  }
+
+  .built-birdie-page-suite__card--feature,
+  .built-birdie-page-suite__card--step,
+  .built-birdie-page-suite__faq {
+    grid-column: span 4;
+  }
+
+  .built-birdie-page-suite__card--stat {
+    grid-column: span 3;
+  }
+
+  .built-birdie-page-suite__card--collection {
+    grid-column: span 4;
+    padding: 14px;
+  }
+
+  .built-birdie-page-suite__card p:first-child,
+  .built-birdie-page-suite__card--collection > p,
+  .built-birdie-page-suite__card--step small {
+    color: var(--bbp-red);
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    margin-block: 0 14px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-page-suite__card h2,
+  .built-birdie-page-suite__faq summary {
+    font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.05;
+    margin-block-end: 12px;
+  }
+
+  .built-birdie-page-suite__card span,
+  .built-birdie-page-suite__card--step p,
+  .built-birdie-page-suite__faq p {
+    color: var(--bbp-muted);
+    line-height: 1.55;
+  }
+
+  .built-birdie-page-suite__card--stat strong {
+    display: block;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.95;
+    margin-block-end: 12px;
+  }
+
+  .built-birdie-page-suite__card--stat p {
+    color: var(--bbp-muted);
+    line-height: 1.45;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-page-suite__collection-media {
+    align-items: center;
+    aspect-ratio: 1.35;
+    background: linear-gradient(135deg, var(--bbp-cream), #ffffff);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-block-end: 18px;
+    overflow: hidden;
+  }
+
+  .built-birdie-page-suite__collection-media span {
+    color: var(--bbp-green);
+    font-size: 2rem;
+    font-weight: 930;
+  }
+
+  .built-birdie-page-suite__image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .built-birdie-page-suite__faq summary {
+    cursor: pointer;
+    list-style: none;
+    margin-block-end: 0;
+  }
+
+  .built-birdie-page-suite__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .built-birdie-page-suite__faq p {
+    margin-block: 14px 0;
+  }
+
+  .built-birdie-page-suite--dark {
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      #101010;
+    background-size: 42px 42px, 42px 42px, auto;
+  }
+
+  .built-birdie-page-suite--dark .built-birdie-page-suite__card,
+  .built-birdie-page-suite--dark .built-birdie-page-suite__visual {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-page-suite__hero {
+      grid-template-columns: 1fr;
+    }
+
+    .built-birdie-page-suite__visual {
+      max-width: 360px;
+    }
+
+    .built-birdie-page-suite__card--feature,
+    .built-birdie-page-suite__card--step,
+    .built-birdie-page-suite__card--collection,
+    .built-birdie-page-suite__faq {
+      grid-column: span 6;
+    }
+
+    .built-birdie-page-suite__card--stat {
+      grid-column: span 6;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-page-suite {
+      padding: 36px 16px 52px;
+    }
+
+    .built-birdie-page-suite h1 {
+      font-size: clamp(3rem, 18vw, 5rem);
+    }
+
+    .built-birdie-page-suite__button,
+    .built-birdie-page-suite__actions {
+      width: 100%;
+    }
+
+    .built-birdie-page-suite__card--feature,
+    .built-birdie-page-suite__card--step,
+    .built-birdie-page-suite__card--collection,
+    .built-birdie-page-suite__card--stat,
+    .built-birdie-page-suite__faq {
+      grid-column: 1 / -1;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Built Birdie page suite",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BUILT BIRDIE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Golf accessories that line up."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A cleaner system for building a golf bag that looks intentional from towel to headcover."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Build Your Bag"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Shop Kits"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "select",
+      "id": "theme_style",
+      "label": "Theme style",
+      "options": [
+        {
+          "value": "light",
+          "label": "Light"
+        },
+        {
+          "value": "dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7f1e7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#5b5a54"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Dark green",
+      "default": "#0f3f2e"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red accent",
+      "default": "#b3261e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "System"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Built to match"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Choose a base, pick an accent, and keep the setup cohesive."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional link"
+        }
+      ]
+    },
+    {
+      "type": "stat_card",
+      "name": "Stat card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "One clean setup, not a pile of random accessories."
+        }
+      ]
+    },
+    {
+      "type": "process_step",
+      "name": "Process step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Pick the base"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Start with the bag color you actually carry."
+        }
+      ]
+    },
+    {
+      "type": "collection_callout",
+      "name": "Collection callout",
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Build Your Bag"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Start with a matched setup."
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional fallback link"
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "label": "Fallback initials",
+          "default": "BB"
+        }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I build a matching setup?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Start with your bag color, choose an accent, then add matching essentials from the recommended kit."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Built Birdie page suite"
+    }
+  ]
+}
+{% endschema %}

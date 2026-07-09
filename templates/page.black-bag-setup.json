@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "black_bag_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_white": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "White makes it crisp.",
+            "text": "Black and white is the cleanest high-contrast setup. Use it when you want sharp without looking loud."
+          }
+        },
+        "feature_red": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Red gives it a tour signal.",
+            "text": "Use red as a small hit on markers, towels, or details. Keep it controlled."
+          }
+        },
+        "feature_gold": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Accent",
+            "title": "Gold adds polish.",
+            "text": "Gold works best as a quiet premium accent, not a dominant color."
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Start black",
+            "text": "Let the bag stay visually heavy and modern."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick one contrast",
+            "text": "White, red, or gold should be repeated across the visible pieces."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Avoid extra noise",
+            "text": "Black can handle contrast, but too many accents weaken the premium look."
+          }
+        }
+      },
+      "block_order": [
+        "feature_white",
+        "feature_red",
+        "feature_gold",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "BLACK BAG SETUP",
+        "heading": "Build around a black bag.",
+        "subheading": "Black is the easiest base for a sharp Built Birdie setup. Keep the accent clear and let the contrast do the work.",
+        "primary_label": "Build Black Setup",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Open Color Lab",
+        "secondary_link": "/pages/color-lab",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "black_bag_setup"
+  ]
+}

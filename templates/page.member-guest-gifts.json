@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "member_guest_gifts": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_event": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Event",
+            "title": "Make every gift feel part of the same event.",
+            "text": "Member-guest gifts should repeat one accent so the table, carts, and bags feel coordinated."
+          }
+        },
+        "feature_safe": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Safe",
+            "title": "Choose useful pieces over novelty.",
+            "text": "Towels, tools, markers, and desk pieces are safer than one-off novelty gifts."
+          }
+        },
+        "feature_tier": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Tier",
+            "title": "Build prize tiers by use.",
+            "text": "Small tier: markers. Mid tier: towels. Premium tier: coordinated kit or desk bundle.",
+            "link": "/pages/tournament-prizes"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Pick the event accent",
+            "text": "Use club, sponsor, or tournament color as the shared accent."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose a safe base",
+            "text": "Black, white, navy, and green are the safest group-gift colors."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Repeat the system",
+            "text": "Every gift tier should look related even when the items differ."
+          }
+        }
+      },
+      "block_order": [
+        "feature_event",
+        "feature_safe",
+        "feature_tier",
+        "step_one",
+        "step_two",
+        "step_three"
+      ],
+      "settings": {
+        "eyebrow": "MEMBER-GUEST GIFTS",
+        "heading": "Golf gifts that look event-ready.",
+        "subheading": "A member-guest gifting path for prize tables, tee gifts, team bags, and sponsor-ready accessories.",
+        "primary_label": "Plan Team Orders",
+        "primary_link": "/pages/team-orders",
+        "secondary_label": "View Tournament Prizes",
+        "secondary_link": "/pages/tournament-prizes",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "member_guest_gifts"
+  ]
+}

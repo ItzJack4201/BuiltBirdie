@@ -1,0 +1,77 @@
+{
+  "sections": {
+    "seasonal_practice": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_winter": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Off-season",
+            "title": "Keep practice close when rounds slow down.",
+            "text": "Practice pieces work best when they are visible, easy to start, and tied to the same bag system."
+          }
+        },
+        "feature_desk": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Desk",
+            "title": "Desk gifts can keep golf in the routine.",
+            "text": "Small golf-minded desk pieces are useful during workdays and off-course stretches.",
+            "link": "/collections/golf-desk-gifts"
+          }
+        },
+        "feature_reset": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Reset",
+            "title": "Use slower months to rebuild the bag.",
+            "text": "A seasonal reset is the easiest time to clean, match, and replace worn accessories.",
+            "link": "/pages/bag-reset-guide"
+          }
+        },
+        "collection_practice": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Practice",
+            "title": "Practice & Training",
+            "text": "Keep improvement nearby between rounds.",
+            "collection": "practice-training",
+            "link": "/collections/practice-training",
+            "initials": "PT"
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Golf Desk Gifts",
+            "text": "Off-course pieces that still feel Built Birdie.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        }
+      },
+      "block_order": [
+        "feature_winter",
+        "feature_desk",
+        "feature_reset",
+        "collection_practice",
+        "collection_gifts"
+      ],
+      "settings": {
+        "eyebrow": "SEASONAL PRACTICE",
+        "heading": "Keep the setup alive off the course.",
+        "subheading": "A practice and off-season setup path for golfers who want to stay organized between rounds.",
+        "primary_label": "Shop Practice",
+        "primary_link": "/collections/practice-training",
+        "secondary_label": "View Desk Gifts",
+        "secondary_link": "/collections/golf-desk-gifts",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "seasonal_practice"
+  ]
+}

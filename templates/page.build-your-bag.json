@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "built_birdie_configurator": {
+      "type": "built-birdie-configurator-v2",
+      "blocks": {
+        "style_clean": {
+          "type": "style_card",
+          "settings": {
+            "style_key": "clean",
+            "title": "Clean",
+            "description": "Minimal essentials for a sharper, tidier bag.",
+            "cart_note": "A low-noise setup for golfers who want the bag to look sharp without overbuilding it."
+          }
+        },
+        "style_starter": {
+          "type": "style_card",
+          "settings": {
+            "style_key": "starter",
+            "title": "Starter",
+            "description": "A practical first setup with the core matching pieces.",
+            "cart_note": "The easiest first build: towel, tools, and visible details that match the bag."
+          }
+        },
+        "style_tour": {
+          "type": "style_card",
+          "settings": {
+            "style_key": "tour",
+            "title": "Tour",
+            "description": "A fuller build for golfers who want every detail dialed.",
+            "cart_note": "A fuller course-ready setup for golfers who care about every visible detail."
+          }
+        },
+        "style_gift": {
+          "type": "style_card",
+          "settings": {
+            "style_key": "gift",
+            "title": "Gift",
+            "description": "A polished bundle for golf people on and off the course.",
+            "cart_note": "A polished gift build that works for office desks, clients, and golf friends."
+          }
+        },
+        "build_clean_black_black": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Black accent / Clean",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "black",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_black_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Clean",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_white_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Red accent / Clean",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "red",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_navy_white": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / White accent / Clean",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "white",
+            "style_group": "clean"
+          }
+        },
+        "build_clean_green_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Clean",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "clean"
+          }
+        },
+        "build_starter_black_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Red accent / Starter",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "red",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_white_blue": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Blue accent / Starter",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "blue",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_navy_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Gold accent / Starter",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "gold",
+            "style_group": "starter"
+          }
+        },
+        "build_starter_green_white": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / White accent / Starter",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "white",
+            "style_group": "starter"
+          }
+        },
+        "build_tour_black_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Tour",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        "build_tour_navy_red": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Navy bag / Red accent / Tour",
+            "is_supported": true,
+            "bag_color": "navy",
+            "accent_color": "red",
+            "style_group": "tour"
+          }
+        },
+        "build_tour_green_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Green bag / Gold accent / Tour",
+            "is_supported": true,
+            "bag_color": "green",
+            "accent_color": "gold",
+            "style_group": "tour"
+          }
+        },
+        "build_gift_black_gold": {
+          "type": "supported_build",
+          "settings": {
+            "title": "Black bag / Gold accent / Gift",
+            "is_supported": true,
+            "bag_color": "black",
+            "accent_color": "gold",
+            "style_group": "gift"
+          }
+        },
+        "build_gift_white_green": {
+          "type": "supported_build",
+          "settings": {
+            "title": "White bag / Green accent / Gift",
+            "is_supported": true,
+            "bag_color": "white",
+            "accent_color": "green",
+            "style_group": "gift"
+          }
+        },
+        "slot_towel": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Towel",
+            "placeholder_title": "Matching towel",
+            "fallback_initials": "TW",
+            "is_supported": true,
+            "stage_position": "upper-left",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "all"
+          }
+        },
+        "slot_brush": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Brush",
+            "placeholder_title": "Bag brush",
+            "fallback_initials": "BR",
+            "is_supported": true,
+            "stage_position": "middle-right",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "clean"
+          }
+        },
+        "slot_headcover": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Headcover",
+            "placeholder_title": "Matching headcover",
+            "fallback_initials": "HC",
+            "is_supported": true,
+            "stage_position": "upper-right",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "starter"
+          }
+        },
+        "slot_divot_tool": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Green tools",
+            "placeholder_title": "Divot tool and marker",
+            "fallback_initials": "DT",
+            "is_supported": true,
+            "stage_position": "lower-left",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "starter"
+          }
+        },
+        "slot_cart_upgrade": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Cart upgrade",
+            "placeholder_title": "Cart upgrade",
+            "fallback_initials": "CU",
+            "is_supported": true,
+            "stage_position": "middle-left",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "tour"
+          }
+        },
+        "slot_training": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Practice",
+            "placeholder_title": "Practice add-on",
+            "fallback_initials": "PT",
+            "is_supported": true,
+            "stage_position": "lower-right",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "tour"
+          }
+        },
+        "slot_desk_gift": {
+          "type": "product_slot",
+          "settings": {
+            "role": "Desk gift",
+            "placeholder_title": "Golf desk gift",
+            "fallback_initials": "DG",
+            "is_supported": true,
+            "stage_position": "upper-right",
+            "bag_color": "all",
+            "accent_color": "all",
+            "style_group": "gift"
+          }
+        }
+      },
+      "block_order": [
+        "style_clean",
+        "style_starter",
+        "style_tour",
+        "style_gift",
+        "build_clean_black_black",
+        "build_clean_black_red",
+        "build_clean_white_red",
+        "build_clean_navy_white",
+        "build_clean_green_gold",
+        "build_starter_black_red",
+        "build_starter_white_blue",
+        "build_starter_navy_gold",
+        "build_starter_green_white",
+        "build_tour_black_gold",
+        "build_tour_navy_red",
+        "build_tour_green_gold",
+        "build_gift_black_gold",
+        "build_gift_white_green",
+        "slot_towel",
+        "slot_brush",
+        "slot_headcover",
+        "slot_divot_tool",
+        "slot_cart_upgrade",
+        "slot_training",
+        "slot_desk_gift"
+      ],
+      "settings": {
+        "eyebrow": "BUILT BIRDIE CONFIGURATOR",
+        "heading": "Build the bag that matches.",
+        "subheading": "Choose your base, lock the accent, and see a cleaner matching golf setup come together.",
+        "controls_label": "Build controls",
+        "bag_label": "Base bag color",
+        "bag_colors": "Black, White, Navy, Green, Red",
+        "accent_label": "Accent color",
+        "accent_colors": "Black, White, Red, Blue, Green, Gold",
+        "style_label": "Setup style",
+        "coming_soon_label": "Coming soon",
+        "stage_label": "Configured Built Birdie setup",
+        "stage_kicker": "Live build",
+        "stage_title": "Black bag / Black accent",
+        "summary_eyebrow": "Your build",
+        "summary_heading": "Clean setup",
+        "selected_label": "Selected",
+        "default_selection": "Black bag. Black accent. Clean style.",
+        "total_label": "Estimated total",
+        "add_button_label": "Add Build to Cart",
+        "fallback_label": "Shop Build Your Bag",
+        "included_label": "Included",
+        "empty_strip_label": "Build mapping in progress",
+        "default_kit_note": "A clean matching setup built around your selected base and accent.",
+        "empty_message": "Products are being mapped for this build. Shop the collection while this setup is finished.",
+        "loading_message": "Building your cart...",
+        "error_message": "We could not build the full cart. Open the collection and add the kit items from there.",
+        "dock_eyebrow": "Included products",
+        "dock_heading": "Built into this setup",
+        "background_color": "#ffffff",
+        "panel_color": "#ffffff",
+        "cream_color": "#f7f1e7",
+        "text_color": "#101010",
+        "muted_color": "#5b5a54",
+        "accent_green": "#0f3f2e",
+        "accent_red": "#b3261e"
+      }
+    }
+  },
+  "order": [
+    "built_birdie_configurator"
+  ]
+}

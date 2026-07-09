@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "about_built_birdie": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_one": {
+          "type": "stat_card",
+          "settings": {
+            "value": "01",
+            "label": "A golf bag should look intentional, not assembled by accident."
+          }
+        },
+        "stat_two": {
+          "type": "stat_card",
+          "settings": {
+            "value": "06",
+            "label": "Core accessory categories organized around color and purpose."
+          }
+        },
+        "stat_three": {
+          "type": "stat_card",
+          "settings": {
+            "value": "BB",
+            "label": "Built Birdie keeps the useful stuff clean, sharp, and matched."
+          }
+        },
+        "feature_one": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Position",
+            "title": "Accessories that belong together",
+            "text": "Built Birdie is for golfers who care about the full setup: towel, brush, headcover, marker, cart, and the little extras that make a round feel cleaner."
+          }
+        },
+        "feature_two": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Design",
+            "title": "Simple colors. Better decisions.",
+            "text": "Start with a base bag color, choose an accent, and use the system to keep every add-on aligned."
+          }
+        },
+        "feature_three": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Standard",
+            "title": "No random pile of gear",
+            "text": "The shop is organized around kits and use cases so golfers can build a tighter setup without digging through endless product pages."
+          }
+        }
+      },
+      "block_order": [
+        "stat_one",
+        "stat_two",
+        "stat_three",
+        "feature_one",
+        "feature_two",
+        "feature_three"
+      ],
+      "settings": {
+        "eyebrow": "ABOUT BUILT BIRDIE",
+        "heading": "Golf accessories with a system.",
+        "subheading": "Built Birdie is a modern golf accessories brand built around coordinated setups, clean bags, and useful details that look like they were chosen on purpose.",
+        "primary_label": "Build Your Bag",
+        "primary_link": "/pages/build-your-bag",
+        "secondary_label": "Shop Kits",
+        "secondary_link": "/collections/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "about_built_birdie"
+  ]
+}

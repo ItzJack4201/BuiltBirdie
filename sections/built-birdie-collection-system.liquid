@@ -1,0 +1,439 @@
+{% liquid
+  assign primary_url = section.settings.primary_link
+  if primary_url == blank
+    assign primary_url = '/pages/build-your-bag'
+  endif
+
+  assign secondary_url = section.settings.secondary_link
+  if secondary_url == blank
+    assign secondary_url = '/pages/setup-finder'
+  endif
+%}
+
+{% capture primary_safe_url %}
+  {% render 'built-birdie-safe-link', link: primary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% capture secondary_safe_url %}
+  {% render 'built-birdie-safe-link', link: secondary_url, fallback: routes.root_url %}
+{% endcapture %}
+
+{% style %}
+  #BuiltBirdieCollectionSystem-{{ section.id }} {
+    --bbc-bg: {{ section.settings.background_color }};
+    --bbc-panel: {{ section.settings.panel_color }};
+    --bbc-cream: {{ section.settings.cream_color }};
+    --bbc-text: {{ section.settings.text_color }};
+    --bbc-muted: {{ section.settings.muted_color }};
+    --bbc-green: {{ section.settings.accent_green }};
+    --bbc-red: {{ section.settings.accent_red }};
+    --bbc-border: rgba(17, 17, 17, 0.12);
+  }
+{% endstyle %}
+
+<section id="BuiltBirdieCollectionSystem-{{ section.id }}" class="built-birdie-collection-system">
+  <div class="built-birdie-collection-system__inner">
+    <div class="built-birdie-collection-system__copy">
+      <p class="built-birdie-collection-system__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="built-birdie-collection-system__description">{{ collection.description }}</div>
+      {% else %}
+        <p>{{ section.settings.fallback_description }}</p>
+      {% endif %}
+      <div class="built-birdie-collection-system__actions">
+        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--primary" href="{{ primary_safe_url | strip }}">{{ section.settings.primary_label }}</a>
+        <a class="built-birdie-collection-system__button built-birdie-collection-system__button--secondary" href="{{ secondary_safe_url | strip }}">{{ section.settings.secondary_label }}</a>
+      </div>
+    </div>
+
+    <div class="built-birdie-collection-system__panel" aria-label="{{ section.settings.panel_label | escape }}">
+      <div class="built-birdie-collection-system__scope">
+        <span>{{ section.settings.scope_one }}</span>
+        <span>{{ section.settings.scope_two }}</span>
+        <span>{{ section.settings.scope_three }}</span>
+      </div>
+      <div class="built-birdie-collection-system__meter" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>{{ section.settings.panel_text }}</p>
+    </div>
+  </div>
+
+  <div class="built-birdie-collection-system__tiles">
+    {% for block in section.blocks %}
+      {% capture tile_url %}
+        {% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+      {% endcapture %}
+      <a class="built-birdie-collection-system__tile" href="{{ tile_url | strip }}" {{ block.shopify_attributes }}>
+        <span>{{ block.settings.kicker }}</span>
+        <strong>{{ block.settings.title }}</strong>
+        <p>{{ block.settings.text }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .built-birdie-collection-system {
+    background:
+      linear-gradient(90deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(15, 63, 46, 0.06) 1px, transparent 1px),
+      linear-gradient(180deg, var(--bbc-cream), var(--bbc-bg) 36%);
+    background-size: 44px 44px, 44px 44px, auto;
+    color: var(--bbc-text);
+    padding: clamp(40px, 6vw, 82px) clamp(16px, 4vw, 56px) clamp(28px, 5vw, 54px);
+  }
+
+  .built-birdie-collection-system * {
+    box-sizing: border-box;
+  }
+
+  .built-birdie-collection-system__inner,
+  .built-birdie-collection-system__tiles {
+    margin-inline: auto;
+    max-width: 1180px;
+  }
+
+  .built-birdie-collection-system__inner {
+    align-items: end;
+    display: grid;
+    gap: clamp(24px, 4vw, 54px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  }
+
+  .built-birdie-collection-system__eyebrow {
+    color: var(--bbc-green);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-collection-system h1,
+  .built-birdie-collection-system p {
+    margin-block-start: 0;
+  }
+
+  .built-birdie-collection-system h1 {
+    font-size: clamp(3.2rem, 8vw, 7.2rem);
+    font-weight: 930;
+    letter-spacing: 0;
+    line-height: 0.9;
+    margin-block-end: 22px;
+  }
+
+  .built-birdie-collection-system__description,
+  .built-birdie-collection-system__copy > p,
+  .built-birdie-collection-system__panel p,
+  .built-birdie-collection-system__tile p {
+    color: var(--bbc-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .built-birdie-collection-system__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-block-start: 28px;
+  }
+
+  .built-birdie-collection-system__button {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-weight: 850;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    text-decoration: none;
+  }
+
+  .built-birdie-collection-system__button--primary {
+    background: var(--bbc-text);
+    color: var(--bbc-bg);
+  }
+
+  .built-birdie-collection-system__button--secondary {
+    border: 1px solid var(--bbc-border);
+    color: var(--bbc-text);
+  }
+
+  .built-birdie-collection-system__panel,
+  .built-birdie-collection-system__tile {
+    background: color-mix(in srgb, var(--bbc-panel) 88%, transparent);
+    border: 1px solid var(--bbc-border);
+    border-radius: 8px;
+  }
+
+  .built-birdie-collection-system__panel {
+    padding: 22px;
+  }
+
+  .built-birdie-collection-system__scope {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block-end: 24px;
+  }
+
+  .built-birdie-collection-system__scope span {
+    background: var(--bbc-cream);
+    border-radius: 999px;
+    color: var(--bbc-green);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    padding: 7px 10px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-collection-system__meter {
+    display: grid;
+    gap: 8px;
+    margin-block-end: 24px;
+  }
+
+  .built-birdie-collection-system__meter span {
+    background: var(--bbc-cream);
+    border-radius: 999px;
+    display: block;
+    height: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .built-birdie-collection-system__meter span::after {
+    background: var(--bbc-green);
+    border-radius: inherit;
+    content: "";
+    inset: 0 auto 0 0;
+    position: absolute;
+  }
+
+  .built-birdie-collection-system__meter span:nth-child(1)::after {
+    width: 92%;
+  }
+
+  .built-birdie-collection-system__meter span:nth-child(2)::after {
+    background: var(--bbc-red);
+    width: 44%;
+  }
+
+  .built-birdie-collection-system__meter span:nth-child(3)::after {
+    width: 68%;
+  }
+
+  .built-birdie-collection-system__tiles {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-block-start: clamp(24px, 4vw, 42px);
+  }
+
+  .built-birdie-collection-system__tile {
+    color: var(--bbc-text);
+    padding: 22px;
+    text-decoration: none;
+  }
+
+  .built-birdie-collection-system__tile span {
+    color: var(--bbc-red);
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    margin-block-end: 16px;
+    text-transform: uppercase;
+  }
+
+  .built-birdie-collection-system__tile strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-block-end: 8px;
+  }
+
+  .built-birdie-collection-system__tile p {
+    margin-block-end: 0;
+  }
+
+  @media screen and (max-width: 989px) {
+    .built-birdie-collection-system__inner,
+    .built-birdie-collection-system__tiles {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .built-birdie-collection-system {
+      padding: 36px 16px 42px;
+    }
+
+    .built-birdie-collection-system h1 {
+      font-size: clamp(3rem, 18vw, 5rem);
+    }
+
+    .built-birdie-collection-system__actions,
+    .built-birdie-collection-system__button {
+      width: 100%;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "BB collection system",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BUILT BIRDIE SHOP SYSTEM"
+    },
+    {
+      "type": "textarea",
+      "id": "fallback_description",
+      "label": "Fallback description",
+      "default": "Shop coordinated golf accessories designed to look like they belong together."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Use Configurator"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Setup Finder"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "panel_label",
+      "label": "Panel label",
+      "default": "Collection system"
+    },
+    {
+      "type": "text",
+      "id": "scope_one",
+      "label": "Scope one",
+      "default": "Matchable"
+    },
+    {
+      "type": "text",
+      "id": "scope_two",
+      "label": "Scope two",
+      "default": "Useful"
+    },
+    {
+      "type": "text",
+      "id": "scope_three",
+      "label": "Scope three",
+      "default": "Bag-ready"
+    },
+    {
+      "type": "textarea",
+      "id": "panel_text",
+      "label": "Panel text",
+      "default": "Filter the category, then keep your base color and accent color consistent across the rest of the build."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_color",
+      "label": "Panel",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cream_color",
+      "label": "Cream",
+      "default": "#f7f1e7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text",
+      "default": "#5b5a54"
+    },
+    {
+      "type": "color",
+      "id": "accent_green",
+      "label": "Dark green",
+      "default": "#0f3f2e"
+    },
+    {
+      "type": "color",
+      "id": "accent_red",
+      "label": "Red accent",
+      "default": "#b3261e"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "route_tile",
+      "name": "Route tile",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Kicker",
+          "default": "Route"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Build from here"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Use this category as one piece of a cleaner full-bag setup."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "default": "/pages/build-your-bag"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "BB collection system"
+    }
+  ]
+}
+{% endschema %}

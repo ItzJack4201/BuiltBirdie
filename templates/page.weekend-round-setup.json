@@ -1,0 +1,75 @@
+{
+  "sections": {
+    "weekend_round_setup": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "stat_one": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Fast",
+            "label": "Ready for casual rounds without overpacking."
+          }
+        },
+        "stat_two": {
+          "type": "stat_card",
+          "settings": {
+            "value": "Clean",
+            "label": "Towel, brush, marker, and one visible accent."
+          }
+        },
+        "feature_simple": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Weekend",
+            "title": "Keep the setup relaxed but intentional.",
+            "text": "Weekend rounds need gear that is easy to grab, easy to use, and still looks matched."
+          }
+        },
+        "feature_cart": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Cart",
+            "title": "Organize the ride before the first tee.",
+            "text": "Cart organization matters most when the round is social and gear moves around.",
+            "link": "/pages/cart-organization"
+          }
+        },
+        "feature_reset": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Reset",
+            "title": "End the round ready for the next one.",
+            "text": "A simple post-round reset keeps the weekend bag from getting messy."
+          }
+        }
+      },
+      "block_order": [
+        "stat_one",
+        "stat_two",
+        "feature_simple",
+        "feature_cart",
+        "feature_reset"
+      ],
+      "settings": {
+        "eyebrow": "WEEKEND ROUND SETUP",
+        "heading": "A clean setup for casual rounds.",
+        "subheading": "A simple path for golfers who want their weekend bag organized, matched, and easy to reset.",
+        "primary_label": "Start Setup Finder",
+        "primary_link": "/pages/setup-finder",
+        "secondary_label": "Open Course Checklist",
+        "secondary_link": "/pages/course-checklist",
+        "theme_style": "dark",
+        "background_color": "#101010",
+        "panel_color": "#171717",
+        "cream_color": "#101010",
+        "text_color": "#ffffff",
+        "muted_color": "#c8c2b8",
+        "accent_green": "#8fd6aa",
+        "accent_red": "#ef4d42"
+      }
+    }
+  },
+  "order": [
+    "weekend_round_setup"
+  ]
+}

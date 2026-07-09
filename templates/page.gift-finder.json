@@ -1,0 +1,101 @@
+{
+  "sections": {
+    "gift_finder": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_safe": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Safe pick",
+            "title": "Use neutral bases for unknown bags.",
+            "text": "If you do not know the golfer's bag color, black, white, navy, and green accessories are the safest premium path."
+          }
+        },
+        "feature_desk": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Desk",
+            "title": "Off-course gifts should still feel useful.",
+            "text": "Desk gifts work best when they reference golf without turning into novelty clutter.",
+            "link": "/collections/golf-desk-gifts"
+          }
+        },
+        "feature_group": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Group",
+            "title": "Make group gifting look intentional.",
+            "text": "For teams, clients, and events, repeat one accent across the whole order.",
+            "link": "/pages/corporate-gifts"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Know the bag",
+            "text": "If you know the bag color, match it. If you do not, stay neutral."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Choose the use case",
+            "text": "Round-ready gifts should lean towel/tools. Desk gifts should stay polished and simple."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Keep it coordinated",
+            "text": "One accent color makes even a small gift feel more premium."
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Golf Desk Gifts",
+            "text": "Polished golf-minded gifts for workspaces and off-course moments.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        },
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Builder",
+            "title": "Build Your Bag",
+            "text": "Use the configurator if you know their bag color and style.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BB"
+          }
+        }
+      },
+      "block_order": [
+        "feature_safe",
+        "feature_desk",
+        "feature_group",
+        "step_one",
+        "step_two",
+        "step_three",
+        "collection_gifts",
+        "collection_build"
+      ],
+      "settings": {
+        "eyebrow": "GIFT FINDER",
+        "heading": "Golf gifts that do not feel random.",
+        "subheading": "A simple path for choosing Built Birdie gifts by bag color, use case, and how much you know about the golfer.",
+        "primary_label": "Find Gift Builds",
+        "primary_link": "/collections/golf-desk-gifts",
+        "secondary_label": "Build For Their Bag",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "gift_finder"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "new_golfer_gifts": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "feature_safe": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Safe",
+            "title": "Useful beats flashy.",
+            "text": "New golfers need accessories that make the round easier, not more complicated."
+          }
+        },
+        "feature_color": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Color",
+            "title": "Stay neutral if you do not know the bag.",
+            "text": "Black, white, navy, green, and gold accents are safer than loud novelty colors."
+          }
+        },
+        "feature_bundle": {
+          "type": "feature_card",
+          "settings": {
+            "kicker": "Bundle",
+            "title": "Start with the Starter Setup.",
+            "text": "A towel, marker, and small tool path feels useful without overwhelming someone still building their routine.",
+            "link": "/pages/starter-setup"
+          }
+        },
+        "step_one": {
+          "type": "process_step",
+          "settings": {
+            "title": "Avoid niche gear",
+            "text": "Do not assume they need advanced tools or swing aids first."
+          }
+        },
+        "step_two": {
+          "type": "process_step",
+          "settings": {
+            "title": "Give everyday pieces",
+            "text": "Towels, brushes, markers, and simple desk gifts are easier to use immediately."
+          }
+        },
+        "step_three": {
+          "type": "process_step",
+          "settings": {
+            "title": "Keep it matched",
+            "text": "Even a beginner gift feels more premium when the colors look planned."
+          }
+        },
+        "collection_gifts": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Gift",
+            "title": "Golf Desk Gifts",
+            "text": "Easy off-course gifts for new golf people.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        },
+        "collection_build": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Start",
+            "title": "Build Your Bag",
+            "text": "Use the builder if you know their bag color.",
+            "collection": "build-your-bag",
+            "link": "/collections/build-your-bag",
+            "initials": "BB"
+          }
+        }
+      },
+      "block_order": [
+        "feature_safe",
+        "feature_color",
+        "feature_bundle",
+        "step_one",
+        "step_two",
+        "step_three",
+        "collection_gifts",
+        "collection_build"
+      ],
+      "settings": {
+        "eyebrow": "NEW GOLFER GIFTS",
+        "heading": "Give something they will actually use.",
+        "subheading": "A gift guide for newer golfers: practical, clean, and matched without making the sport feel more complicated.",
+        "primary_label": "Open Gift Finder",
+        "primary_link": "/pages/gift-finder",
+        "secondary_label": "View Starter Setup",
+        "secondary_link": "/pages/starter-setup",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "new_golfer_gifts"
+  ]
+}

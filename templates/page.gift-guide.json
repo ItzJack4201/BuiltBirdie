@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "gift_guide": {
+      "type": "built-birdie-page-suite",
+      "blocks": {
+        "collection_desk": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Off course",
+            "title": "Golf Desk Gifts",
+            "text": "Giftable pieces for the office, desk, or home setup.",
+            "collection": "golf-desk-gifts",
+            "link": "/collections/golf-desk-gifts",
+            "initials": "DG"
+          }
+        },
+        "collection_tools": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Small gift",
+            "title": "Divot Tools & Markers",
+            "text": "Compact, useful gifts that still feel personal.",
+            "collection": "divot-tools-markers",
+            "link": "/collections/divot-tools-markers",
+            "initials": "DT"
+          }
+        },
+        "collection_training": {
+          "type": "collection_callout",
+          "settings": {
+            "kicker": "Practice gift",
+            "title": "Practice & Training",
+            "text": "For golfers who like working on the game between rounds.",
+            "collection": "practice-training",
+            "link": "/collections/practice-training",
+            "initials": "PT"
+          }
+        },
+        "faq_one": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the safest gift?",
+            "answer": "Start with useful accessories in neutral colors: black, white, green, or gold accents."
+          }
+        },
+        "faq_two": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I do not know their bag color?",
+            "answer": "Choose black, white, or green pieces. They fit most setups and still feel golf-specific."
+          }
+        }
+      },
+      "block_order": [
+        "collection_desk",
+        "collection_tools",
+        "collection_training",
+        "faq_one",
+        "faq_two"
+      ],
+      "settings": {
+        "eyebrow": "GIFT GUIDE",
+        "heading": "Golf gifts that still look sharp.",
+        "subheading": "Skip the novelty stuff. Build a gift around useful details, clean colors, and pieces a golfer will actually keep nearby.",
+        "primary_label": "Shop Desk Gifts",
+        "primary_link": "/collections/golf-desk-gifts",
+        "secondary_label": "Build a Gift Kit",
+        "secondary_link": "/pages/build-your-bag",
+        "theme_style": "light"
+      }
+    }
+  },
+  "order": [
+    "gift_guide"
+  ]
+}

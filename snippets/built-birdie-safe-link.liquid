@@ -1,0 +1,43 @@
+{% doc %}
+Resolves a Built Birdie URL setting to a storefront-safe URL.
+@param {string} link - The configured URL.
+@param {string} [fallback] - The URL to use when the configured page or collection does not exist.
+@example
+{% render 'built-birdie-safe-link', link: block.settings.link, fallback: routes.root_url %}
+{% enddoc %}
+
+{% liquid
+  assign resolved_link = link
+  assign fallback_link = fallback | default: routes.root_url
+
+  if resolved_link == blank
+    assign resolved_link = fallback_link
+  endif
+
+  if resolved_link contains '/pages/'
+    assign page_handle = resolved_link | split: '/pages/' | last | split: '?' | first | split: '#' | first
+    assign linked_page = pages[page_handle]
+    assign linked_collection = collections[page_handle]
+
+    if linked_page != blank
+      assign resolved_link = linked_page.url
+    elsif linked_collection != blank
+      assign resolved_link = linked_collection.url
+    else
+      assign resolved_link = fallback_link
+    endif
+  endif
+
+  if resolved_link contains '/collections/'
+    assign collection_handle = resolved_link | split: '/collections/' | last | split: '?' | first | split: '#' | first
+    assign linked_collection = collections[collection_handle]
+
+    if linked_collection != blank
+      assign resolved_link = linked_collection.url
+    else
+      assign resolved_link = fallback_link
+    endif
+  endif
+
+  echo resolved_link
+%}
